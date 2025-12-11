@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Off-white page background */
+  --color-cream: #fff9f2;
+
+  /* Orange palette anchored on rgb(255, 106, 0) */
+  --color-orange-50: #fff7ed;
+  --color-orange-100: #ffedd5;
+  --color-orange-200: #fed7aa;
+  --color-orange-300: #fdba74;
+  --color-orange-400: #fb923c;
+  --color-orange-500: #ff6a00;
+  --color-orange-600: #ea580c;
+  --color-orange-700: #c2410c;
+  --color-orange-800: #9a3412;
+  --color-orange-900: #7c2d12;
+
+  /* Dark navy palette anchored on #0a1a35 */
+  --color-navy-50: #f0f2f5;
+  --color-navy-100: #d9dde5;
+  --color-navy-200: #b3bac9;
+  --color-navy-300: #8c97ad;
+  --color-navy-400: #667491;
+  --color-navy-500: #405175;
+  --color-navy-600: #33415e;
+  --color-navy-700: #263147;
+  --color-navy-800: #1a2030;
+  --color-navy-900: #0a1a35;
+  --color-navy-950: #050d1a;
+
+  /* GP Design System - Box Shadows (override semantic values) */
+  --shadow-sm: var(--gp-shadow-sm);
+  --shadow-md: var(--gp-shadow-md);
+  --shadow-lg: var(--gp-shadow-lg);
+
+  /* GP Design System - Semantic Spacing (new utilities) */
+  --spacing-card: var(--gp-spacing-card);
+  --spacing-section: var(--gp-spacing-section);
+  --spacing-list-item: var(--gp-spacing-list-item);
+}
+
+/* ============================================================================
+   GP Design System Tokens
+   ============================================================================ */
+
+:root {
+  /* Shadows - Override Tailwind's semantic values */
+  --gp-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --gp-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --gp-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* Semantic Spacing - New utilities for common patterns */
+  --gp-spacing-card: 1rem;         /* p-card, gap-card */
+  --gp-spacing-section: 0.75rem;   /* p-section, gap-section */
+  --gp-spacing-list-item: 0.625rem;/* p-list-item */
+}
+
+/* ============================================================================
+   GP Design System Component Classes
+   ============================================================================
+   Custom component classes for frequently repeated patterns.
+   These use @apply to compose Tailwind utilities.
+   ============================================================================ */
+
+@layer components {
+  /* Card Component */
+  .gp-card {
+    @apply bg-white rounded-lg shadow-sm p-4;
+  }
+
+  /* Button Variants */
+  .gp-button-primary {
+    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply bg-orange-500 text-white hover:bg-orange-600 focus:ring-orange-500/20;
+  }
+
+  .gp-button-secondary {
+    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply border border-navy-700 text-navy-700 bg-white hover:bg-navy-50 focus:ring-navy-500/20;
+  }
+
+  .gp-button-ghost {
+    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply text-navy-700 bg-transparent hover:bg-gray-100 focus:ring-navy-500/20;
+  }
+
+  .gp-button-destructive {
+    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply bg-red-500 text-white hover:bg-red-600 focus:ring-red-500/20;
+  }
+
+  /* Badge Component */
+  .gp-badge-success {
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .gp-badge-warning {
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
+    @apply bg-amber-100 text-amber-700;
+  }
+
+  .gp-badge-error {
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
+    @apply bg-red-100 text-red-700;
+  }
+
+  .gp-badge-info {
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
+    @apply bg-navy-100 text-navy-700;
+  }
+
+  .gp-badge-neutral {
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
+    @apply bg-gray-100 text-gray-700;
+  }
+
+  /* Stat Card Component */
+  .gp-stat-card {
+    @apply flex items-center gap-2 bg-gray-50 rounded-md px-3 py-2;
+  }
+
+  /* Alert Components */
+  .gp-alert-info {
+    @apply px-4 py-3 rounded-md border;
+    @apply bg-navy-50 border-navy-200 text-navy-700;
+  }
+
+  .gp-alert-warning {
+    @apply px-4 py-3 rounded-md border;
+    @apply bg-amber-50 border-amber-200 text-amber-700;
+  }
+
+  .gp-alert-error {
+    @apply px-4 py-3 rounded-md border;
+    @apply bg-red-50 border-red-200 text-red-700;
+  }
+
+  .gp-alert-success {
+    @apply px-4 py-3 rounded-md border;
+    @apply bg-emerald-50 border-emerald-200 text-emerald-700;
+  }
+}
+
+/* ============================================================================
+   Design System Guidelines
+   ============================================================================
+
+   COLOR USAGE:
+   Primary action:   orange-500 (#ff6a00) - Use ONLY for CTAs, primary buttons
+   Structural:       navy-900 (#0a1a35)  - Headers, navigation, structure
+   Background:       cream (#fff9f2)     - Page backgrounds
+   Border/Divider:   gray-200            - Borders, dividers, subtle separators
+   Success:          emerald-500         - Success states, positive trends
+   Warning:          amber-500           - Warning states, pending status
+   Error:            red-500             - Error states, destructive actions
+
+   Design Principle: Use orange SPARINGLY - primary actions only.
+   Never use large orange blocks. Orange is for accent, not structure.
+
+   BORDER RADIUS (using Tailwind defaults):
+   Buttons/Inputs:   rounded-md (0.375rem / 6px)
+   Cards:            rounded-lg (0.5rem / 8px)
+   Badges:           rounded-full (pill shape)
+   ============================================================================ */
+
+/* Base styles */
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 108, 27, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 108, 27, 0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.3s ease-out forwards;
+}
+
+/* Skeleton shimmer animation */
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-gray-200, #e5e7eb) 25%,
+    var(--color-gray-100, #f3f4f6) 50%,
+    var(--color-gray-200, #e5e7eb) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+/* Page transition animations */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 200ms ease-out forwards;
+}
+
+/* Content fade-in for skeleton-to-content transition */
+.animate-content-in {
+  animation: page-enter 200ms ease-out forwards;
+}
+
+/* Back arrow slide in animation */
+@keyframes arrow-slide-in {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 30px;
+    opacity: 1;
+  }
+}
+
+.animate-arrow-in {
+  animation: arrow-slide-in 200ms ease-out forwards;
+  overflow: hidden;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-skeleton,
+  .page-enter,
+  .animate-content-in {
+    animation: none;
+  }
+}
