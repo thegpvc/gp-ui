@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "GP Design System - Shared UI components",
+  "description": "GP Design System - Shared UI components for internal tools",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:thegpvc/gp-ui.git"
+  },
+  "author": "The GP",
+  "license": "UNLICENSED",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
