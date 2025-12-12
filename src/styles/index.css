@@ -105,29 +105,28 @@
   }
 
   /* Badge Component */
-  .gp-badge-success {
+  .gp-badge-base {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .gp-badge-success {
+    @apply gp-badge-base bg-emerald-100 text-emerald-700;
   }
 
   .gp-badge-warning {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-amber-100 text-amber-700;
+    @apply gp-badge-base bg-amber-100 text-amber-700;
   }
 
   .gp-badge-error {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-red-100 text-red-700;
+    @apply gp-badge-base bg-red-100 text-red-700;
   }
 
   .gp-badge-info {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-navy-100 text-navy-700;
+    @apply gp-badge-base bg-navy-100 text-navy-700;
   }
 
   .gp-badge-neutral {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-gray-100 text-gray-700;
+    @apply gp-badge-base bg-gray-100 text-gray-700;
   }
 
   /* Stat Card Component */
