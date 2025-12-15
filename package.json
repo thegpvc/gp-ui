@@ -21,7 +21,7 @@
     "./styles": "./dist/ui.css",
     "./theme": "./src/styles/theme.css"
   },
-  "files": ["dist", "src/styles/theme.css", "README.md"],
+  "files": ["dist", "src", "tsconfig.json", "vite.config.ts", "README.md"],
   "scripts": {
     "dev": "vite build --watch --mode development",
     "build": "tsc -b && vite build",
