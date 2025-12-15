@@ -1,11 +1,18 @@
-# @gp/ui - GP Design System
+# TheGP Design System — @gp/ui
 
-Shared UI components for TheGP applications.
+Shared UI components for TheGP internal applications.
 
 ## Installation
 
 ```bash
+# npm
 npm install @gp/ui
+
+# yarn
+yarn add @gp/ui
+
+# bun
+bun add @gp/ui
 ```
 
 ## Usage
@@ -62,7 +69,7 @@ export default defineConfig({
 - **Alert** - Contextual messages with variants (info, warning, error, success)
   - Features: dismissible, title support
 - **Skeleton** - Loading states and skeleton screens
-  - Includes: HomeSkeleton, EmailHistorySkeleton, DebugSkeleton
+  - Includes: Skeleton, SkeletonText, SkeletonStatCard, SkeletonListItem
 
 ## Icons
 
@@ -88,17 +95,55 @@ import { cn } from '@gp/ui'
 
 ## Development
 
-### In a Workspace
+### Developing gp-ui Itself
 
-If you're developing within the monorepo:
+To work on the design system components:
 
 ```bash
-# Build design system
-make design-system
+# Install dependencies
+npm install
 
-# Watch mode for development
-make design-system-dev
+# Build the library
+npm run build
+
+# Watch mode for development (rebuilds on file changes)
+npm run dev
 ```
+
+### Using gp-ui in Your Project
+
+For production use, install via your package manager (see Installation above). For local development with a linked version:
+
+#### Using npm link
+
+In the gp-ui directory:
+```bash
+npm link
+```
+
+In your project directory:
+```bash
+npm link @gp/ui
+```
+
+To unlink:
+```bash
+# In your project
+npm unlink @gp/ui
+
+# In gp-ui (optional cleanup)
+npm unlink
+```
+
+### Making Changes While Developing Another Project
+
+Recommended workflow:
+
+1. **Terminal 1** (gp-ui): Run `npm run dev` to watch for changes
+2. **Terminal 2** (your project): Use `npm link @gp/ui` dependency
+3. Make changes to components in gp-ui
+4. Watch mode automatically rebuilds
+5. Your project's dev server (Vite HMR) picks up the changes
 
 ### Peer Dependencies
 
@@ -114,7 +159,7 @@ This package requires the following peer dependencies to be installed in your ap
 
 ## Design Guidelines
 
-See [CLAUDE.md](../../CLAUDE.md) for:
+See [DESIGN_GUIDE.md](./DESIGN_GUIDE.md) for:
 - Color usage guidelines
 - Typography scale
 - Spacing system

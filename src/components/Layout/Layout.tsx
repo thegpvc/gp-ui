@@ -64,7 +64,7 @@ export interface LayoutProps {
 export function Layout({
   children,
   user,
-  title = "Breadcrumb",
+  title,
   showBackButton = false,
   headerRight,
   maxWidth = "lg",

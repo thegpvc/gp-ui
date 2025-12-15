@@ -44,34 +44,3 @@ export function SkeletonListItem() {
     </div>
   );
 }
-
-export function SkeletonInteractionCard() {
-  return (
-    <div className="px-4 py-3 border-b border-gray-100">
-      {/* Header row */}
-      <div className="flex items-start justify-between mb-2">
-        <div className="min-w-0 flex-1">
-          <Skeleton className="h-4 w-32 mb-1" />
-          <Skeleton className="h-3 w-40" />
-        </div>
-        <Skeleton className="h-5 w-16 rounded" />
-      </div>
-
-      {/* Stats grid */}
-      <div className="grid grid-cols-4 gap-1.5">
-        {[...Array(4)].map((_, i) => (
-          <div key={i} className="bg-gray-50 rounded px-2 py-1.5 text-center">
-            <Skeleton className="h-3 w-10 mx-auto mb-1" />
-            <Skeleton className="h-4 w-6 mx-auto" />
-          </div>
-        ))}
-      </div>
-
-      {/* Date range */}
-      <div className="flex gap-4 mt-2">
-        <Skeleton className="h-3 w-24" />
-        <Skeleton className="h-3 w-24" />
-      </div>
-    </div>
-  );
-}
