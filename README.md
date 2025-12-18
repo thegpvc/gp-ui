@@ -2,6 +2,8 @@
 
 Shared UI components for TheGP internal applications.
 
+**[View Playground →](https://thegpvc.github.io/gp-ui/)**
+
 ## Installation
 
 ```bash
@@ -108,6 +110,20 @@ npm run build
 
 # Watch mode for development (rebuilds on file changes)
 npm run dev
+```
+
+### Running the Playground
+
+The playground provides an interactive environment to view and test all components:
+
+```bash
+npm run playground
+```
+
+This starts a local dev server at http://localhost:5174 with hot reloading. To build the playground for deployment:
+
+```bash
+npm run build:playground
 ```
 
 ### Using gp-ui in Your Project

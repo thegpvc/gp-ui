@@ -33,7 +33,9 @@
     "build": "tsc -b && vite build",
     "prepare": "npm run build",
     "lint": "eslint . --ext ts,tsx",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "playground": "vite --config playground/vite.config.ts",
+    "build:playground": "vite build --config playground/vite.config.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
