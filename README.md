@@ -28,7 +28,10 @@ If your app uses TailwindCSS, import the theme file which provides custom colors
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 @import "@gp/ui/theme";
+@source "../node_modules/@gp/ui/dist";
 ```
+
+The `@source` directive is required so Tailwind scans the library's compiled output and generates CSS for utility classes used by components (e.g., `flex-col`, `items-center`).
 
 Then use components in your JSX:
 
