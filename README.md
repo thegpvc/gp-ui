@@ -4,52 +4,48 @@ Shared UI components for TheGP internal applications.
 
 **[View Playground →](https://thegpvc.github.io/gp-ui/)**
 
-## Installation
+## Quick Start
+
+### 1. Install the package
 
 ```bash
-# npm
 npm install @gp/ui
-
-# yarn
-yarn add @gp/ui
-
-# bun
-bun add @gp/ui
 ```
 
-## Usage
+### 2. Configure your CSS
 
-### For Apps Using TailwindCSS (Recommended)
-
-If your app uses TailwindCSS, import the theme file which provides custom colors, tokens, and component classes:
+Add these lines to your app's main CSS file (e.g., `src/index.css`):
 
 ```css
-/* your-app/src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 @import "@gp/ui/theme";
 @source "../node_modules/@gp/ui/dist";
 ```
 
-The `@source` directive is required so Tailwind scans the library's compiled output and generates CSS for utility classes used by components (e.g., `flex-col`, `items-center`).
+**Why each line matters:**
+- `@import "tailwindcss"` — Base Tailwind utilities (your app provides this)
+- `@import "@gp/ui/theme"` — GP design tokens (colors, fonts, component classes)
+- `@source "..."` — Tells Tailwind to scan our components so utility classes aren't purged
 
-Then use components in your JSX:
+### 3. Use components
 
 ```tsx
-import { Button, Badge, Card, StatCard } from '@gp/ui'
+import { Button, Badge, Card } from '@gp/ui'
 
 function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <Button variant="primary">Click me</Button>
-    </div>
+    <Card>
+      <Card.Header>Welcome</Card.Header>
+      <Card.Body>
+        <Button variant="primary">Get Started</Button>
+      </Card.Body>
+    </Card>
   )
 }
 ```
 
-**Important**: Your app must have TailwindCSS installed and configured (`@tailwindcss/vite` plugin for Vite projects).
-
-### Vite Configuration
+## Vite Setup
 
 Ensure your `vite.config.ts` includes the TailwindCSS plugin:
 

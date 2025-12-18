@@ -25,9 +25,13 @@ npm run typecheck  # TypeScript type checking only
 - `src/styles/theme.css` - Tailwind theme with custom colors and component classes
 
 **Build output:**
-- ES module library (`dist/index.js`)
+- ES module library (`dist/index.js`) — JavaScript only, no CSS bundled
 - TypeScript declarations (`dist/index.d.ts`)
-- Consumers import theme separately: `@import "@gp/ui/theme";`
+
+**Consumer integration (Tailwind v4):**
+- Consumers import theme: `@import "@gp/ui/theme";`
+- Consumers scan dist for classes: `@source "../node_modules/@gp/ui/dist";`
+- The app's Tailwind processes all CSS — no duplicate base styles
 
 **Key design patterns:**
 - Components use compound pattern where appropriate (e.g., Card.Header, Card.Body)
