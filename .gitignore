@@ -3,6 +3,7 @@ node_modules/
 
 # Build output
 dist/
+playground-dist/
 
 # Editor directories and files
 .vscode/
