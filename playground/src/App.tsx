@@ -10,6 +10,7 @@ import { SkeletonDemo } from './components/SkeletonDemo'
 import { TabBarDemo } from './components/TabBarDemo'
 import { LayoutDemo } from './components/LayoutDemo'
 import { ColorsDemo } from './components/ColorsDemo'
+import { LoginPageDemo } from './components/LoginPageDemo'
 
 const sections = [
   { id: 'colors', label: 'Colors' },
@@ -21,6 +22,7 @@ const sections = [
   { id: 'skeleton', label: 'Skeleton' },
   { id: 'tabbar', label: 'TabBar' },
   { id: 'layout', label: 'Layout' },
+  { id: 'loginpage', label: 'LoginPage' },
 ]
 
 export function App() {
@@ -46,6 +48,8 @@ export function App() {
         return <TabBarDemo />
       case 'layout':
         return <LayoutDemo />
+      case 'loginpage':
+        return <LoginPageDemo />
     }
   }
 
@@ -93,6 +97,7 @@ export function App() {
             {activeSection === 'skeleton' && 'Loading placeholders'}
             {activeSection === 'tabbar' && 'Horizontal navigation tabs'}
             {activeSection === 'layout' && 'Page structure and navigation'}
+            {activeSection === 'loginpage' && 'Full-page login with GP branding'}
           </p>
         </div>
 
