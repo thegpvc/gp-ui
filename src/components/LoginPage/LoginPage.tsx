@@ -71,7 +71,7 @@ export function LoginPage({
         </div>
       )}
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 max-w-md mx-auto">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <GPLogo />
@@ -86,13 +86,13 @@ export function LoginPage({
           onClick={onLogin}
           variant="primary"
           icon={loginButtonIcon ?? defaultIcon}
-          className="gap-2.5 pl-4 pr-5"
+          className="gap-2.5 pl-4 pr-5 w-full"
         >
           {loginButtonText}
         </Button>
 
         {helperText && (
-          <p className="mt-4 text-navy-500 text-xs">{helperText}</p>
+          <p className="mt-4 text-navy-500 text-xs text-center">{helperText}</p>
         )}
 
         {children}
