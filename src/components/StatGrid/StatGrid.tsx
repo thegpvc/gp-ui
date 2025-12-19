@@ -48,11 +48,17 @@ export interface StatGridItem {
 export interface StatGridProps {
   /**
    * Array of key-value items to display
+   *
+   * Note: Items should maintain a stable order as array index is used for React keys.
+   * Avoid dynamically reordering or filtering items after initial render.
    */
   items: StatGridItem[]
 
   /**
    * Wrap in Card component with minimal padding
+   *
+   * Note: When true, the component assumes the Card has horizontal padding (px-3 or similar)
+   * for proper divider alignment. The dividers use -mx-2 to extend to the Card edges.
    */
   asCard?: boolean
 
@@ -65,12 +71,18 @@ export interface StatGridProps {
 // Format helpers
 function formatValue(value: string | number | ReactNode, format?: string): string | number | ReactNode {
   if (format && (typeof value === 'string' || typeof value === 'number')) {
-    const numValue = typeof value === 'number' ? value : parseFloat(value)
+    const numValue = typeof value === 'number' ? value : parseFloat(String(value))
+
+    // If parsing failed, return original value
+    if (isNaN(numValue)) {
+      return value
+    }
 
     switch (format) {
       case 'number':
         return numValue.toLocaleString()
       case 'currency':
+        // Currency formatting assumes USD - pass numeric values or override formatting as needed
         return new Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'USD',
@@ -112,9 +124,14 @@ function CopyButton({ value }: { value: string }) {
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation()
-    await navigator.clipboard.writeText(value)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    try {
+      await navigator.clipboard.writeText(value)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy to clipboard:', err)
+      // Silently fail - user will not see success indicator
+    }
   }
 
   return (
@@ -204,18 +221,31 @@ export function StatGrid({
                 </span>
               )}
 
-              <span
-                className={cn(
-                  'text-sm font-medium leading-5',
-                  statusClasses[item.status || 'default'],
-                  isNumeric && 'font-mono',
-                  item.onClick && 'cursor-pointer hover:underline',
-                  hasInteraction && 'select-all'
-                )}
-                onClick={item.onClick}
-              >
-                {formattedValue}
-              </span>
+              {item.onClick ? (
+                <button
+                  className={cn(
+                    'text-sm font-medium leading-5 text-left',
+                    statusClasses[item.status || 'default'],
+                    isNumeric && 'font-mono',
+                    'cursor-pointer hover:underline',
+                    hasInteraction && 'select-all'
+                  )}
+                  onClick={item.onClick}
+                >
+                  {formattedValue}
+                </button>
+              ) : (
+                <span
+                  className={cn(
+                    'text-sm font-medium leading-5',
+                    statusClasses[item.status || 'default'],
+                    isNumeric && 'font-mono',
+                    hasInteraction && 'select-all'
+                  )}
+                >
+                  {formattedValue}
+                </span>
+              )}
 
               {item.copyable && <CopyButton value={copyValue} />}
             </div>
