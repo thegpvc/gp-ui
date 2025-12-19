@@ -39,6 +39,7 @@ export interface LayoutSidebar {
   header?: ReactNode;
   footer?: ReactNode;
   defaultCollapsed?: boolean;
+  variant?: "responsive" | "inline";
 }
 
 export interface LayoutProps {
@@ -262,6 +263,7 @@ function LayoutContent({
             items={sidebar.items}
             header={sidebar.header}
             footer={sidebar.footer}
+            variant={sidebar.variant}
           />
           <div className="flex-1 min-w-0">
             {/* Search bar */}
@@ -345,7 +347,10 @@ export function Layout({
   // If sidebar is provided, wrap everything in SidebarProvider
   if (sidebar) {
     return (
-      <SidebarProvider defaultCollapsed={sidebar.defaultCollapsed}>
+      <SidebarProvider
+        defaultCollapsed={sidebar.defaultCollapsed}
+        variant={sidebar.variant}
+      >
         <LayoutContent
           title={title}
           showBackButton={showBackButton}

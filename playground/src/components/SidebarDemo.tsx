@@ -32,9 +32,10 @@ export function SidebarDemo() {
         </p>
 
         <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <SidebarProvider>
+          <SidebarProvider variant="inline">
             <div className="flex h-[500px] bg-gray-50">
               <Sidebar
+                variant="inline"
                 header={<SidebarSearch placeholder="Search..." />}
                 footer={<SidebarUser name="Alex Johnson" email="alex@example.com" onClick={() => alert('User clicked')} />}
               >

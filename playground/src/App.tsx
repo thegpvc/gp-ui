@@ -8,6 +8,7 @@ import {
   CreditCard,
   AlertCircle,
   BarChart3,
+  Grid3x3,
   Loader,
   PanelTop,
   LayoutTemplate,
@@ -19,6 +20,7 @@ import { BadgeDemo } from './components/BadgeDemo'
 import { CardDemo } from './components/CardDemo'
 import { AlertDemo } from './components/AlertDemo'
 import { StatCardDemo } from './components/StatCardDemo'
+import { StatGridDemo } from './components/StatGridDemo'
 import { SkeletonDemo } from './components/SkeletonDemo'
 import { TabBarDemo } from './components/TabBarDemo'
 import { LayoutDemo } from './components/LayoutDemo'
@@ -33,6 +35,7 @@ const sectionDescriptions: Record<string, string> = {
   card: 'Container component with compound pattern',
   alert: 'Contextual feedback messages',
   statcard: 'Metric displays and statistics',
+  statgrid: 'Key-value grid with formatting and copy support',
   skeleton: 'Loading placeholders',
   tabbar: 'Horizontal navigation tabs',
   sidebar: 'Collapsible navigation sidebar',
@@ -116,6 +119,13 @@ export function App() {
           isActive: activeSection === 'statcard',
         },
         {
+          id: 'statgrid',
+          label: 'StatGrid',
+          icon: <Grid3x3 className="w-5 h-5" />,
+          onClick: () => setActiveSection('statgrid'),
+          isActive: activeSection === 'statgrid',
+        },
+        {
           id: 'skeleton',
           label: 'Skeleton',
           icon: <Loader className="w-5 h-5" />,
@@ -173,6 +183,8 @@ export function App() {
         return <AlertDemo />
       case 'statcard':
         return <StatCardDemo />
+      case 'statgrid':
+        return <StatGridDemo />
       case 'skeleton':
         return <SkeletonDemo />
       case 'tabbar':

@@ -23,6 +23,7 @@ export interface SidebarProps {
   collapsed?: boolean;
   onCollapsedChange?: (collapsed: boolean) => void;
   defaultCollapsed?: boolean;
+  variant?: "responsive" | "inline";
   className?: string;
 }
 
