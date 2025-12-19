@@ -49,7 +49,7 @@ export function SidebarSearch({
 
   // Expanded mode - show input field with icon inside
   return (
-    <div className={cn("p-3", className)}>
+    <div className={cn("p-3", className)} role="search">
       <div className="relative">
         <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400 pointer-events-none" />
         <input
@@ -59,6 +59,7 @@ export function SidebarSearch({
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
+          aria-label={placeholder}
           className="w-full pl-8 pr-3 py-1.5 text-sm border border-gray-200 rounded-md bg-white placeholder:text-navy-400 text-navy-900 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
         />
       </div>

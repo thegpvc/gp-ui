@@ -71,7 +71,7 @@ export function SidebarLink({
         href={href}
         className={baseClasses}
         title={isCollapsed ? label : undefined}
-        onClick={() => isMobile && setOpen(false)}
+        onClick={handleClick}
       >
         {content}
       </a>

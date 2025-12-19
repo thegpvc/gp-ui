@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { useSidebar } from "./SidebarContext";
@@ -34,6 +35,17 @@ export function Sidebar({ items, children, header, footer, className }: SidebarP
       setOpen(false);
     }
   };
+
+  // Close mobile sidebar on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isMobile && isOpen) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isMobile, isOpen, setOpen]);
 
   return (
     <>
