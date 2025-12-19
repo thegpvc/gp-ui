@@ -24,7 +24,7 @@ function normalizeToGroups(
   return [{ items: items as SidebarItem[] }];
 }
 
-export function Sidebar({ items, children, header, footer, className }: SidebarProps) {
+export function Sidebar({ items, children, header, footer, variant = "responsive", className }: SidebarProps) {
   const { isOpen, isMobile, isCollapsed, toggle, setOpen } = useSidebar();
 
   const groups = items ? normalizeToGroups(items) : [];
@@ -62,12 +62,15 @@ export function Sidebar({ items, children, header, footer, className }: SidebarP
       <aside
         className={cn(
           "flex flex-col bg-white border-r border-gray-200 overflow-hidden",
-          // Desktop styles - sticky below header (48px), fills remaining viewport height
-          "md:sticky md:top-12 md:h-[calc(100vh-48px)] md:transition-[width] md:shrink-0",
+          // Inline variant - uses container height, always visible
+          variant === "inline" && "h-full",
+          // Responsive variant - desktop sticky with viewport height
+          variant === "responsive" && "md:sticky md:top-12 md:h-[calc(100vh-48px)]",
+          "md:transition-[width] md:shrink-0",
           `md:${COLLAPSE_DURATION}`,
           isCollapsed ? "md:w-[53px]" : "md:w-64",
-          // Mobile styles - full height overlay (needs to cover header too)
-          "max-md:fixed max-md:inset-y-0 max-md:left-0 max-md:z-40 max-md:w-64 max-md:transition-transform max-md:duration-200",
+          // Responsive variant - mobile overlay using dvh (accounts for mobile toolbars)
+          variant === "responsive" && "max-md:fixed max-md:top-0 max-md:left-0 max-md:z-40 max-md:w-64 max-md:h-[100dvh] max-md:transition-transform max-md:duration-200",
           isMobile && !isOpen && "max-md:-translate-x-full",
           className
         )}

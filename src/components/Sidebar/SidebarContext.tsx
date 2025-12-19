@@ -27,6 +27,7 @@ interface SidebarProviderProps {
   defaultCollapsed?: boolean;
   collapsed?: boolean;
   onCollapsedChange?: (collapsed: boolean) => void;
+  variant?: "responsive" | "inline";
 }
 
 export function SidebarProvider({
@@ -34,6 +35,7 @@ export function SidebarProvider({
   defaultCollapsed = false,
   collapsed: controlledCollapsed,
   onCollapsedChange,
+  variant = "responsive",
 }: SidebarProviderProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [uncontrolledCollapsed, setUncontrolledCollapsed] =
@@ -44,6 +46,12 @@ export function SidebarProvider({
   const isCollapsed = controlledCollapsed ?? uncontrolledCollapsed;
 
   useEffect(() => {
+    // Skip mobile detection for inline variant
+    if (variant === "inline") {
+      setIsMobile(false);
+      return;
+    }
+
     const checkMobile = () => {
       const newIsMobile = window.innerWidth < MOBILE_BREAKPOINT;
       const wasLeavingMobile = previousIsMobileRef.current && !newIsMobile;
@@ -59,7 +67,7 @@ export function SidebarProvider({
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  }, [variant]);
 
   const isOpen = isMobile ? mobileOpen : !isCollapsed;
 
