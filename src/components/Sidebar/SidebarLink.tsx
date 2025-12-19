@@ -52,7 +52,13 @@ export function SidebarLink({
         {label}
       </span>
       {badge !== undefined && (
-        <span className="flex-shrink-0 bg-orange-500 text-white text-xs px-1.5 py-0.5 rounded-full min-w-[1.25rem] text-center">
+        <span
+          className={cn(
+            "flex-shrink-0 bg-orange-500 text-white text-xs px-1.5 py-0.5 rounded-full min-w-[1.25rem] text-center transition-opacity",
+            COLLAPSE_DURATION,
+            isCollapsed ? "opacity-0" : "opacity-100"
+          )}
+        >
           {badge}
         </span>
       )}

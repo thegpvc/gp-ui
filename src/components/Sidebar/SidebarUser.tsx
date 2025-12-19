@@ -10,8 +10,12 @@ export interface SidebarUserProps {
 }
 
 function getInitials(name: string): string {
+  if (!name || !name.trim()) return "?";
+
   return name
-    .split(" ")
+    .trim()
+    .split(/\s+/)
+    .filter((part) => part.length > 0)
     .map((part) => part[0])
     .join("")
     .toUpperCase()

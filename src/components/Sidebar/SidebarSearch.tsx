@@ -2,6 +2,7 @@ import { useState, useRef, type KeyboardEvent } from "react";
 import { Search } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { useSidebar } from "./SidebarContext";
+import { COLLAPSE_DURATION_MS } from "./constants";
 
 export interface SidebarSearchProps {
   placeholder?: string;
@@ -28,7 +29,7 @@ export function SidebarSearch({
     // Expand sidebar and focus input
     setOpen(true);
     // Focus after sidebar expands
-    setTimeout(() => inputRef.current?.focus(), 350);
+    setTimeout(() => inputRef.current?.focus(), COLLAPSE_DURATION_MS + 50);
   };
 
   // Collapsed mode - show clickable icon button
