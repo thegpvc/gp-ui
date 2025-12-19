@@ -1,0 +1,235 @@
+import { useState, type ReactNode, cloneElement, isValidElement } from 'react'
+import { Copy, Check } from 'lucide-react'
+import { cn } from '../../utils/cn'
+import { Card } from '../Card'
+
+export interface StatGridItem {
+  /**
+   * Label/key for the stat
+   */
+  label: string
+
+  /**
+   * Value to display (can be string, number, or custom ReactNode)
+   */
+  value: string | number | ReactNode
+
+  /**
+   * Optional icon to display before the value
+   */
+  icon?: ReactNode
+
+  /**
+   * Status color for the value
+   */
+  status?: 'success' | 'warning' | 'error' | 'info' | 'default'
+
+  /**
+   * Show copy-to-clipboard icon on hover
+   */
+  copyable?: boolean
+
+  /**
+   * Custom value to copy (defaults to string representation of value)
+   */
+  copyValue?: string
+
+  /**
+   * Click handler for the value
+   */
+  onClick?: () => void
+
+  /**
+   * Format preset for common value types
+   */
+  format?: 'number' | 'currency' | 'date' | 'datetime' | 'bytes'
+}
+
+export interface StatGridProps {
+  /**
+   * Array of key-value items to display
+   */
+  items: StatGridItem[]
+
+  /**
+   * Wrap in Card component with minimal padding
+   */
+  asCard?: boolean
+
+  /**
+   * Additional CSS classes
+   */
+  className?: string
+}
+
+// Format helpers
+function formatValue(value: string | number | ReactNode, format?: string): string | number | ReactNode {
+  if (format && (typeof value === 'string' || typeof value === 'number')) {
+    const numValue = typeof value === 'number' ? value : parseFloat(value)
+
+    switch (format) {
+      case 'number':
+        return numValue.toLocaleString()
+      case 'currency':
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        }).format(numValue)
+      case 'bytes':
+        return formatBytes(numValue)
+      case 'date':
+        return new Date(value).toLocaleDateString()
+      case 'datetime':
+        return new Date(value).toLocaleString()
+      default:
+        return value
+    }
+  }
+
+  return value
+}
+
+function formatBytes(bytes: number): string {
+  if (bytes === 0) return '0 B'
+  const k = 1024
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`
+}
+
+// Status color classes
+const statusClasses = {
+  default: 'text-navy-900',
+  success: 'text-emerald-600',
+  warning: 'text-amber-600',
+  error: 'text-red-600',
+  info: 'text-blue-600',
+}
+
+// Copy button component
+function CopyButton({ value }: { value: string }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation()
+    await navigator.clipboard.writeText(value)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200 rounded"
+      aria-label="Copy to clipboard"
+    >
+      {copied ? (
+        <Check className="w-3.5 h-3.5 text-emerald-600" />
+      ) : (
+        <Copy className="w-3.5 h-3.5 text-navy-400" />
+      )}
+    </button>
+  )
+}
+
+/**
+ * StatGrid component for displaying key-value pairs in a grid layout.
+ * Similar styling to StatCard, but optimized for tabular data.
+ *
+ * @example
+ * ```tsx
+ * <StatGrid
+ *   items={[
+ *     { label: 'Status', value: 'Active', icon: <Check />, status: 'success' },
+ *     { label: 'User ID', value: 'usr_123', copyable: true },
+ *     { label: 'Created', value: Date.now(), format: 'date' },
+ *     { label: 'Email', value: 'user@example.com', onClick: () => alert('clicked') },
+ *   ]}
+ * />
+ * ```
+ */
+export function StatGrid({
+  items,
+  asCard = false,
+  className,
+}: StatGridProps) {
+  // Helper to apply status color to icon
+  const getIconWithColor = (icon: ReactNode, status?: string) => {
+    if (!icon || !status || status === 'default') return icon
+
+    if (isValidElement(icon)) {
+      return cloneElement(icon as React.ReactElement<{ className?: string }>, {
+        className: cn(
+          (icon.props as { className?: string }).className,
+          statusClasses[status as keyof typeof statusClasses]
+        ),
+      })
+    }
+
+    return icon
+  }
+
+  const content = (
+    <div
+      className={cn(
+        'gp-stat-grid grid grid-cols-[minmax(140px,auto)_1fr] gap-x-3',
+        className
+      )}
+    >
+      {items.map((item, index) => {
+        const formattedValue = formatValue(item.value, item.format)
+        const isNumeric = typeof formattedValue === 'number' || (typeof formattedValue === 'string' && !isNaN(Number(formattedValue)))
+        const copyValue = item.copyValue || String(item.value)
+        const hasInteraction = item.onClick || item.copyable
+
+        return (
+          <>
+            {/* Divider row - spans both columns, extends beyond grid */}
+            {index > 0 && (
+              <div key={`divider-${index}`} className="col-span-2 border-t border-gray-200 -mx-2" />
+            )}
+
+            {/* Label (key) - left column */}
+            <div
+              key={`label-${index}`}
+              className="flex items-center py-2"
+            >
+              <span className="text-xs text-navy-500 leading-5">
+                {item.label}
+              </span>
+            </div>
+
+            {/* Value - right column */}
+            <div
+              key={`value-${index}`}
+              className="flex items-center gap-1.5 min-w-0 group py-2"
+            >
+              {item.icon && (
+                <span className="flex-shrink-0 flex items-center" aria-hidden="true">
+                  {getIconWithColor(item.icon, item.status)}
+                </span>
+              )}
+
+              <span
+                className={cn(
+                  'text-sm font-medium leading-5',
+                  statusClasses[item.status || 'default'],
+                  isNumeric && 'font-mono',
+                  item.onClick && 'cursor-pointer hover:underline',
+                  hasInteraction && 'select-all'
+                )}
+                onClick={item.onClick}
+              >
+                {formattedValue}
+              </span>
+
+              {item.copyable && <CopyButton value={copyValue} />}
+            </div>
+          </>
+        )
+      })}
+    </div>
+  )
+
+  return asCard ? <Card className="py-1">{content}</Card> : content
+}
