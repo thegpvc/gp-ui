@@ -1,4 +1,4 @@
-import { Fragment, useState, type ReactNode, cloneElement, isValidElement } from 'react'
+import { Fragment, useState, useEffect, type ReactNode, cloneElement, isValidElement } from 'react'
 import { Copy, Check } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { Card } from '../Card'
@@ -49,8 +49,7 @@ export interface StatGridProps {
   /**
    * Array of key-value items to display
    *
-   * Note: Items should maintain a stable order as array index is used for React keys.
-   * Avoid dynamically reordering or filtering items after initial render.
+   * Note: Item labels are used as React keys, so they must be unique within the grid.
    */
   items: StatGridItem[]
 
@@ -122,12 +121,18 @@ const statusClasses = {
 function CopyButton({ value }: { value: string }) {
   const [copied, setCopied] = useState(false)
 
+  // Clean up timeout on unmount to prevent memory leak
+  useEffect(() => {
+    if (!copied) return
+    const timer = setTimeout(() => setCopied(false), 2000)
+    return () => clearTimeout(timer)
+  }, [copied])
+
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation()
     try {
       await navigator.clipboard.writeText(value)
       setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
     } catch (err) {
       console.error('Failed to copy to clipboard:', err)
       // Silently fail - user will not see success indicator
@@ -137,7 +142,7 @@ function CopyButton({ value }: { value: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200 rounded"
+      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200 rounded focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
       aria-label="Copy to clipboard"
     >
       {copied ? (
@@ -200,7 +205,7 @@ export function StatGrid({
         const hasInteraction = item.onClick || item.copyable
 
         return (
-          <Fragment key={index}>
+          <Fragment key={item.label}>
             {/* Divider row - spans both columns, extends beyond grid */}
             {index > 0 && (
               <div className="col-span-2 border-t border-gray-200 -mx-2" />
@@ -228,7 +233,8 @@ export function StatGrid({
                     statusClasses[item.status || 'default'],
                     isNumeric && 'font-mono',
                     'cursor-pointer hover:underline',
-                    hasInteraction && 'select-all'
+                    hasInteraction && 'select-all',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:rounded'
                   )}
                   onClick={item.onClick}
                 >
