@@ -1,4 +1,4 @@
-import { useState, type ReactNode, cloneElement, isValidElement } from 'react'
+import { Fragment, useState, type ReactNode, cloneElement, isValidElement } from 'react'
 import { Copy, Check } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { Card } from '../Card'
@@ -183,27 +183,21 @@ export function StatGrid({
         const hasInteraction = item.onClick || item.copyable
 
         return (
-          <>
+          <Fragment key={index}>
             {/* Divider row - spans both columns, extends beyond grid */}
             {index > 0 && (
-              <div key={`divider-${index}`} className="col-span-2 border-t border-gray-200 -mx-2" />
+              <div className="col-span-2 border-t border-gray-200 -mx-2" />
             )}
 
             {/* Label (key) - left column */}
-            <div
-              key={`label-${index}`}
-              className="flex items-center py-2"
-            >
+            <div className="flex items-center py-2">
               <span className="text-xs text-navy-500 leading-5">
                 {item.label}
               </span>
             </div>
 
             {/* Value - right column */}
-            <div
-              key={`value-${index}`}
-              className="flex items-center gap-1.5 min-w-0 group py-2"
-            >
+            <div className="flex items-center gap-1.5 min-w-0 group py-2">
               {item.icon && (
                 <span className="flex-shrink-0 flex items-center" aria-hidden="true">
                   {getIconWithColor(item.icon, item.status)}
@@ -225,7 +219,7 @@ export function StatGrid({
 
               {item.copyable && <CopyButton value={copyValue} />}
             </div>
-          </>
+          </Fragment>
         )
       })}
     </div>
