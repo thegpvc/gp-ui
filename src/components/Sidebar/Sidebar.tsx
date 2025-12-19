@@ -23,10 +23,10 @@ function normalizeToGroups(
   return [{ items: items as SidebarItem[] }];
 }
 
-export function Sidebar({ items, header, footer, className }: SidebarProps) {
+export function Sidebar({ items, children, header, footer, className }: SidebarProps) {
   const { isOpen, isMobile, isCollapsed, toggle, setOpen } = useSidebar();
 
-  const groups = normalizeToGroups(items);
+  const groups = items ? normalizeToGroups(items) : [];
 
   const handleItemClick = () => {
     // Close mobile sidebar when an item is clicked
@@ -86,7 +86,7 @@ export function Sidebar({ items, header, footer, className }: SidebarProps) {
             isCollapsed ? "pt-0" : "pt-6"
           )}
         >
-          {groups.map((group, idx) => (
+          {children ?? groups.map((group, idx) => (
             <SidebarGroupComponent
               key={group.label || idx}
               group={group}

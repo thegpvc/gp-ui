@@ -16,7 +16,8 @@ export interface SidebarGroup {
 }
 
 export interface SidebarProps {
-  items: SidebarItem[] | SidebarGroup[];
+  items?: SidebarItem[] | SidebarGroup[];
+  children?: ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
   collapsed?: boolean;

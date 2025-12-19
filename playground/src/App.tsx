@@ -12,6 +12,7 @@ import {
   PanelTop,
   LayoutTemplate,
   LogIn,
+  PanelLeft,
 } from 'lucide-react'
 import { ButtonDemo } from './components/ButtonDemo'
 import { BadgeDemo } from './components/BadgeDemo'
@@ -23,6 +24,7 @@ import { TabBarDemo } from './components/TabBarDemo'
 import { LayoutDemo } from './components/LayoutDemo'
 import { ColorsDemo } from './components/ColorsDemo'
 import { LoginPageDemo } from './components/LoginPageDemo'
+import { SidebarDemo } from './components/SidebarDemo'
 
 const sectionDescriptions: Record<string, string> = {
   colors: 'Brand colors and semantic palette',
@@ -33,6 +35,7 @@ const sectionDescriptions: Record<string, string> = {
   statcard: 'Metric displays and statistics',
   skeleton: 'Loading placeholders',
   tabbar: 'Horizontal navigation tabs',
+  sidebar: 'Collapsible navigation sidebar',
   layout: 'Page structure and navigation',
   loginpage: 'Full-page login with GP branding',
 }
@@ -132,6 +135,13 @@ export function App() {
       label: 'Layouts',
       items: [
         {
+          id: 'sidebar',
+          label: 'Sidebar',
+          icon: <PanelLeft className="w-5 h-5" />,
+          onClick: () => setActiveSection('sidebar'),
+          isActive: activeSection === 'sidebar',
+        },
+        {
           id: 'layout',
           label: 'Layout',
           icon: <LayoutTemplate className="w-5 h-5" />,
@@ -167,6 +177,8 @@ export function App() {
         return <SkeletonDemo />
       case 'tabbar':
         return <TabBarDemo />
+      case 'sidebar':
+        return <SidebarDemo />
       case 'layout':
         return <LayoutDemo />
       case 'loginpage':
