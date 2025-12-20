@@ -86,7 +86,7 @@ export function LoginPage({
           onClick={onLogin}
           variant="primary"
           icon={loginButtonIcon ?? defaultIcon}
-          className="gap-2.5 pl-4 pr-5 w-full"
+          className="gap-2.5 pl-4 pr-5"
         >
           {loginButtonText}
         </Button>
