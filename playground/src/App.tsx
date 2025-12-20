@@ -15,6 +15,7 @@ import {
   LogIn,
   PanelLeft,
   Menu,
+  Type,
 } from 'lucide-react'
 import { ButtonDemo } from './components/ButtonDemo'
 import { BadgeDemo } from './components/BadgeDemo'
@@ -29,6 +30,7 @@ import { ColorsDemo } from './components/ColorsDemo'
 import { LoginPageDemo } from './components/LoginPageDemo'
 import { SidebarDemo } from './components/SidebarDemo'
 import { DropdownDemo } from './components/DropdownDemo'
+import { InputDemo } from './components/InputDemo'
 
 const sectionDescriptions: Record<string, string> = {
   colors: 'Brand colors and semantic palette',
@@ -41,6 +43,7 @@ const sectionDescriptions: Record<string, string> = {
   skeleton: 'Loading placeholders',
   tabbar: 'Horizontal navigation tabs',
   dropdown: 'Context menus with sub-menus and selections',
+  input: 'Form inputs with labels, icons, and validation states',
   sidebar: 'Collapsible navigation sidebar',
   layout: 'Page structure and navigation',
   loginpage: 'Full-page login with GP branding',
@@ -149,6 +152,13 @@ export function App() {
           onClick: () => setActiveSection('dropdown'),
           isActive: activeSection === 'dropdown',
         },
+        {
+          id: 'input',
+          label: 'Input',
+          icon: <Type className="w-5 h-5" />,
+          onClick: () => setActiveSection('input'),
+          isActive: activeSection === 'input',
+        },
       ],
     },
     {
@@ -201,6 +211,8 @@ export function App() {
         return <TabBarDemo />
       case 'dropdown':
         return <DropdownDemo />
+      case 'input':
+        return <InputDemo />
       case 'sidebar':
         return <SidebarDemo />
       case 'layout':
