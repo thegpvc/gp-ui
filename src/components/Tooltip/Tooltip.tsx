@@ -16,10 +16,8 @@ const TooltipRoot = TooltipPrimitive.Root;
 // Re-export Trigger directly - supports asChild for composition
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
-// Re-export Portal directly
-const TooltipPortal = TooltipPrimitive.Portal;
-
 // Styled Content with animations and default arrow
+// Note: Portal is handled internally - do not wrap in Tooltip.Portal
 const TooltipContent = React.forwardRef<
   React.ComponentRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & {
@@ -61,6 +59,14 @@ TooltipArrow.displayName = "Tooltip.Arrow";
  * Tooltip component for displaying contextual information on hover.
  * Built on Radix UI primitives with compound component pattern.
  * Default delay is 0ms for instant tooltips. Arrow is shown by default.
+ *
+ * ACCESSIBILITY BEST PRACTICES:
+ * - Keep tooltip text concise (1-2 short sentences max)
+ * - Avoid interactive content (links, buttons) - use Popover instead
+ * - Don't repeat visible label text - provide supplementary information only
+ * - Tooltips disappear on hover out, so critical info should be always visible
+ * - For keyboard users, tooltips show on focus and hide on blur/escape
+ * - Screen readers will announce tooltip content automatically
  *
  * @example
  * ```tsx
@@ -104,10 +110,10 @@ TooltipArrow.displayName = "Tooltip.Arrow";
  * ```
  */
 // Compound component export
+// Note: Portal is not exported as Content handles portaling internally
 export const Tooltip = Object.assign(TooltipRoot, {
   Provider: TooltipProvider,
   Trigger: TooltipTrigger,
-  Portal: TooltipPortal,
   Content: TooltipContent,
   Arrow: TooltipArrow,
 });

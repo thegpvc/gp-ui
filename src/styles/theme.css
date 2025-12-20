@@ -317,7 +317,7 @@ body {
   animation: dropdown-out 100ms ease-in;
 }
 
-/* Tooltip animations */
+/* Tooltip animations - 100ms both directions for snappier feel */
 @keyframes tooltip-in {
   from {
     opacity: 0;
@@ -341,9 +341,9 @@ body {
 }
 
 .animate-tooltip-in {
-  animation: tooltip-in 150ms ease-out;
+  animation: tooltip-in 100ms ease-out;
 }
 
 .animate-tooltip-out {
-  animation: tooltip-out 100ms ease-in;
+  animation: tooltip-out 100ms ease-out;
 }
