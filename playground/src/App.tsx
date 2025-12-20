@@ -231,7 +231,6 @@ export function App() {
     <Layout
       title="Design System"
       isHomePage
-      maxWidth="2xl"
       sidebar={{
         items: sidebarGroups,
         header: <SidebarHeader />,
@@ -249,7 +248,7 @@ export function App() {
         </Button>
       }
     >
-      <LayoutContainer maxWidth="2xl">
+      <LayoutContainer>
         {/* Page header */}
         <div className="mb-8 pt-2">
           <h1 className="text-2xl font-bold text-navy-900 mb-1">
