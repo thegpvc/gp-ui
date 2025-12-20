@@ -102,11 +102,9 @@ export function LayoutDemo() {
         <div className="space-y-2">
           <div className="demo-label">LayoutContainer maxWidth</div>
           <div className="text-sm text-navy-600 space-y-1">
-            <p><code className="bg-gray-100 px-1 rounded">sm</code> - max-w-sm (24rem / 384px)</p>
-            <p><code className="bg-gray-100 px-1 rounded">md</code> - max-w-md (28rem / 448px)</p>
-            <p><code className="bg-gray-100 px-1 rounded">lg</code> - max-w-lg (32rem / 512px) - default</p>
-            <p><code className="bg-gray-100 px-1 rounded">xl</code> - max-w-xl (36rem / 576px)</p>
-            <p><code className="bg-gray-100 px-1 rounded">2xl</code> - max-w-2xl (42rem / 672px)</p>
+            <p><code className="bg-gray-100 px-1 rounded">narrow</code> - max-w-lg (32rem / 512px) - default</p>
+            <p><code className="bg-gray-100 px-1 rounded">medium</code> - max-w-3xl (48rem / 768px)</p>
+            <p><code className="bg-gray-100 px-1 rounded">wide</code> - max-w-5xl (64rem / 1024px)</p>
           </div>
         </div>
       </section>
@@ -141,8 +139,8 @@ import { Settings } from 'lucide-react'
   ]}
   onLogout={() => signOut()}
 
-  // Content width
-  maxWidth="lg"
+  // Content width: "narrow" (default), "medium", or "wide"
+  maxWidth="narrow"
 >
   <LayoutContainer>
     <p>Page content goes here</p>
