@@ -14,6 +14,7 @@ import {
   LayoutTemplate,
   LogIn,
   PanelLeft,
+  Menu,
 } from 'lucide-react'
 import { ButtonDemo } from './components/ButtonDemo'
 import { BadgeDemo } from './components/BadgeDemo'
@@ -27,6 +28,7 @@ import { LayoutDemo } from './components/LayoutDemo'
 import { ColorsDemo } from './components/ColorsDemo'
 import { LoginPageDemo } from './components/LoginPageDemo'
 import { SidebarDemo } from './components/SidebarDemo'
+import { DropdownDemo } from './components/DropdownDemo'
 
 const sectionDescriptions: Record<string, string> = {
   colors: 'Brand colors and semantic palette',
@@ -38,6 +40,7 @@ const sectionDescriptions: Record<string, string> = {
   statgrid: 'Key-value grid with formatting and copy support',
   skeleton: 'Loading placeholders',
   tabbar: 'Horizontal navigation tabs',
+  dropdown: 'Context menus with sub-menus and selections',
   sidebar: 'Collapsible navigation sidebar',
   layout: 'Page structure and navigation',
   loginpage: 'Full-page login with GP branding',
@@ -139,6 +142,13 @@ export function App() {
           onClick: () => setActiveSection('tabbar'),
           isActive: activeSection === 'tabbar',
         },
+        {
+          id: 'dropdown',
+          label: 'Dropdown',
+          icon: <Menu className="w-5 h-5" />,
+          onClick: () => setActiveSection('dropdown'),
+          isActive: activeSection === 'dropdown',
+        },
       ],
     },
     {
@@ -189,6 +199,8 @@ export function App() {
         return <SkeletonDemo />
       case 'tabbar':
         return <TabBarDemo />
+      case 'dropdown':
+        return <DropdownDemo />
       case 'sidebar':
         return <SidebarDemo />
       case 'layout':
