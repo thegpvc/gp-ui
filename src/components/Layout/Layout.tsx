@@ -5,14 +5,15 @@ import { GPLogo } from "../Logo";
 import { Sidebar } from "../Sidebar/Sidebar";
 import { SidebarProvider, useSidebar } from "../Sidebar/SidebarContext";
 import type { SidebarItem, SidebarGroup } from "../Sidebar/types";
+import { cn } from "../../utils/cn";
 
-const MAX_WIDTH_CLASSES = {
-  sm: "max-w-sm",
-  md: "max-w-md",
-  lg: "max-w-lg",
-  xl: "max-w-xl",
-  "2xl": "max-w-2xl",
-} as const;
+export type MaxWidthSize = "narrow" | "medium" | "wide";
+
+const MAX_WIDTH_CLASSES: Record<MaxWidthSize, string> = {
+  narrow: "max-w-lg",
+  medium: "max-w-3xl",
+  wide: "max-w-5xl",
+};
 
 export interface LayoutUser {
   name?: string;
@@ -48,7 +49,7 @@ export interface LayoutProps {
   title?: string;
   showBackButton?: boolean;
   headerRight?: ReactNode;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl";
+  maxWidth?: MaxWidthSize;
   banner?: LayoutBanner;
   searchBar?: ReactNode;
   isHomePage?: boolean;
@@ -201,7 +202,7 @@ interface LayoutContentProps {
   user?: LayoutUser;
   menuItems: LayoutMenuItem[];
   onLogout?: () => void;
-  maxWidth: "sm" | "md" | "lg" | "xl" | "2xl";
+  maxWidth: MaxWidthSize;
   banner?: LayoutBanner;
   searchBar?: ReactNode;
   sidebar?: LayoutSidebar;
@@ -269,7 +270,7 @@ function LayoutContent({
             {/* Search bar */}
             {searchBar && (
               <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-3">
-                <div className={`${MAX_WIDTH_CLASSES[maxWidth]} mx-auto`}>
+                <div className={cn(MAX_WIDTH_CLASSES[maxWidth], "mx-auto")}>
                   {searchBar}
                 </div>
               </div>
@@ -318,7 +319,7 @@ function LayoutContent({
       {/* Search bar */}
       {searchBar && (
         <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-3">
-          <div className={`${MAX_WIDTH_CLASSES[maxWidth]} mx-auto`}>
+          <div className={cn(MAX_WIDTH_CLASSES[maxWidth], "mx-auto")}>
             {searchBar}
           </div>
         </div>
@@ -335,7 +336,7 @@ export function Layout({
   title,
   showBackButton = false,
   headerRight,
-  maxWidth = "lg",
+  maxWidth = "narrow",
   banner,
   searchBar,
   isHomePage = false,
@@ -392,15 +393,15 @@ export function Layout({
 
 export interface LayoutContainerProps {
   children: ReactNode;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl";
+  maxWidth?: MaxWidthSize;
 }
 
 export function LayoutContainer({
   children,
-  maxWidth = "lg",
+  maxWidth = "narrow",
 }: LayoutContainerProps) {
   return (
-    <div className={`${MAX_WIDTH_CLASSES[maxWidth]} mx-auto px-4 py-4`}>
+    <div className={cn(MAX_WIDTH_CLASSES[maxWidth], "mx-auto px-4 py-4")}>
       {children}
     </div>
   );
