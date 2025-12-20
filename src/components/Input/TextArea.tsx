@@ -120,6 +120,23 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       }
     }, [value, autoResize])
 
+    // Base styles shared by all textareas
+    const baseClasses = 'w-full border rounded-md bg-white transition-colors resize-y focus:outline-none focus:ring-2 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 placeholder:text-navy-400 text-navy-900'
+
+    // Variant-specific border and focus styles
+    const variantClasses = {
+      default: 'border-gray-200 focus:ring-orange-500',
+      error: 'border-red-300 focus:ring-red-500',
+      success: 'border-emerald-300 focus:ring-emerald-500',
+    }
+
+    // Size-specific padding, font, and min-height
+    const sizeClasses = {
+      sm: 'px-3 py-1.5 text-sm min-h-[4rem]',
+      md: 'px-3 py-2 text-sm min-h-[6rem]',
+      lg: 'px-4 py-2.5 text-base min-h-[8rem]',
+    }
+
     return (
       <InputWrapper
         label={label}
@@ -135,9 +152,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             ref={internalRef}
             id={id}
             className={cn(
-              'gp-textarea-base',
-              `gp-input-${variant}`,
-              `gp-textarea-${size}`,
+              baseClasses,
+              variantClasses[variant],
+              sizeClasses[size],
               autoResize && 'resize-none',
               className
             )}

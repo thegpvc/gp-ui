@@ -108,6 +108,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    // Base styles shared by all inputs
+    const baseClasses = 'w-full border rounded-md bg-white transition-colors focus:outline-none focus:ring-2 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 placeholder:text-navy-400 text-navy-900'
+
+    // Variant-specific border and focus styles
+    const variantClasses = {
+      default: 'border-gray-200 focus:ring-orange-500',
+      error: 'border-red-300 focus:ring-red-500',
+      success: 'border-emerald-300 focus:ring-emerald-500',
+    }
+
+    // Size-specific padding and font
+    const sizeClasses = {
+      sm: 'px-3 py-1.5 text-sm',
+      md: 'px-3 py-2 text-sm',
+      lg: 'px-4 py-2.5 text-base',
+    }
+
     return (
       <InputWrapper
         label={label}
@@ -128,11 +145,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               ref={ref}
               id={id}
               className={cn(
-                'gp-input-base',
-                `gp-input-${variant}`,
-                `gp-input-${size}`,
-                prefixIcon && 'gp-input-with-prefix',
-                suffixIcon && 'gp-input-with-suffix',
+                baseClasses,
+                variantClasses[variant],
+                sizeClasses[size],
+                prefixIcon && 'pl-9',
+                suffixIcon && 'pr-9',
                 className
               )}
               aria-invalid={variant === 'error'}

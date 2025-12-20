@@ -72,9 +72,10 @@ export function InputWrapper({
           <p
             className={cn(
               helperSpacing,
-              variant === 'error' && 'gp-input-helper-error',
-              variant === 'success' && 'gp-input-helper-success',
-              variant === 'default' && 'gp-input-helper'
+              'text-xs',
+              variant === 'error' && 'text-red-600',
+              variant === 'success' && 'text-emerald-600',
+              variant === 'default' && 'text-navy-500'
             )}
           >
             {helperText}
@@ -90,7 +91,7 @@ export function InputWrapper({
       <div className={cn('w-full', className)}>
         <LabelPrimitive.Root
           htmlFor={id}
-          className={cn('gp-input-label mb-1', required && 'gp-input-label-required')}
+          className={cn('text-sm font-medium text-navy-900 mb-1', required && 'gp-input-label-required')}
         >
           {label}
         </LabelPrimitive.Root>
@@ -99,9 +100,10 @@ export function InputWrapper({
           <p
             className={cn(
               helperSpacing,
-              variant === 'error' && 'gp-input-helper-error',
-              variant === 'success' && 'gp-input-helper-success',
-              variant === 'default' && 'gp-input-helper'
+              'text-xs',
+              variant === 'error' && 'text-red-600',
+              variant === 'success' && 'text-emerald-600',
+              variant === 'default' && 'text-navy-500'
             )}
           >
             {helperText}
@@ -119,8 +121,7 @@ export function InputWrapper({
           <LabelPrimitive.Root
             htmlFor={id}
             className={cn(
-              'gp-input-label',
-              'shrink-0',
+              'text-sm font-medium text-navy-900 shrink-0',
               required && 'gp-input-label-required'
             )}
           >
@@ -131,9 +132,11 @@ export function InputWrapper({
         {helperText && (
           <p
             className={cn(
-              variant === 'error' && 'gp-input-helper-error',
-              variant === 'success' && 'gp-input-helper-success',
-              variant === 'default' && 'gp-input-helper'
+              helperSpacing,
+              'text-xs',
+              variant === 'error' && 'text-red-600',
+              variant === 'success' && 'text-emerald-600',
+              variant === 'default' && 'text-navy-500'
             )}
           >
             {helperText}
@@ -149,7 +152,7 @@ export function InputWrapper({
       <div className="flex items-center gap-2 flex-row-reverse justify-end">
         <LabelPrimitive.Root
           htmlFor={id}
-          className={cn('gp-input-label', required && 'gp-input-label-required')}
+          className={cn('text-sm font-medium text-navy-900', required && 'gp-input-label-required')}
         >
           {label}
         </LabelPrimitive.Root>
@@ -158,9 +161,11 @@ export function InputWrapper({
       {helperText && (
         <p
           className={cn(
-            variant === 'error' && 'gp-input-helper-error',
-            variant === 'success' && 'gp-input-helper-success',
-            variant === 'default' && 'gp-input-helper'
+            helperSpacing,
+            'text-xs',
+            variant === 'error' && 'text-red-600',
+            variant === 'success' && 'text-emerald-600',
+            variant === 'default' && 'text-navy-500'
           )}
         >
           {helperText}
