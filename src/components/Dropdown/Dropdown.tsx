@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import { ChevronRight, Check, Circle } from "lucide-react";
 import { cn } from "../../utils";
 
 // Re-export Root directly - no styling needed
@@ -75,18 +76,7 @@ const DropdownSubTrigger = React.forwardRef<
     {...props}
   >
     {children}
-    <svg
-      className="ml-auto h-4 w-4"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
+    <ChevronRight className="ml-auto h-4 w-4" aria-hidden="true" />
   </DropdownMenuPrimitive.SubTrigger>
 ));
 DropdownSubTrigger.displayName = "Dropdown.SubTrigger";
@@ -131,18 +121,7 @@ const DropdownCheckboxItem = React.forwardRef<
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <svg
-          className="h-4 w-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M20 6 9 17l-5-5" />
-        </svg>
+        <Check className="h-4 w-4" aria-hidden="true" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -166,13 +145,7 @@ const DropdownRadioItem = React.forwardRef<
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <svg
-          className="h-2 w-2 fill-current"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <circle cx="12" cy="12" r="12" />
-        </svg>
+        <Circle className="h-2 w-2 fill-current" aria-hidden="true" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -226,6 +199,63 @@ const DropdownShortcut = ({
 };
 DropdownShortcut.displayName = "Dropdown.Shortcut";
 
+/**
+ * Dropdown menu component with support for sub-menus, checkbox items, and radio items.
+ * Built on Radix UI primitives with compound component pattern.
+ *
+ * @example
+ * ```tsx
+ * // Basic dropdown
+ * <Dropdown>
+ *   <Dropdown.Trigger asChild>
+ *     <Button>Open Menu</Button>
+ *   </Dropdown.Trigger>
+ *   <Dropdown.Content>
+ *     <Dropdown.Item>Profile</Dropdown.Item>
+ *     <Dropdown.Item>Settings</Dropdown.Item>
+ *     <Dropdown.Separator />
+ *     <Dropdown.Item variant="danger">Logout</Dropdown.Item>
+ *   </Dropdown.Content>
+ * </Dropdown>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // With sub-menu
+ * <Dropdown>
+ *   <Dropdown.Trigger>More Options</Dropdown.Trigger>
+ *   <Dropdown.Content>
+ *     <Dropdown.Sub>
+ *       <Dropdown.SubTrigger>Labels</Dropdown.SubTrigger>
+ *       <Dropdown.SubContent>
+ *         <Dropdown.Item>Bug</Dropdown.Item>
+ *         <Dropdown.Item>Feature</Dropdown.Item>
+ *       </Dropdown.SubContent>
+ *     </Dropdown.Sub>
+ *   </Dropdown.Content>
+ * </Dropdown>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // With checkbox and radio items
+ * <Dropdown>
+ *   <Dropdown.Trigger>Preferences</Dropdown.Trigger>
+ *   <Dropdown.Content>
+ *     <Dropdown.Label>View Options</Dropdown.Label>
+ *     <Dropdown.CheckboxItem checked={showGrid}>
+ *       Show Grid
+ *     </Dropdown.CheckboxItem>
+ *     <Dropdown.Separator />
+ *     <Dropdown.Label>Theme</Dropdown.Label>
+ *     <Dropdown.RadioGroup value={theme}>
+ *       <Dropdown.RadioItem value="light">Light</Dropdown.RadioItem>
+ *       <Dropdown.RadioItem value="dark">Dark</Dropdown.RadioItem>
+ *     </Dropdown.RadioGroup>
+ *   </Dropdown.Content>
+ * </Dropdown>
+ * ```
+ */
 // Compound component export
 export const Dropdown = Object.assign(DropdownRoot, {
   Trigger: DropdownTrigger,
