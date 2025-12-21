@@ -149,7 +149,7 @@ export function ConfirmModal({
           {typeof description === "string" ? (
             <Modal.Description>{description}</Modal.Description>
           ) : (
-            <div className="text-sm text-gray-600">{description}</div>
+            <div className="text-sm text-navy-600">{description}</div>
           )}
         </Modal.Body>
         <Modal.Footer>
