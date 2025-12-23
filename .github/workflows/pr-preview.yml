@@ -84,7 +84,7 @@ jobs:
         run: npm ci
 
       - name: Build playground with PR base path
-        run: npm run build:playground -- --base "/pr-${{ github.event.pull_request.number }}/"
+        run: npm run build:playground -- --base "/gp-ui/pr-${{ github.event.pull_request.number }}/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -116,7 +116,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.pull_request.number;
-            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/pr-${prNumber}/`;
+            const previewUrl = `https://${context.repo.owner}.github.io/gp-ui/pr-${prNumber}/`;
             const timestamp = new Date().toISOString();
 
             // Find existing preview comment
