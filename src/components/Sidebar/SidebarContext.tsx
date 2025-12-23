@@ -48,7 +48,6 @@ export function SidebarProvider({
   useEffect(() => {
     // Skip mobile detection for inline variant
     if (variant === "inline") {
-      setIsMobile(false);
       return;
     }
 
