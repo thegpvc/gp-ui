@@ -84,14 +84,14 @@ jobs:
         run: npm ci
 
       - name: Build playground with PR base path
-        run: npm run build:playground -- --base "/_/pr-${{ github.event.pull_request.number }}/"
+        run: npm run build:playground -- --base "/pr-${{ github.event.pull_request.number }}/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./playground-dist
-          destination_dir: _/pr-${{ github.event.pull_request.number }}
+          destination_dir: pr-${{ github.event.pull_request.number }}
           keep_files: true
 
       - name: Add has-preview label
@@ -116,7 +116,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.pull_request.number;
-            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/_/pr-${prNumber}/`;
+            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/pr-${prNumber}/`;
             const timestamp = new Date().toISOString();
 
             // Find existing preview comment
@@ -163,7 +163,7 @@ jobs:
 
       - name: Remove PR preview directory
         run: |
-          PR_DIR="_/pr-${{ github.event.pull_request.number }}"
+          PR_DIR="pr-${{ github.event.pull_request.number }}"
           if [ -d "$PR_DIR" ]; then
             rm -rf "$PR_DIR"
             git config user.name "github-actions[bot]"
