@@ -17,6 +17,7 @@ import {
   Menu,
   Type,
   MessageSquare,
+  Square,
 } from 'lucide-react'
 import { ButtonDemo } from './components/ButtonDemo'
 import { BadgeDemo } from './components/BadgeDemo'
@@ -33,6 +34,7 @@ import { SidebarDemo } from './components/SidebarDemo'
 import { DropdownDemo } from './components/DropdownDemo'
 import { InputDemo } from './components/InputDemo'
 import { TooltipDemo } from './components/TooltipDemo'
+import { ModalDemo } from './components/ModalDemo'
 
 const sectionDescriptions: Record<string, string> = {
   colors: 'Brand colors and semantic palette',
@@ -47,6 +49,7 @@ const sectionDescriptions: Record<string, string> = {
   dropdown: 'Context menus with sub-menus and selections',
   input: 'Form inputs with labels, icons, and validation states',
   tooltip: 'Contextual information on hover',
+  modal: 'Dialog modals with alerts and confirmations',
   sidebar: 'Collapsible navigation sidebar',
   layout: 'Page structure and navigation',
   loginpage: 'Full-page login with GP branding',
@@ -169,6 +172,13 @@ export function App() {
           onClick: () => setActiveSection('tooltip'),
           isActive: activeSection === 'tooltip',
         },
+        {
+          id: 'modal',
+          label: 'Modal',
+          icon: <Square className="w-5 h-5" />,
+          onClick: () => setActiveSection('modal'),
+          isActive: activeSection === 'modal',
+        },
       ],
     },
     {
@@ -225,6 +235,8 @@ export function App() {
         return <InputDemo />
       case 'tooltip':
         return <TooltipDemo />
+      case 'modal':
+        return <ModalDemo />
       case 'sidebar':
         return <SidebarDemo />
       case 'layout':

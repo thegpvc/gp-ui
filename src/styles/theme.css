@@ -347,3 +347,60 @@ body {
 .animate-tooltip-out {
   animation: tooltip-out 100ms ease-out;
 }
+
+/* Modal animations - overlay fades in/out, content scales and fades */
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes modal-content-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.95);
+  }
+}
+
+.animate-modal-overlay-in {
+  animation: modal-overlay-in 150ms ease-out;
+}
+
+.animate-modal-overlay-out {
+  animation: modal-overlay-out 150ms ease-in;
+}
+
+.animate-modal-content-in {
+  animation: modal-content-in 150ms ease-out;
+}
+
+.animate-modal-content-out {
+  animation: modal-content-out 150ms ease-in;
+}
