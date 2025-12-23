@@ -1,0 +1,13 @@
+{
+  "enabledPlugins": {
+    "gp-ui@gp-ui": true
+  },
+  "extraKnownMarketplaces": {
+    "gp-ui": {
+      "source": {
+        "source": "directory",
+        "path": "./claude-plugin"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "gp-ui",
+  "owner": {
+    "name": "TheGP"
+  },
+  "plugins": [
+    {
+      "name": "gp-ui",
+      "description": "TheGP's @gp/ui design system library for React applications",
+      "source": "./",
+      "skills": [
+        "./skills/gp-ui"
+      ]
+    }
+  ]
+}
