@@ -94,28 +94,33 @@
   }
 
   .gp-badge-success {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-emerald-100 text-emerald-700;
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-normal rounded-full;
+    @apply bg-white text-emerald-700;
+    box-shadow: 0 0 8px rgb(16 185 129 / 0.3);
   }
 
   .gp-badge-warning {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-amber-100 text-amber-700;
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-normal rounded-full;
+    @apply bg-white text-amber-700;
+    box-shadow: 0 0 8px rgb(245 158 11 / 0.3);
   }
 
   .gp-badge-error {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-red-100 text-red-700;
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-normal rounded-full;
+    @apply bg-white text-red-700;
+    box-shadow: 0 0 8px rgb(239 68 68 / 0.3);
   }
 
   .gp-badge-info {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-navy-100 text-navy-700;
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-normal rounded-full;
+    @apply bg-white text-navy-700;
+    box-shadow: 0 0 8px rgb(64 81 117 / 0.3);
   }
 
   .gp-badge-neutral {
-    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-gray-100 text-gray-700;
+    @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-normal rounded-full;
+    @apply bg-white text-gray-700;
+    box-shadow: 0 0 8px rgb(107 114 128 / 0.3);
   }
 
   .gp-stat-card {
