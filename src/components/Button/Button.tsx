@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { cloneElement, isValidElement, type ButtonHTMLAttributes, type ReactNode, type ReactElement } from 'react'
 import { Loader2 } from 'lucide-react'
 import { cn } from '../../utils/cn'
 
@@ -34,10 +34,17 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Icon position (default: left)
    */
   iconPosition?: 'left' | 'right'
+
+  /**
+   * Apply spin animation to the icon
+   */
+  spin?: boolean
 }
 
 /**
  * Button component with TheGP design system styling.
+ *
+ * Icons passed via the `icon` prop are automatically sized to match the button size.
  *
  * @example
  * ```tsx
@@ -52,6 +59,10 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * <Button variant="destructive" icon={<Trash2 />}>
  *   Delete
  * </Button>
+ *
+ * <Button variant="ghost" size="sm" icon={<RefreshCw />} spin={isRefreshing}>
+ *   Refresh
+ * </Button>
  * ```
  */
 export function Button({
@@ -60,6 +71,7 @@ export function Button({
   loading = false,
   icon,
   iconPosition = 'left',
+  spin = false,
   className = '',
   children,
   disabled,
@@ -86,6 +98,22 @@ export function Button({
 
   const isDisabled = disabled || loading
 
+  // Helper to render icon with appropriate size and animation classes
+  const renderIcon = (iconNode: ReactNode) => {
+    if (!isValidElement(iconNode)) {
+      return iconNode
+    }
+
+    // Clone the icon element and inject size and animation classes
+    return cloneElement(iconNode as ReactElement<{ className?: string }>, {
+      className: cn(
+        iconSizeClasses[size],
+        spin && 'animate-spin',
+        (iconNode as ReactElement<{ className?: string }>).props.className
+      ),
+    })
+  }
+
   return (
     <button
       className={cn(
@@ -104,13 +132,13 @@ export function Button({
       )}
       {!loading && icon && iconPosition === 'left' && (
         <span aria-hidden="true">
-          {icon}
+          {renderIcon(icon)}
         </span>
       )}
       {children}
       {!loading && icon && iconPosition === 'right' && (
         <span aria-hidden="true">
-          {icon}
+          {renderIcon(icon)}
         </span>
       )}
     </button>
