@@ -25,6 +25,7 @@ TheGP's shared React component library with Tailwind theme integration.
 | Alert | Notifications: info, warning, error, success |
 | Input | Text input with label, icons, validation states |
 | TextArea | Multi-line input with auto-resize |
+| Modal | Dialog overlays (Radix-based) with sizes, controlled/uncontrolled state |
 | Dropdown | Menu system (Radix-based) with items, checkboxes, submenus |
 | Tooltip | Hover hints (Radix-based) |
 | TabBar | Horizontal tab navigation |
@@ -76,4 +77,4 @@ Custom Tailwind colors available after importing theme:
 
 ## Peer Dependencies
 
-Apps must install: `react`, `react-dom`, `lucide-react`, `@radix-ui/react-dropdown-menu`, `@radix-ui/react-tooltip`, `@radix-ui/react-label`
+Apps must install: `react`, `react-dom`, `lucide-react`, `@radix-ui/react-dialog`, `@radix-ui/react-dropdown-menu`, `@radix-ui/react-tooltip`, `@radix-ui/react-label`

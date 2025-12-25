@@ -66,6 +66,7 @@ Consuming apps must provide these packages:
 | `react` | 18.0.0 | React library |
 | `react-dom` | 18.0.0 | DOM rendering |
 | `lucide-react` | 0.400.0 | Icon library |
+| `@radix-ui/react-dialog` | 1.0.0 | Modal/Dialog component |
 | `@radix-ui/react-dropdown-menu` | 2.0.0 | Dropdown component |
 | `@radix-ui/react-tooltip` | 1.0.0 | Tooltip component |
 | `@radix-ui/react-label` | 2.0.0 | Form labels |
@@ -73,7 +74,7 @@ Consuming apps must provide these packages:
 Install all peer dependencies:
 
 ```bash
-npm install react react-dom lucide-react @radix-ui/react-dropdown-menu @radix-ui/react-tooltip @radix-ui/react-label
+npm install react react-dom lucide-react @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-tooltip @radix-ui/react-label
 ```
 
 ---

@@ -292,6 +292,97 @@ interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 ---
 
+## Modal
+
+Dialog overlays built on Radix UI Dialog primitives. Supports trigger-based or controlled state, with multiple sizes and optional overlay dismiss.
+
+### Sub-components
+| Component | Purpose |
+|-----------|---------|
+| `Modal` | Root container (accepts `open` and `onOpenChange` for controlled state) |
+| `Modal.Trigger` | Opens modal (use `asChild` prop) |
+| `Modal.Content` | Modal content with overlay |
+| `Modal.Header` | Header section |
+| `Modal.Title` | Accessible title (required for a11y) |
+| `Modal.Description` | Accessible description |
+| `Modal.Body` | Content area |
+| `Modal.Footer` | Footer section (typically for actions) |
+| `Modal.Close` | Close button (use `asChild` prop) |
+
+### Modal.Content Props
+```typescript
+interface ModalContentProps {
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'; // Default: 'md'
+  showClose?: boolean; // Show X button, default: true
+  dismissOnOverlayClick?: boolean; // Allow overlay/ESC dismiss, default: true
+}
+```
+
+### Examples
+
+**Basic modal with trigger:**
+```tsx
+<Modal>
+  <Modal.Trigger asChild>
+    <Button>Open Modal</Button>
+  </Modal.Trigger>
+  <Modal.Content>
+    <Modal.Header>
+      <Modal.Title>Modal Title</Modal.Title>
+      <Modal.Description>Modal description</Modal.Description>
+    </Modal.Header>
+    <Modal.Body>
+      <p>Modal content goes here.</p>
+    </Modal.Body>
+    <Modal.Footer>
+      <Modal.Close asChild>
+        <Button variant="secondary">Cancel</Button>
+      </Modal.Close>
+      <Button>Confirm</Button>
+    </Modal.Footer>
+  </Modal.Content>
+</Modal>
+```
+
+**Controlled modal:**
+```tsx
+const [open, setOpen] = useState(false);
+
+<Modal open={open} onOpenChange={setOpen}>
+  <Modal.Content size="lg">
+    <Modal.Header>
+      <Modal.Title>Large Modal</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <p>Content here</p>
+    </Modal.Body>
+  </Modal.Content>
+</Modal>
+```
+
+**Modal without overlay dismiss (force user choice):**
+```tsx
+<Modal>
+  <Modal.Trigger asChild>
+    <Button>Open</Button>
+  </Modal.Trigger>
+  <Modal.Content dismissOnOverlayClick={false}>
+    <Modal.Header>
+      <Modal.Title>Important Decision</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <p>You must make a choice.</p>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={() => handleChoice('no')}>No</Button>
+      <Button onClick={() => handleChoice('yes')}>Yes</Button>
+    </Modal.Footer>
+  </Modal.Content>
+</Modal>
+```
+
+---
+
 ## Dropdown
 
 Menu system built on Radix UI with compound components.
