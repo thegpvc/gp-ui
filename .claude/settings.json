@@ -6,7 +6,7 @@
     "gp-ui": {
       "source": {
         "source": "directory",
-        "path": "./claude-plugin"
+        "path": "./.claude-plugin"
       }
     }
   }

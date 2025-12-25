@@ -189,7 +189,7 @@ This library includes a [Claude Code](https://claude.ai/code) plugin that provid
 In Claude Code, run:
 
 ```
-/plugin add github:thegpvc/gp-ui/claude-plugin
+/plugin add github:thegpvc/gp-ui
 ```
 
 ### What It Provides
