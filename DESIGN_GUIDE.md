@@ -10,7 +10,7 @@ Brand tone: professional, tool-like, minimal—but recognizable as TheGP.
 | Primary actions only (buttons, focus rings) | Orange #ff6c1b     | `bg-orange-500`, `ring-orange-500` |
 | Page backgrounds                            | Off-white #fff9f2  | `bg-orange-50` or custom           |
 | Borders, dividers                           | Light gray #e5e5e5 | `border-gray-200`                  |
-| Tags, badges                                | Subtle navy/gray   | `bg-navy-100 text-navy-700`        |
+| Tags, badges                                | White with glow    | `bg-white` + colored border/shadow |
 
 Use orange sparingly—primary actions only, never large color blocks.
 
@@ -53,6 +53,18 @@ bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-ora
 ```
 
 White background, 1px border, 6px radius, orange focus ring.
+
+### Badges
+
+Badges use a glow-effect pattern with white backgrounds and colored borders/shadows:
+
+- **Success**: `bg-white text-emerald-600 border-emerald-200/50` + emerald glow
+- **Warning**: `bg-white text-orange-600 border-orange-200/50` + orange glow
+- **Error**: `bg-white text-red-600 border-red-200/50` + red glow
+- **Info**: `bg-white text-navy-700 border-navy-200/50` + navy glow
+- **Neutral**: `bg-white text-gray-700 border-gray-200/50` + gray glow
+
+Typography: `text-xs font-medium`, rounded-full, subtle box-shadow for glow effect.
 
 ### Lists/Tables
 
