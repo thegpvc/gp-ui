@@ -179,3 +179,25 @@ See [DESIGN_GUIDE.md](./DESIGN_GUIDE.md) for:
 - Typography scale
 - Spacing system
 - Component design patterns
+
+## Claude Code Integration
+
+This library includes a [Claude Code](https://claude.ai/code) plugin that provides AI assistance when building UIs with @gp/ui components.
+
+### Enable the Plugin
+
+In Claude Code, run:
+
+```
+/plugin add github:thegpvc/gp-ui/claude-plugin
+```
+
+### What It Provides
+
+The plugin gives Claude knowledge of:
+- All available components and their props
+- Design system colors, typography, and spacing
+- Icon exports and naming conventions
+- Setup and migration guidance
+
+When building UIs, Claude will automatically use the correct components, variants, and patterns from @gp/ui.

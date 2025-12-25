@@ -19,7 +19,7 @@ npm run typecheck  # TypeScript type checking only
 
 **Library structure:**
 - `src/index.ts` - Main entry point, exports all components/icons/utilities
-- `src/components/` - React components (Button, Badge, Card, StatCard, Alert, Skeleton, Layout)
+- `src/components/` - React components (Button, Badge, Card, StatCard, Alert, Skeleton, Layout, Modal)
 - `src/icons/` - Re-exports from lucide-react
 - `src/utils/cn.ts` - Class name merge utility (clsx + tailwind-merge)
 - `src/styles/theme.css` - Tailwind theme with custom colors and component classes
@@ -44,7 +44,7 @@ See [DESIGN_GUIDE.md](./DESIGN_GUIDE.md) for colors, typography, spacing, and co
 
 ## Peer Dependencies
 
-Consuming apps must provide: react, react-dom, lucide-react, @radix-ui/react-dropdown-menu
+Consuming apps must provide: react, react-dom, lucide-react, @radix-ui/react-dialog, @radix-ui/react-dropdown-menu, @radix-ui/react-tooltip, @radix-ui/react-label
 
 ## Development Guidelines
 
