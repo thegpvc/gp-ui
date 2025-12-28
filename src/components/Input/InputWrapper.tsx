@@ -163,8 +163,8 @@ export function InputWrapper({
           className={cn(
             helperSpacing,
             'text-xs',
-            variant === 'error' && 'text-red-600',
-            variant === 'success' && 'text-emerald-600',
+            variant === 'error' && 'text-rose-700',
+            variant === 'success' && 'text-emerald-700',
             variant === 'default' && 'text-navy-500'
           )}
         >
