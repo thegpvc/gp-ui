@@ -73,18 +73,18 @@ export function ColorsDemo() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div>
             <div className="demo-label">Success</div>
-            <div className="h-12 bg-emerald-500 rounded-md mb-1" />
-            <div className="text-xs text-navy-600">emerald-500</div>
+            <div className="h-12 bg-emerald-700 rounded-md mb-1" />
+            <div className="text-xs text-navy-600">emerald-700</div>
           </div>
           <div>
             <div className="demo-label">Warning</div>
-            <div className="h-12 bg-amber-500 rounded-md mb-1" />
-            <div className="text-xs text-navy-600">amber-500</div>
+            <div className="h-12 bg-amber-600 rounded-md mb-1" />
+            <div className="text-xs text-navy-600">amber-600</div>
           </div>
           <div>
             <div className="demo-label">Error</div>
-            <div className="h-12 bg-red-500 rounded-md mb-1" />
-            <div className="text-xs text-navy-600">red-500</div>
+            <div className="h-12 bg-rose-700 rounded-md mb-1" />
+            <div className="text-xs text-navy-600">rose-700</div>
           </div>
           <div>
             <div className="demo-label">Info</div>

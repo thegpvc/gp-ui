@@ -48,8 +48,8 @@ After importing `@gp/ui/theme`, these Tailwind colors are available:
 | Status | Background | Text |
 |--------|------------|------|
 | Success | `bg-emerald-50` | `text-emerald-700` |
-| Warning | `bg-amber-50` | `text-amber-700` |
-| Error | `bg-red-50` | `text-red-700` |
+| Warning | `bg-amber-50` | `text-amber-600` |
+| Error | `bg-rose-50` | `text-rose-700` |
 | Info | `bg-navy-50` | `text-navy-700` |
 
 ---
@@ -155,7 +155,7 @@ bg-white rounded-lg p-4 shadow-sm
 |---------|---------|
 | Primary | `bg-orange-500 hover:bg-orange-600 text-white` |
 | Secondary | `border border-navy-700 text-navy-700 hover:bg-navy-50` |
-| Destructive | `bg-red-500 hover:bg-red-600 text-white` |
+| Destructive | `bg-rose-700 hover:bg-rose-800 text-white` |
 
 ### Inputs
 

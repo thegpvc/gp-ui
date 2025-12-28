@@ -44,7 +44,7 @@ White background, 8px radius (`rounded-lg`), 16px padding, light shadow.
 
 - Primary: `bg-orange-500 hover:bg-orange-600 text-white`
 - Secondary: `border border-navy-700 text-navy-700 hover:bg-navy-50`
-- Destructive: `bg-red-500 hover:bg-red-600 text-white`
+- Destructive: `bg-rose-700 hover:bg-rose-800 text-white`
 
 ### Inputs
 
