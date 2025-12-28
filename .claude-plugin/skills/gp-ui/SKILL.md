@@ -1,6 +1,6 @@
 ---
 name: gp-ui
-description: Use TheGP's @gp/ui design system library when building React applications. Provides components (Button, Card, Input, Layout, Sidebar, Dropdown, etc.), Tailwind theme integration, and icons. Use when creating UI with TheGP components, adding @gp/ui to a project, or styling with TheGP's theme tokens.
+description: Use when building React UIs for TheGP applications, migrating existing UIs to @gp/ui components, integrating Tailwind v4 with @gp/ui theme, or answering questions about available components, design tokens, icons, or setup. Activate when user mentions @gp/ui, TheGP design system, or asks about GP-specific UI patterns and components.
 ---
 
 # @gp/ui Design System
