@@ -126,7 +126,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     // Variant-specific border and focus styles
     const variantClasses = {
       default: 'border-gray-200 focus:ring-orange-500',
-      error: 'border-rose-300 focus:ring-rose-700',
+      error: 'border-rose-400 focus:ring-rose-700',
       success: 'border-emerald-300 focus:ring-emerald-700',
     }
 
