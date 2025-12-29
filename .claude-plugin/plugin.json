@@ -1,6 +1,6 @@
 {
   "name": "gp-ui",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "TheGP's @gp/ui design system library for React applications. Provides components (Button, Card, Input, Layout, Sidebar, Dropdown, Tooltip), Tailwind theme integration, and semantic icons.",
   "author": {
     "name": "TheGP"
