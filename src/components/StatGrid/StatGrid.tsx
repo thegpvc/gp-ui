@@ -111,9 +111,9 @@ function formatBytes(bytes: number): string {
 // Status color classes
 const statusClasses = {
   default: 'text-navy-900',
-  success: 'text-emerald-600',
+  success: 'text-emerald-700',
   warning: 'text-amber-600',
-  error: 'text-red-600',
+  error: 'text-rose-700',
   info: 'text-blue-600',
 }
 
@@ -146,7 +146,7 @@ function CopyButton({ value }: { value: string }) {
       aria-label="Copy to clipboard"
     >
       {copied ? (
-        <Check className="w-3.5 h-3.5 text-emerald-600" />
+        <Check className="w-3.5 h-3.5 text-emerald-700" />
       ) : (
         <Copy className="w-3.5 h-3.5 text-navy-400" />
       )}

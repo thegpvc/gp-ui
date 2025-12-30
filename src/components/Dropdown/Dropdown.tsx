@@ -94,7 +94,7 @@ const DropdownItem = React.forwardRef<
     className={cn(
       "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors",
       "focus:bg-gray-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      variant === "danger" && "text-red-600 focus:bg-red-50 focus:text-red-600",
+      variant === "danger" && "text-rose-700 focus:bg-rose-50 focus:text-rose-700",
       variant === "default" && "text-navy-700",
       inset && "pl-8",
       className

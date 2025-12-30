@@ -165,7 +165,7 @@ export function StatCard({
           <div
             className={cn(
               'inline-flex items-center gap-1 text-xs font-medium',
-              trend.direction === 'up' ? 'text-emerald-600' : 'text-red-600'
+              trend.direction === 'up' ? 'text-emerald-700' : 'text-rose-700'
             )}
             aria-label={`Trend: ${trend.direction === 'up' ? 'increasing' : 'decreasing'} ${trend.value}`}
           >

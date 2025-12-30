@@ -114,8 +114,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     // Variant-specific border and focus styles
     const variantClasses = {
       default: 'border-gray-200 focus:ring-orange-500',
-      error: 'border-red-300 focus:ring-red-500',
-      success: 'border-emerald-300 focus:ring-emerald-500',
+      error: 'border-rose-400 focus:ring-rose-700',
+      success: 'border-emerald-300 focus:ring-emerald-700',
     }
 
     // Size-specific padding and font

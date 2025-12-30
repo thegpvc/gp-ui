@@ -77,8 +77,8 @@ export function Alert({
   const iconColors = {
     info: 'text-navy-600',
     warning: 'text-amber-600',
-    error: 'text-red-600',
-    success: 'text-emerald-600',
+    error: 'text-rose-700',
+    success: 'text-emerald-700',
   }
 
   return (

@@ -156,7 +156,7 @@ function Header({
                       key={index}
                       className={`flex items-center gap-2 px-3 py-2 text-sm cursor-pointer outline-none ${
                         item.variant === "danger"
-                          ? "text-red-600 hover:bg-red-50"
+                          ? "text-rose-700 hover:bg-rose-50"
                           : "text-navy-700 hover:bg-gray-50"
                       }`}
                       onSelect={item.onClick}

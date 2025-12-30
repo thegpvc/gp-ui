@@ -90,7 +90,7 @@
     @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
     @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
     @apply disabled:opacity-50 disabled:cursor-not-allowed;
-    @apply bg-red-500 text-white hover:bg-red-600 focus:ring-red-500/20;
+    @apply bg-rose-700 text-white hover:bg-rose-800 focus:ring-rose-700/20;
   }
 
   .gp-badge-success {
@@ -100,12 +100,12 @@
 
   .gp-badge-warning {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-amber-100 text-amber-700;
+    @apply bg-amber-100 text-amber-600;
   }
 
   .gp-badge-error {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-red-100 text-red-700;
+    @apply bg-rose-100 text-rose-700;
   }
 
   .gp-badge-info {
@@ -129,12 +129,12 @@
 
   .gp-alert-warning {
     @apply px-4 py-3 rounded-md border;
-    @apply bg-amber-50 border-amber-200 text-amber-700;
+    @apply bg-amber-50 border-amber-200 text-amber-600;
   }
 
   .gp-alert-error {
     @apply px-4 py-3 rounded-md border;
-    @apply bg-red-50 border-red-200 text-red-700;
+    @apply bg-rose-50 border-rose-200 text-rose-700;
   }
 
   .gp-alert-success {
@@ -144,7 +144,7 @@
 
   /* Required field indicator - uses pseudo-element which cannot be done with Tailwind utilities */
   .gp-input-label-required::after {
-    @apply content-['*'] text-red-500 ml-1;
+    @apply content-['*'] text-rose-700 ml-1;
   }
 
   /* Checkbox styling - must override gp-input-base w-full and padding from size classes */
