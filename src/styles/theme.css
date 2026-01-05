@@ -95,27 +95,32 @@
 
   .gp-badge-success {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-emerald-100 text-emerald-700;
+    @apply bg-white text-emerald-700 border border-emerald-200/50;
+    box-shadow: 0 0 8px rgb(16 185 129 / 0.3); /* emerald-500 */
   }
 
   .gp-badge-warning {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-amber-100 text-amber-600;
+    @apply bg-white text-amber-600 border border-amber-200/50;
+    box-shadow: 0 0 8px rgb(245 158 11 / 0.3); /* amber-500 */
   }
 
   .gp-badge-error {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-rose-100 text-rose-700;
+    @apply bg-white text-rose-700 border border-rose-200/50;
+    box-shadow: 0 0 8px rgb(244 63 94 / 0.3); /* rose-500 */
   }
 
   .gp-badge-info {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-navy-100 text-navy-700;
+    @apply bg-white text-navy-700 border border-navy-200/50;
+    box-shadow: 0 0 8px rgb(64 81 117 / 0.3); /* navy-500 */
   }
 
   .gp-badge-neutral {
     @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-xs font-medium rounded-full;
-    @apply bg-gray-100 text-gray-700;
+    @apply bg-white text-gray-700 border border-gray-200/50;
+    box-shadow: 0 0 8px rgb(107 114 128 / 0.3); /* gray-500 */
   }
 
   .gp-stat-card {
