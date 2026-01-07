@@ -82,6 +82,19 @@ Lucide React, thin-line monochrome style. Size 16-20px typically.
 - Compact header: 56-64px height
 - Compact spacing throughout
 
+## Z-Index Scale
+
+Use consistent z-index values to ensure proper layering:
+
+| Layer | z-index | Usage |
+| ----- | ------- | ----- |
+| Base | `z-0` | Default content |
+| Sticky | `z-10` | Sticky headers, tabs |
+| Header | `z-20` | Layout header |
+| Backdrop | `z-30` | Drawer/modal backdrops |
+| Drawer | `z-40` | Slide-out drawers, sidebars |
+| Overlay | `z-50` | Modals, tooltips, dropdowns |
+
 ## Interactions
 
 - Minimal animations—keep fast and functional
