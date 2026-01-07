@@ -18,6 +18,7 @@ import {
   Type,
   MessageSquare,
   Square,
+  Layers,
 } from 'lucide-react'
 import { ButtonDemo } from './components/ButtonDemo'
 import { BadgeDemo } from './components/BadgeDemo'
@@ -35,6 +36,7 @@ import { DropdownDemo } from './components/DropdownDemo'
 import { InputDemo } from './components/InputDemo'
 import { TooltipDemo } from './components/TooltipDemo'
 import { ModalDemo } from './components/ModalDemo'
+import { ContentLayoutsDemo } from './components/ContentLayoutsDemo'
 
 const sectionDescriptions: Record<string, string> = {
   colors: 'Brand colors and semantic palette',
@@ -52,6 +54,7 @@ const sectionDescriptions: Record<string, string> = {
   modal: 'Dialog modals with alerts and confirmations',
   sidebar: 'Collapsible navigation sidebar',
   layout: 'Page structure and navigation',
+  contentlayouts: 'Content area primitives for tabs, sidebars, and canvases',
   loginpage: 'Full-page login with GP branding',
 }
 
@@ -199,6 +202,13 @@ export function App() {
           isActive: activeSection === 'layout',
         },
         {
+          id: 'contentlayouts',
+          label: 'Content Layouts',
+          icon: <Layers className="w-5 h-5" />,
+          onClick: () => setActiveSection('contentlayouts'),
+          isActive: activeSection === 'contentlayouts',
+        },
+        {
           id: 'loginpage',
           label: 'LoginPage',
           icon: <LogIn className="w-5 h-5" />,
@@ -241,6 +251,8 @@ export function App() {
         return <SidebarDemo />
       case 'layout':
         return <LayoutDemo />
+      case 'contentlayouts':
+        return <ContentLayoutsDemo />
       case 'loginpage':
         return <LoginPageDemo />
     }
