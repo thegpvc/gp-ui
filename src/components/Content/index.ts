@@ -16,4 +16,4 @@ export type { ContentSidebarTriggerProps } from "./ContentSidebarTrigger";
 export { ContentPane } from "./ContentPane";
 export type { ContentPaneProps, ContentPaneMaxWidth } from "./ContentPane";
 
-export { useContentSidebar } from "./ContentContext";
+export { useContentSidebar, useContentLayout } from "./ContentContext";

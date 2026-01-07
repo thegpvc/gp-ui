@@ -35,6 +35,39 @@ export function useContentSidebar() {
   };
 }
 
+/**
+ * Hook for consumers who need access to content layout state.
+ * Provides sidebar state and controls for custom layouts.
+ *
+ * @example
+ * ```tsx
+ * function MyComponent() {
+ *   const { hasSidebar, sidebarOpen, toggleSidebar, closeSidebar } = useContentLayout();
+ *
+ *   // Close sidebar on route change
+ *   useEffect(() => {
+ *     closeSidebar();
+ *   }, [location.pathname, closeSidebar]);
+ *
+ *   return (
+ *     <button onClick={toggleSidebar}>
+ *       {sidebarOpen ? 'Close' : 'Open'} Sidebar
+ *     </button>
+ *   );
+ * }
+ * ```
+ */
+export function useContentLayout() {
+  const { hasSidebar, sidebarOpen, toggleSidebar, closeSidebar } =
+    useContentContext();
+  return {
+    hasSidebar,
+    sidebarOpen,
+    toggleSidebar,
+    closeSidebar,
+  };
+}
+
 interface ContentProviderProps {
   children: ReactNode;
 }

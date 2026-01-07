@@ -55,16 +55,13 @@ export function ContentSidebarDrawer({
         className={cn(
           "fixed top-0 z-40 h-[100dvh] bg-white flex flex-col md:hidden",
           "transition-transform duration-200",
+          "border-gray-200",
           SIDEBAR_WIDTH_CLASSES[width],
-          position === "left" ? "left-0 border-r" : "right-0 border-l",
-          position === "left"
-            ? open
-              ? "translate-x-0"
-              : "-translate-x-full"
-            : open
-              ? "translate-x-0"
-              : "translate-x-full",
-          "border-gray-200"
+          position === "left" && "left-0 border-r",
+          position === "right" && "right-0 border-l",
+          open && "translate-x-0",
+          !open && position === "left" && "-translate-x-full",
+          !open && position === "right" && "translate-x-full"
         )}
       >
         {/* Close button */}
