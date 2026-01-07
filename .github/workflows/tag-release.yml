@@ -1,0 +1,43 @@
+name: Tag Release
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  tag:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, 'Release v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version and create tag
+        run: |
+          # Extract version from PR title "Release vX.Y.Z" -> "vX.Y.Z"
+          VERSION="${{ github.event.pull_request.title }}"
+          VERSION="${VERSION#Release }"
+
+          # Validate version format (must be vX.Y.Z)
+          if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Error: Invalid version format '$VERSION'. Expected vX.Y.Z"
+            exit 1
+          fi
+
+          # Check if tag already exists
+          if git rev-parse "$VERSION" >/dev/null 2>&1; then
+            echo "Error: Tag $VERSION already exists"
+            exit 1
+          fi
+
+          echo "Creating tag: $VERSION"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git tag "$VERSION"
+          git push origin "$VERSION"
+
+          echo "Successfully created and pushed tag $VERSION"
