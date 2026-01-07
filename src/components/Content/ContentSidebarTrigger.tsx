@@ -6,6 +6,20 @@ export interface ContentSidebarTriggerProps {
   className?: string;
 }
 
+/**
+ * Button to toggle the mobile sidebar drawer.
+ * Automatically included in ContentTabs when a sidebar is present.
+ * Can also be used standalone for custom header layouts.
+ *
+ * @example
+ * ```tsx
+ * // Custom header with sidebar trigger
+ * <header className="flex items-center p-4">
+ *   <ContentSidebarTrigger className="md:hidden" />
+ *   <h1>Page Title</h1>
+ * </header>
+ * ```
+ */
 export function ContentSidebarTrigger({
   className,
 }: ContentSidebarTriggerProps) {

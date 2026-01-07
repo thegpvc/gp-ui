@@ -1,11 +1,13 @@
 import { useEffect, type ReactNode } from "react";
 import { X } from "lucide-react";
 import { cn } from "../../utils/cn";
+import { type ContentSidebarWidth, SIDEBAR_WIDTH_CLASSES } from "./types";
 
 interface ContentSidebarDrawerProps {
   open: boolean;
   onClose: () => void;
   position: "left" | "right";
+  width: ContentSidebarWidth;
   children: ReactNode;
 }
 
@@ -13,6 +15,7 @@ export function ContentSidebarDrawer({
   open,
   onClose,
   position,
+  width,
   children,
 }: ContentSidebarDrawerProps) {
   // Close on Escape key
@@ -25,6 +28,16 @@ export function ContentSidebarDrawer({
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, [open, onClose]);
+
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [open]);
 
   return (
     <>
@@ -40,8 +53,9 @@ export function ContentSidebarDrawer({
       {/* Drawer panel */}
       <aside
         className={cn(
-          "fixed top-0 z-40 h-[100dvh] w-64 bg-white flex flex-col md:hidden",
+          "fixed top-0 z-40 h-[100dvh] bg-white flex flex-col md:hidden",
           "transition-transform duration-200",
+          SIDEBAR_WIDTH_CLASSES[width],
           position === "left" ? "left-0 border-r" : "right-0 border-l",
           position === "left"
             ? open

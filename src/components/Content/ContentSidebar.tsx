@@ -2,14 +2,9 @@ import { useEffect, type ReactNode } from "react";
 import { cn } from "../../utils/cn";
 import { useContentContext } from "./ContentContext";
 import { ContentSidebarDrawer } from "./ContentSidebarDrawer";
+import { type ContentSidebarWidth, SIDEBAR_WIDTH_CLASSES } from "./types";
 
-export type ContentSidebarWidth = "narrow" | "medium" | "wide";
-
-const WIDTH_CLASSES: Record<ContentSidebarWidth, string> = {
-  narrow: "w-[200px]",
-  medium: "w-[256px]",
-  wide: "w-[320px]",
-};
+export type { ContentSidebarWidth };
 
 export interface ContentSidebarProps {
   children: ReactNode;
@@ -20,6 +15,28 @@ export interface ContentSidebarProps {
   className?: string;
 }
 
+/**
+ * Secondary sidebar for content navigation or filters.
+ * Renders as a static sidebar on desktop (md+) and a slide-out drawer on mobile.
+ * Must be used inside ContentBody alongside ContentPane.
+ *
+ * @example
+ * ```tsx
+ * <ContentArea>
+ *   <ContentBody>
+ *     <ContentSidebar width="narrow" position="left">
+ *       <nav className="p-3">
+ *         <NavItem>Overview</NavItem>
+ *         <NavItem>Settings</NavItem>
+ *       </nav>
+ *     </ContentSidebar>
+ *     <ContentPane>
+ *       <YourContent />
+ *     </ContentPane>
+ *   </ContentBody>
+ * </ContentArea>
+ * ```
+ */
 export function ContentSidebar({
   children,
   width = "medium",
@@ -39,7 +56,7 @@ export function ContentSidebar({
         className={cn(
           "hidden md:flex md:flex-col border-gray-200 bg-white overflow-y-auto shrink-0",
           position === "left" ? "border-r" : "border-l order-last",
-          WIDTH_CLASSES[width],
+          SIDEBAR_WIDTH_CLASSES[width],
           className
         )}
       >
@@ -51,6 +68,7 @@ export function ContentSidebar({
         open={sidebarOpen}
         onClose={closeSidebar}
         position={position}
+        width={width}
       >
         {children}
       </ContentSidebarDrawer>

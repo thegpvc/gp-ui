@@ -20,6 +20,26 @@ export interface ContentPaneProps {
   className?: string;
 }
 
+/**
+ * Main content container with optional max-width centering.
+ * Use inside ContentArea or ContentBody for the primary content area.
+ *
+ * @example
+ * ```tsx
+ * // Centered content with max-width
+ * <ContentPane maxWidth="medium">
+ *   <Card>Your content here</Card>
+ * </ContentPane>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Full-width dashboard canvas
+ * <ContentPane fullWidth padding={false}>
+ *   <DashboardGrid />
+ * </ContentPane>
+ * ```
+ */
 export function ContentPane({
   children,
   maxWidth,

@@ -12,6 +12,27 @@ export interface ContentTabsProps {
   className?: string;
 }
 
+/**
+ * Tab bar for content area navigation. Renders sticky by default.
+ * When a ContentSidebar is present, automatically shows a mobile menu trigger.
+ *
+ * @example
+ * ```tsx
+ * <ContentArea>
+ *   <ContentTabs
+ *     tabs={[
+ *       { id: 'overview', label: 'Overview' },
+ *       { id: 'settings', label: 'Settings' },
+ *     ]}
+ *     activeId={activeTab}
+ *     onChange={setActiveTab}
+ *   />
+ *   <ContentPane>
+ *     <YourContent />
+ *   </ContentPane>
+ * </ContentArea>
+ * ```
+ */
 export function ContentTabs({
   tabs,
   activeId,

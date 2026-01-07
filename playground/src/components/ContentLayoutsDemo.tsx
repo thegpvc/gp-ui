@@ -8,6 +8,7 @@ import {
   Card,
   Button,
   Alert,
+  cn,
 } from "@gp/ui";
 import { BarChart3 } from "lucide-react";
 
@@ -39,11 +40,12 @@ function SidebarNav({
         <button
           key={item.id}
           onClick={() => onSelect(item.id)}
-          className={`w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+          className={cn(
+            "w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors",
             activeId === item.id
               ? "bg-gray-100 text-navy-900"
               : "text-navy-600 hover:text-navy-900 hover:bg-gray-100"
-          }`}
+          )}
         >
           {item.label}
         </button>
