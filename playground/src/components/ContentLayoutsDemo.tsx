@@ -24,6 +24,34 @@ const sidebarItems = [
   { id: "team", label: "Team" },
 ];
 
+function SidebarNav({
+  items,
+  activeId,
+  onSelect,
+}: {
+  items: typeof sidebarItems;
+  activeId: string;
+  onSelect: (id: string) => void;
+}) {
+  return (
+    <nav className="p-3 space-y-1">
+      {items.map((item) => (
+        <button
+          key={item.id}
+          onClick={() => onSelect(item.id)}
+          className={`w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+            activeId === item.id
+              ? "bg-gray-100 text-navy-900"
+              : "text-navy-600 hover:text-navy-900 hover:bg-gray-100"
+          }`}
+        >
+          {item.label}
+        </button>
+      ))}
+    </nav>
+  );
+}
+
 export function ContentLayoutsDemo() {
   const [activeTab, setActiveTab] = useState("overview");
   const [activeSidebarItem, setActiveSidebarItem] = useState("intro");
@@ -108,21 +136,11 @@ export function ContentLayoutsDemo() {
             <ContentArea>
               <ContentBody>
                 <ContentSidebar width="narrow">
-                  <nav className="p-3 space-y-1">
-                    {sidebarItems.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => setActiveSidebarItem(item.id)}
-                        className={`w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                          activeSidebarItem === item.id
-                            ? "bg-gray-100 text-navy-900"
-                            : "text-navy-600 hover:text-navy-900 hover:bg-gray-100"
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </nav>
+                  <SidebarNav
+                    items={sidebarItems}
+                    activeId={activeSidebarItem}
+                    onSelect={setActiveSidebarItem}
+                  />
                 </ContentSidebar>
                 <ContentPane maxWidth="wide">
                   <Card>
@@ -151,21 +169,11 @@ export function ContentLayoutsDemo() {
               />
               <ContentBody>
                 <ContentSidebar width="narrow">
-                  <nav className="p-3 space-y-1">
-                    {sidebarItems.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => setActiveSidebarItem(item.id)}
-                        className={`w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                          activeSidebarItem === item.id
-                            ? "bg-gray-100 text-navy-900"
-                            : "text-navy-600 hover:text-navy-900 hover:bg-gray-100"
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </nav>
+                  <SidebarNav
+                    items={sidebarItems}
+                    activeId={activeSidebarItem}
+                    onSelect={setActiveSidebarItem}
+                  />
                 </ContentSidebar>
                 <ContentPane>
                   <Card>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import { cn } from "../../utils/cn";
 import { useContentContext } from "./ContentContext";
 import { ContentSidebarDrawer } from "./ContentSidebarDrawer";
@@ -12,7 +12,7 @@ const WIDTH_CLASSES: Record<ContentSidebarWidth, string> = {
 };
 
 export interface ContentSidebarProps {
-  children: React.ReactNode;
+  children: ReactNode;
   /** Sidebar width (default: medium) */
   width?: ContentSidebarWidth;
   /** Position relative to ContentPane (default: left) */
@@ -28,7 +28,6 @@ export function ContentSidebar({
 }: ContentSidebarProps) {
   const { sidebarOpen, closeSidebar, registerSidebar } = useContentContext();
 
-  // Register this sidebar with the context
   useEffect(() => {
     return registerSidebar();
   }, [registerSidebar]);

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import { X } from "lucide-react";
 import { cn } from "../../utils/cn";
 
@@ -6,7 +6,7 @@ interface ContentSidebarDrawerProps {
   open: boolean;
   onClose: () => void;
   position: "left" | "right";
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function ContentSidebarDrawer({
