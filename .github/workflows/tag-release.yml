@@ -20,6 +20,18 @@ jobs:
           VERSION="${{ github.event.pull_request.title }}"
           VERSION="${VERSION#Release }"
 
+          # Validate version format (must be vX.Y.Z)
+          if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Error: Invalid version format '$VERSION'. Expected vX.Y.Z"
+            exit 1
+          fi
+
+          # Check if tag already exists
+          if git rev-parse "$VERSION" >/dev/null 2>&1; then
+            echo "Error: Tag $VERSION already exists"
+            exit 1
+          fi
+
           echo "Creating tag: $VERSION"
 
           git config user.name "github-actions[bot]"
