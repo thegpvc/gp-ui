@@ -9,7 +9,7 @@ import {
   Button,
   Alert,
 } from "@gp/ui";
-import { FileText, Settings, Users, Home, BarChart3 } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 
 const tabs = [
   { id: "overview", label: "Overview" },
@@ -18,10 +18,10 @@ const tabs = [
 ];
 
 const sidebarItems = [
-  { id: "intro", label: "Introduction", icon: <Home className="w-4 h-4" /> },
-  { id: "guide", label: "User Guide", icon: <FileText className="w-4 h-4" /> },
-  { id: "api", label: "API Reference", icon: <Settings className="w-4 h-4" /> },
-  { id: "team", label: "Team", icon: <Users className="w-4 h-4" /> },
+  { id: "intro", label: "Introduction" },
+  { id: "guide", label: "User Guide" },
+  { id: "api", label: "API Reference" },
+  { id: "team", label: "Team" },
 ];
 
 export function ContentLayoutsDemo() {
@@ -113,13 +113,12 @@ export function ContentLayoutsDemo() {
                       <button
                         key={item.id}
                         onClick={() => setActiveSidebarItem(item.id)}
-                        className={`w-full flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors ${
+                        className={`w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                           activeSidebarItem === item.id
-                            ? "bg-orange-100 text-orange-700"
-                            : "text-navy-600 hover:bg-gray-100"
+                            ? "bg-gray-100 text-navy-900"
+                            : "text-navy-600 hover:text-navy-900 hover:bg-gray-100"
                         }`}
                       >
-                        {item.icon}
                         {item.label}
                       </button>
                     ))}
@@ -157,13 +156,12 @@ export function ContentLayoutsDemo() {
                       <button
                         key={item.id}
                         onClick={() => setActiveSidebarItem(item.id)}
-                        className={`w-full flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors ${
+                        className={`w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                           activeSidebarItem === item.id
-                            ? "bg-orange-100 text-orange-700"
-                            : "text-navy-600 hover:bg-gray-100"
+                            ? "bg-gray-100 text-navy-900"
+                            : "text-navy-600 hover:text-navy-900 hover:bg-gray-100"
                         }`}
                       >
-                        {item.icon}
                         {item.label}
                       </button>
                     ))}
@@ -191,8 +189,8 @@ export function ContentLayoutsDemo() {
           {demoType === "fullwidth" && (
             <ContentArea>
               <ContentPane fullWidth padding={false}>
-                <div className="h-full bg-gradient-to-br from-navy-100 to-orange-100 flex items-center justify-center">
-                  <div className="text-center">
+                <div className="h-full bg-gray-50 p-6 flex items-center justify-center">
+                  <Card className="text-center p-8">
                     <BarChart3 className="w-12 h-12 text-navy-400 mx-auto mb-3" />
                     <h3 className="font-semibold text-navy-900 mb-1">
                       Dashboard Canvas
@@ -200,7 +198,7 @@ export function ContentLayoutsDemo() {
                     <p className="text-navy-600 text-sm">
                       Full-width, edge-to-edge content area
                     </p>
-                  </div>
+                  </Card>
                 </div>
               </ContentPane>
             </ContentArea>
