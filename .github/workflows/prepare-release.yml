@@ -1,0 +1,81 @@
+name: Prepare Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_PAT }}
+
+      - name: Run Claude Code to prepare release
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          allowed_tools: |
+            Bash(git:*)
+            Bash(gh pr create:*)
+            Bash(npm version:*)
+            Edit
+            Read
+            Write
+            Glob
+          direct_prompt: |
+            You are preparing a release for this package. Follow these steps exactly:
+
+            ## 1. Calculate new version
+            - Read the current version from package.json
+            - Apply a ${{ github.event.inputs.bump }} bump to calculate the new version
+            - For example: 0.2.0 + patch = 0.2.1, 0.2.0 + minor = 0.3.0, 0.2.0 + major = 1.0.0
+
+            ## 2. Update version in all files
+            Update the version string in these files:
+            - package.json (the "version" field)
+            - package-lock.json (the top-level "version" field AND the "packages.\"\"" version field)
+            - .claude-plugin/plugin.json (the "version" field)
+
+            ## 3. Update CHANGELOG.md
+            - Get the list of commits since the last tag: `git log $(git describe --tags --abbrev=0)..HEAD --oneline`
+            - Read the current CHANGELOG.md
+            - Add a new section at the top (after the header) for the new version
+            - Use today's date in YYYY-MM-DD format
+            - Follow the Keep a Changelog format with Added/Changed/Fixed sections as appropriate
+            - IMPORTANT: Editorialize the commit messages for the audience (library consumers)
+              - Write in terms of what changed for users, not what contributors did
+              - Skip internal/chore commits unless they affect users
+              - Be concise - one line per meaningful change
+              - Group related changes together
+
+            ## 4. Create a release branch and PR
+            - Create a new branch named `release/vX.Y.Z` (using the new version)
+            - Commit all changes with message "Bump version to vX.Y.Z"
+            - Push the branch
+            - Create a PR with:
+              - Title: "Release vX.Y.Z"
+              - Body: Include the changelog section you just wrote
+            - Use: `gh pr create --title "Release vX.Y.Z" --body "..."
+
+            ## Important notes
+            - Do NOT create or push any git tags
+            - The PR title MUST start with "Release v" exactly - this triggers the tagging workflow on merge
+            - Make sure to configure git user before committing:
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
