@@ -50,14 +50,8 @@ jobs:
           RELEASE_DATE: ${{ steps.date.outputs.date }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          allowed_tools: |
-            Bash(git:*)
-            Bash(gh pr create:*)
-            Edit
-            Read
-            Write
-            Glob
-          direct_prompt: |
+          claude_args: '--allowedTools "Bash(git:*),Bash(gh pr create:*),Edit,Read,Write,Glob"'
+          prompt: |
             You are preparing a release for this package. The version has already been bumped to ${{ steps.version.outputs.new_version }} in package.json and package-lock.json.
 
             ## 1. Update .claude-plugin/plugin.json
