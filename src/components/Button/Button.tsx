@@ -21,12 +21,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg'
 
   /**
-   * Color mode override
-   * - light: Use light background colors (default)
-   * - dark: Use dark background colors
-   * - invert: Invert the current mode (currently same as dark, future: auto-detect from context)
+   * Color mode for background context
+   * - light: Optimized for light backgrounds (default)
+   * - dark: Optimized for dark backgrounds (e.g., dark headers, modals)
    */
-  mode?: 'light' | 'dark' | 'invert'
+  mode?: 'light' | 'dark'
 
   /**
    * Show loading spinner and disable interaction
@@ -88,26 +87,25 @@ export function Button({
 }: ButtonProps) {
   // Static class mapping for all variant+mode combinations
   // Ensures Tailwind can statically analyze all possible classes
-  const variantClasses: Record<string, Record<string, string>> = {
+  type ButtonVariant = NonNullable<ButtonProps['variant']>
+  type ButtonMode = NonNullable<ButtonProps['mode']>
+
+  const variantClasses: Record<ButtonVariant, Record<ButtonMode, string>> = {
     primary: {
       light: 'gp-button-primary',
       dark: 'gp-button-primary-dark',
-      invert: 'gp-button-primary-dark',
     },
     secondary: {
       light: 'gp-button-secondary',
       dark: 'gp-button-secondary-dark',
-      invert: 'gp-button-secondary-dark',
     },
     ghost: {
       light: 'gp-button-ghost',
       dark: 'gp-button-ghost-dark',
-      invert: 'gp-button-ghost-dark',
     },
     destructive: {
       light: 'gp-button-destructive',
       dark: 'gp-button-destructive-dark',
-      invert: 'gp-button-destructive-dark',
     },
   }
 

@@ -65,61 +65,53 @@
     @apply bg-white rounded-lg shadow-sm p-4;
   }
 
-  .gp-button-primary {
+  /* Base button styles - shared by all variants */
+  .gp-button-base {
     @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
     @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
     @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Light mode button variants */
+  .gp-button-primary {
+    @apply gp-button-base;
     @apply bg-orange-500 text-white hover:bg-orange-600 focus:ring-orange-500/20;
   }
 
   .gp-button-secondary {
-    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply gp-button-base;
     @apply border border-navy-700 text-navy-700 bg-white hover:bg-navy-50 focus:ring-navy-500/20;
   }
 
   .gp-button-ghost {
-    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply gp-button-base;
     @apply text-navy-700 bg-transparent hover:bg-gray-100 focus:ring-navy-500/20;
   }
 
   .gp-button-destructive {
-    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply gp-button-base;
     @apply bg-rose-700 text-white hover:bg-rose-800 focus:ring-rose-700/20;
   }
 
-  /* Dark mode button variants */
+  /* Dark mode button variants - optimized for dark backgrounds */
   .gp-button-primary-dark {
-    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
-    @apply bg-orange-500 text-white hover:bg-orange-600 focus:ring-orange-500/20;
+    @apply gp-button-base;
+    @apply bg-orange-400 text-white hover:bg-orange-500 focus:ring-orange-400/20;
   }
 
   .gp-button-secondary-dark {
-    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply gp-button-base;
     @apply border border-navy-300 text-navy-300 bg-transparent hover:bg-navy-800 hover:text-white focus:ring-navy-500/20;
   }
 
   .gp-button-ghost-dark {
-    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply gp-button-base;
     @apply text-navy-300 bg-transparent hover:text-white hover:bg-navy-800 focus:ring-navy-500/20;
   }
 
   .gp-button-destructive-dark {
-    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
-    @apply bg-rose-700 text-white hover:bg-rose-800 focus:ring-rose-700/20;
+    @apply gp-button-base;
+    @apply bg-rose-600 text-white hover:bg-rose-700 focus:ring-rose-600/20;
   }
 
 .gp-badge-success {
