@@ -266,7 +266,7 @@ function LayoutContent({
             footer={sidebar.footer}
             variant={sidebar.variant}
           />
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 flex flex-col">
             {/* Search bar */}
             {searchBar && (
               <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-3">
@@ -276,7 +276,7 @@ function LayoutContent({
               </div>
             )}
 
-            <main>{children}</main>
+            <main className="flex-1 flex flex-col min-h-0">{children}</main>
           </div>
         </div>
       </div>
