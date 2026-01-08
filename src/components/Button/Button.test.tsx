@@ -130,12 +130,9 @@ describe('Button', () => {
       const button = container.querySelector('button')
       const icon = screen.getByTestId('icon')
       const iconWrapper = icon.closest('span')
-      const textNode = Array.from(button!.childNodes).find(
-        node => node.nodeType === Node.TEXT_NODE && node.textContent === 'Delete'
-      )
 
       expect(iconWrapper).toBeInTheDocument()
-      expect(button!.childNodes[1]).toBe(iconWrapper) // Icon should be second child (after possible loader)
+      expect(button!.childNodes[0]).toBe(iconWrapper) // Icon should be first child (left position)
     })
 
     it('renders icon on the right when iconPosition is right', () => {
