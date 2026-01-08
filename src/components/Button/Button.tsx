@@ -21,6 +21,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg'
 
   /**
+   * Color mode override
+   * - light: Use light background colors (default)
+   * - dark: Use dark background colors
+   * - invert: Invert the current mode (currently same as dark, future: auto-detect from context)
+   */
+  mode?: 'light' | 'dark' | 'invert'
+
+  /**
    * Show loading spinner and disable interaction
    */
   loading?: boolean
@@ -68,6 +76,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({
   variant = 'primary',
   size = 'md',
+  mode = 'light',
   loading = false,
   icon,
   iconPosition = 'left',
@@ -77,12 +86,32 @@ export function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const variantClasses = {
-    primary: 'gp-button-primary',
-    secondary: 'gp-button-secondary',
-    ghost: 'gp-button-ghost',
-    destructive: 'gp-button-destructive',
+  // Static class mapping for all variant+mode combinations
+  // Ensures Tailwind can statically analyze all possible classes
+  const variantClasses: Record<string, Record<string, string>> = {
+    primary: {
+      light: 'gp-button-primary',
+      dark: 'gp-button-primary-dark',
+      invert: 'gp-button-primary-dark',
+    },
+    secondary: {
+      light: 'gp-button-secondary',
+      dark: 'gp-button-secondary-dark',
+      invert: 'gp-button-secondary-dark',
+    },
+    ghost: {
+      light: 'gp-button-ghost',
+      dark: 'gp-button-ghost-dark',
+      invert: 'gp-button-ghost-dark',
+    },
+    destructive: {
+      light: 'gp-button-destructive',
+      dark: 'gp-button-destructive-dark',
+      invert: 'gp-button-destructive-dark',
+    },
   }
+
+  const variantClass = variantClasses[variant][mode]
 
   const sizeClasses = {
     sm: 'px-3 py-1.5 text-xs',
@@ -117,7 +146,7 @@ export function Button({
   return (
     <button
       className={cn(
-        variantClasses[variant],
+        variantClass,
         sizeClasses[size],
         'inline-flex items-center justify-center gap-2',
         className
