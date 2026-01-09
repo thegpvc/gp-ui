@@ -1,4 +1,5 @@
 export * from './Button'
+export * from './ToggleDarkMode'
 export * from './Badge'
 export * from './Card'
 export * from './StatCard'

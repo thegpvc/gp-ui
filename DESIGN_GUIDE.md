@@ -101,6 +101,25 @@ The design system supports automatic dark mode via Tailwind's `dark:` variant.
 
 ### Enabling Dark Mode (Consumer Apps)
 
+**Option 1: Use the ToggleDarkMode component (recommended)**
+
+```tsx
+import { ToggleDarkMode } from '@gp/ui'
+
+// In your header or settings
+<ToggleDarkMode showLabel />
+
+// In a dark header (like Layout's headerRight)
+<ToggleDarkMode mode="dark" showLabel />
+```
+
+The component automatically:
+- Persists preference to localStorage
+- Detects system preference on first load
+- Applies the `dark` class to the document
+
+**Option 2: Manual implementation**
+
 Add the `dark` class to your `<html>` or root element:
 
 ```tsx
@@ -108,6 +127,15 @@ Add the `dark` class to your `<html>` or root element:
 ```
 
 All @gp/ui components will automatically adapt.
+
+**Tailwind v4 Setup**
+
+Consumer apps using Tailwind v4 must enable class-based dark mode:
+
+```css
+/* In your main CSS file */
+@custom-variant dark (&:where(.dark, .dark *));
+```
 
 ### Manual Override (Button Only)
 
@@ -136,12 +164,21 @@ Button supports a `mode` prop for components on fixed-color backgrounds:
 ### Components with Dark Mode Support
 
 All components automatically adapt when dark mode is enabled:
-- Card, Alert, Badge, StatCard
+- Card, Alert, Badge, StatCard, StatGrid
 - Input, TextArea, InputWrapper
 - Modal, Dropdown, Tooltip
 - Sidebar (all sub-components)
 - Layout (content areas, dropdown menu)
-- Skeleton
+- ContentArea, ContentTabs, ContentSidebar, ContentPane
+- TabBar, Skeleton
+
+**ToggleDarkMode** - Ready-to-use toggle button:
+```tsx
+<ToggleDarkMode />                    // Icon only
+<ToggleDarkMode showLabel />          // With "Light"/"Dark" label
+<ToggleDarkMode mode="dark" />        // For dark backgrounds (headers)
+<ToggleDarkMode onChange={(isDark) => {}} />  // With callback
+```
 
 Note: The Layout header (`bg-navy-900`) is intentionally dark in both modes.
 

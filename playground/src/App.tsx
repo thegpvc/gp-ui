@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Layout, LayoutContainer, Button, SidebarSearch, SidebarUser, type SidebarGroup } from '@gp/ui'
+import { Layout, LayoutContainer, Button, ToggleDarkMode, SidebarSearch, SidebarUser, type SidebarGroup } from '@gp/ui'
 import {
   Github,
-  Moon,
-  Sun,
   Palette,
   MousePointer2,
   Tag,
@@ -83,18 +81,6 @@ function SidebarFooter() {
 
 export function App() {
   const [activeSection, setActiveSection] = useState('colors')
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check for saved preference or system preference
-    const saved = localStorage.getItem('darkMode')
-    if (saved !== null) return saved === 'true'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
-
-  // Apply dark mode class to html element
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDarkMode)
-    localStorage.setItem('darkMode', String(isDarkMode))
-  }, [isDarkMode])
 
   // Reset scroll position when section changes
   useEffect(() => {
@@ -288,15 +274,7 @@ export function App() {
       }}
       headerRight={
         <div className="flex items-center gap-1">
-          <Button
-            variant="ghost"
-            size="sm"
-            mode="dark"
-            icon={isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            onClick={() => setIsDarkMode(!isDarkMode)}
-          >
-            {isDarkMode ? 'Light' : 'Dark'}
-          </Button>
+          <ToggleDarkMode mode="dark" showLabel />
           <Button
             variant="ghost"
             size="sm"
