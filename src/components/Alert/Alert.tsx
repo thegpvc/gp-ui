@@ -75,10 +75,10 @@ export function Alert({
   }
 
   const iconColors = {
-    info: 'text-navy-600',
-    warning: 'text-amber-600',
-    error: 'text-rose-700',
-    success: 'text-emerald-700',
+    info: 'text-navy-600 dark:text-navy-300',
+    warning: 'text-amber-600 dark:text-amber-400',
+    error: 'text-rose-700 dark:text-rose-400',
+    success: 'text-emerald-700 dark:text-emerald-400',
   }
 
   return (
@@ -110,7 +110,7 @@ export function Alert({
         <button
           type="button"
           onClick={onDismiss}
-          className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded hover:bg-black/5 transition-colors"
+          className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
           aria-label="Dismiss alert"
         >
           <X className="w-4 h-4" aria-hidden="true" />

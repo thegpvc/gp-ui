@@ -110,11 +110,11 @@ function formatBytes(bytes: number): string {
 
 // Status color classes
 const statusClasses = {
-  default: 'text-navy-900',
-  success: 'text-emerald-700',
-  warning: 'text-amber-600',
-  error: 'text-rose-700',
-  info: 'text-blue-600',
+  default: 'text-navy-900 dark:text-navy-100',
+  success: 'text-emerald-700 dark:text-emerald-400',
+  warning: 'text-amber-600 dark:text-amber-400',
+  error: 'text-rose-700 dark:text-rose-400',
+  info: 'text-blue-600 dark:text-blue-400',
 }
 
 // Copy button component
@@ -142,11 +142,11 @@ function CopyButton({ value }: { value: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200 rounded focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-200 dark:hover:bg-navy-700 rounded focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
       aria-label="Copy to clipboard"
     >
       {copied ? (
-        <Check className="w-3.5 h-3.5 text-emerald-700" />
+        <Check className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
       ) : (
         <Copy className="w-3.5 h-3.5 text-navy-400" />
       )}
@@ -208,12 +208,12 @@ export function StatGrid({
           <Fragment key={item.label}>
             {/* Divider row - spans both columns, extends beyond grid */}
             {index > 0 && (
-              <div className="col-span-2 border-t border-gray-200 -mx-2" />
+              <div className="col-span-2 border-t border-gray-200 dark:border-navy-700 -mx-2" />
             )}
 
             {/* Label (key) - left column */}
             <div className="flex items-center py-2">
-              <span className="text-xs text-navy-500 leading-5">
+              <span className="text-xs text-navy-500 dark:text-navy-400 leading-5">
                 {item.label}
               </span>
             </div>

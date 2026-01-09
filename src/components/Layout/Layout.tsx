@@ -134,17 +134,17 @@ function Header({
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal>
                 <DropdownMenu.Content
-                  className="min-w-[160px] bg-white rounded-md shadow-lg border border-gray-200 py-1 z-50"
+                  className="min-w-[160px] bg-white dark:bg-navy-800 rounded-md shadow-lg border border-gray-200 dark:border-navy-700 py-1 z-50"
                   align="end"
                   sideOffset={8}
                 >
                   {/* User info header */}
                   {user && (
-                    <div className="px-3 py-2 border-b border-gray-100">
-                      <p className="text-sm font-medium text-navy-900 truncate">
+                    <div className="px-3 py-2 border-b border-gray-100 dark:border-navy-700">
+                      <p className="text-sm font-medium text-navy-900 dark:text-navy-100 truncate">
                         {user.name}
                       </p>
-                      <p className="text-xs text-navy-500 truncate">
+                      <p className="text-xs text-navy-500 dark:text-navy-400 truncate">
                         {user.email}
                       </p>
                     </div>
@@ -156,8 +156,8 @@ function Header({
                       key={index}
                       className={`flex items-center gap-2 px-3 py-2 text-sm cursor-pointer outline-none ${
                         item.variant === "danger"
-                          ? "text-rose-700 hover:bg-rose-50"
-                          : "text-navy-700 hover:bg-gray-50"
+                          ? "text-rose-700 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30"
+                          : "text-navy-700 dark:text-navy-200 hover:bg-gray-50 dark:hover:bg-navy-700"
                       }`}
                       onSelect={item.onClick}
                     >
@@ -170,10 +170,10 @@ function Header({
                   {onLogout && (
                     <>
                       {menuItems.length > 0 && (
-                        <DropdownMenu.Separator className="h-px bg-gray-200 my-1" />
+                        <DropdownMenu.Separator className="h-px bg-gray-200 dark:bg-navy-700 my-1" />
                       )}
                       <DropdownMenu.Item
-                        className="flex items-center gap-2 px-3 py-2 text-sm text-navy-700 hover:bg-gray-50 cursor-pointer outline-none"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-navy-700 dark:text-navy-200 hover:bg-gray-50 dark:hover:bg-navy-700 cursor-pointer outline-none"
                         onSelect={onLogout}
                       >
                         <LogOut className="w-4 h-4" />
@@ -227,7 +227,7 @@ function LayoutContent({
 
   if (hasSidebar) {
     return (
-      <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="min-h-screen bg-gray-50 dark:bg-navy-950 flex flex-col">
         {/* Banner */}
         {banner && (
           <div className="bg-orange-500 text-white text-center py-1.5 text-xs font-medium flex items-center justify-center gap-2">
@@ -269,7 +269,7 @@ function LayoutContent({
           <div className="flex-1 min-w-0 flex flex-col">
             {/* Search bar */}
             {searchBar && (
-              <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-3">
+              <div className="sticky top-0 z-10 bg-white dark:bg-navy-900 border-b border-gray-200 dark:border-navy-800 px-4 py-3">
                 <div className={cn(MAX_WIDTH_CLASSES[maxWidth], "mx-auto")}>
                   {searchBar}
                 </div>
@@ -285,7 +285,7 @@ function LayoutContent({
 
   // Original layout without sidebar
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-navy-950">
       {/* Banner */}
       {banner && (
         <div className="bg-orange-500 text-white text-center py-1.5 text-xs font-medium flex items-center justify-center gap-2">
@@ -318,7 +318,7 @@ function LayoutContent({
 
       {/* Search bar */}
       {searchBar && (
-        <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-3">
+        <div className="sticky top-0 z-10 bg-white dark:bg-navy-900 border-b border-gray-200 dark:border-navy-800 px-4 py-3">
           <div className={cn(MAX_WIDTH_CLASSES[maxWidth], "mx-auto")}>
             {searchBar}
           </div>

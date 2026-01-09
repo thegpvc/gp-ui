@@ -96,14 +96,16 @@ export function StatCard({
   // Color scheme classes
   const colorClasses = {
     default: {
-      label: 'text-navy-500',
-      value: 'text-navy-900',
-      bg: 'bg-gray-50',
+      label: 'text-navy-500 dark:text-navy-400',
+      value: 'text-navy-900 dark:text-navy-100',
+      bg: 'bg-gray-50 dark:bg-navy-800/50',
+      icon: 'text-navy-400 dark:text-navy-500',
     },
     accent: {
-      label: 'text-orange-600',
-      value: 'text-orange-800',
-      bg: 'bg-white/80',
+      label: 'text-orange-600 dark:text-orange-400',
+      value: 'text-orange-800 dark:text-orange-200',
+      bg: 'bg-white/80 dark:bg-navy-800/80',
+      icon: 'text-orange-500 dark:text-orange-400',
     },
   }
 
@@ -152,7 +154,7 @@ export function StatCard({
       {/* Value and icon row */}
       <div className="flex items-center gap-2 min-w-0">
         {icon && (
-          <span className="shrink-0" aria-hidden="true">
+          <span className={cn("shrink-0", colorClasses[color].icon)} aria-hidden="true">
             {icon}
           </span>
         )}
@@ -165,7 +167,7 @@ export function StatCard({
           <div
             className={cn(
               'inline-flex items-center gap-1 text-xs font-medium',
-              trend.direction === 'up' ? 'text-emerald-700' : 'text-rose-700'
+              trend.direction === 'up' ? 'text-emerald-700 dark:text-emerald-400' : 'text-rose-700 dark:text-rose-400'
             )}
             aria-label={`Trend: ${trend.direction === 'up' ? 'increasing' : 'decreasing'} ${trend.value}`}
           >
@@ -176,7 +178,7 @@ export function StatCard({
             )}
             <span>{trend.value}</span>
             {trend.label && (
-              <span className="text-gray-500 ml-0.5">{trend.label}</span>
+              <span className="text-gray-500 dark:text-navy-400 ml-0.5">{trend.label}</span>
             )}
           </div>
         )}

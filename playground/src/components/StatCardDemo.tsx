@@ -24,7 +24,7 @@ export function StatCardDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Inline Variant</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           Label on top, value below, left-aligned. Good for debug panels and compact displays.
         </p>
         <div className="demo-grid">
@@ -36,7 +36,7 @@ export function StatCardDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Centered Variant</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           Label on top, value below, centered. Good for contact cards and summary displays.
         </p>
         <div className="demo-grid">
@@ -91,7 +91,7 @@ export function StatCardDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Accent Color</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           Orange accent theme for active or syncing states.
         </p>
         <div className="demo-grid">
@@ -103,8 +103,8 @@ export function StatCardDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Real-world Example</h2>
-        <div className="bg-white rounded-lg p-4 shadow-sm max-w-md">
-          <h3 className="font-semibold text-navy-900 mb-3">Contact Summary</h3>
+        <div className="bg-white dark:bg-navy-800 rounded-lg p-4 shadow-sm max-w-md">
+          <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-3">Contact Summary</h3>
           <div className="grid grid-cols-3 gap-3">
             <StatCard label="Sent" value={142} variant="centered" />
             <StatCard label="Received" value={98} variant="centered" />

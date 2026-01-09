@@ -17,7 +17,7 @@ export function StatGridDemo() {
     <div className="space-y-8 max-w-4xl">
       {/* Basic Example */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">Basic Example</h2>
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">Basic Example</h2>
         <StatGrid
           asCard
           items={[
@@ -31,7 +31,7 @@ export function StatGridDemo() {
 
       {/* Status Colors */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">Status Colors with Icons</h2>
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">Status Colors with Icons</h2>
         <StatGrid
           asCard
           items={[
@@ -65,7 +65,7 @@ export function StatGridDemo() {
 
       {/* Copyable Values */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">
           Copyable Values (hover to see copy icon)
         </h2>
         <StatGrid
@@ -94,7 +94,7 @@ export function StatGridDemo() {
 
       {/* Clickable Values */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">
           Clickable Values (hover to see underline)
         </h2>
         <StatGrid
@@ -124,7 +124,7 @@ export function StatGridDemo() {
 
       {/* Formatted Values */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">Formatted Values</h2>
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">Formatted Values</h2>
         <StatGrid
           asCard
           items={[
@@ -139,7 +139,7 @@ export function StatGridDemo() {
 
       {/* Server Stats Example */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">
           Server Stats Example
         </h2>
         <StatGrid
@@ -170,7 +170,7 @@ export function StatGridDemo() {
 
       {/* Metadata Example */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">Metadata Example</h2>
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">Metadata Example</h2>
         <StatGrid
           asCard
           items={[
@@ -184,7 +184,7 @@ export function StatGridDemo() {
 
       {/* Complex Example */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">
           Complex Example (User Profile)
         </h2>
         <StatGrid

@@ -7,7 +7,7 @@ export function CardDemo() {
         <h2 className="demo-section-title">Basic Card</h2>
         <div className="max-w-md">
           <Card>
-            <p className="text-navy-700">
+            <p className="text-navy-700 dark:text-navy-300">
               This is a basic card with some content. Cards provide a container for
               related content and actions.
             </p>
@@ -20,10 +20,10 @@ export function CardDemo() {
         <div className="max-w-md">
           <Card>
             <Card.Header>
-              <h3 className="font-semibold text-navy-900">Card Title</h3>
+              <h3 className="font-semibold text-navy-900 dark:text-navy-100">Card Title</h3>
             </Card.Header>
             <Card.Body>
-              <p className="text-navy-700">
+              <p className="text-navy-700 dark:text-navy-300">
                 Use Card.Header, Card.Body, and Card.Footer for structured content.
                 Each section has appropriate borders and spacing.
               </p>
@@ -48,8 +48,8 @@ export function CardDemo() {
           <Card interactive>
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="font-semibold text-navy-900">Contact Name</h3>
-                <p className="text-sm text-navy-500">contact@example.com</p>
+                <h3 className="font-semibold text-navy-900 dark:text-navy-100">Contact Name</h3>
+                <p className="text-sm text-navy-500 dark:text-navy-400">contact@example.com</p>
               </div>
               <Badge variant="success">Active</Badge>
             </div>
@@ -57,8 +57,8 @@ export function CardDemo() {
           <Card interactive>
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="font-semibold text-navy-900">Another Contact</h3>
-                <p className="text-sm text-navy-500">another@example.com</p>
+                <h3 className="font-semibold text-navy-900 dark:text-navy-100">Another Contact</h3>
+                <p className="text-sm text-navy-500 dark:text-navy-400">another@example.com</p>
               </div>
               <Badge variant="neutral">Inactive</Badge>
             </div>
@@ -72,23 +72,23 @@ export function CardDemo() {
           <Card>
             <Card.Header>
               <div className="flex items-center justify-between">
-                <h3 className="font-semibold text-navy-900">Email Statistics</h3>
+                <h3 className="font-semibold text-navy-900 dark:text-navy-100">Email Statistics</h3>
                 <Badge variant="info">Last 30 days</Badge>
               </div>
             </Card.Header>
             <Card.Body>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-semibold font-mono text-navy-900">1,234</div>
-                  <div className="text-xs text-navy-500">Sent</div>
+                  <div className="text-2xl font-semibold font-mono text-navy-900 dark:text-navy-100">1,234</div>
+                  <div className="text-xs text-navy-500 dark:text-navy-400">Sent</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-semibold font-mono text-navy-900">982</div>
-                  <div className="text-xs text-navy-500">Received</div>
+                  <div className="text-2xl font-semibold font-mono text-navy-900 dark:text-navy-100">982</div>
+                  <div className="text-xs text-navy-500 dark:text-navy-400">Received</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-semibold font-mono text-emerald-600">89%</div>
-                  <div className="text-xs text-navy-500">Response Rate</div>
+                  <div className="text-2xl font-semibold font-mono text-emerald-600 dark:text-emerald-400">89%</div>
+                  <div className="text-xs text-navy-500 dark:text-navy-400">Response Rate</div>
                 </div>
               </div>
             </Card.Body>

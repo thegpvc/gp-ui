@@ -73,9 +73,9 @@ export function InputWrapper({
             className={cn(
               helperSpacing,
               'text-xs',
-              variant === 'error' && 'text-rose-700',
-              variant === 'success' && 'text-emerald-700',
-              variant === 'default' && 'text-navy-500'
+              variant === 'error' && 'text-rose-700 dark:text-rose-400',
+              variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
+              variant === 'default' && 'text-navy-500 dark:text-navy-400'
             )}
           >
             {helperText}
@@ -91,7 +91,7 @@ export function InputWrapper({
       <div className={cn('w-full', className)}>
         <LabelPrimitive.Root
           htmlFor={id}
-          className={cn('text-sm font-medium text-navy-900 mb-1', required && 'gp-input-label-required')}
+          className={cn('text-sm font-medium text-navy-900 dark:text-navy-100 mb-1', required && 'gp-input-label-required')}
         >
           {label}
         </LabelPrimitive.Root>
@@ -101,9 +101,9 @@ export function InputWrapper({
             className={cn(
               helperSpacing,
               'text-xs',
-              variant === 'error' && 'text-rose-700',
-              variant === 'success' && 'text-emerald-700',
-              variant === 'default' && 'text-navy-500'
+              variant === 'error' && 'text-rose-700 dark:text-rose-400',
+              variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
+              variant === 'default' && 'text-navy-500 dark:text-navy-400'
             )}
           >
             {helperText}
@@ -121,7 +121,7 @@ export function InputWrapper({
           <LabelPrimitive.Root
             htmlFor={id}
             className={cn(
-              'text-sm font-medium text-navy-900 shrink-0',
+              'text-sm font-medium text-navy-900 dark:text-navy-100 shrink-0',
               required && 'gp-input-label-required'
             )}
           >
@@ -134,9 +134,9 @@ export function InputWrapper({
             className={cn(
               helperSpacing,
               'text-xs',
-              variant === 'error' && 'text-rose-700',
-              variant === 'success' && 'text-emerald-700',
-              variant === 'default' && 'text-navy-500'
+              variant === 'error' && 'text-rose-700 dark:text-rose-400',
+              variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
+              variant === 'default' && 'text-navy-500 dark:text-navy-400'
             )}
           >
             {helperText}
@@ -152,7 +152,7 @@ export function InputWrapper({
       <div className="flex items-center gap-2 flex-row-reverse justify-end">
         <LabelPrimitive.Root
           htmlFor={id}
-          className={cn('text-sm font-medium text-navy-900', required && 'gp-input-label-required')}
+          className={cn('text-sm font-medium text-navy-900 dark:text-navy-100', required && 'gp-input-label-required')}
         >
           {label}
         </LabelPrimitive.Root>
@@ -163,9 +163,9 @@ export function InputWrapper({
           className={cn(
             helperSpacing,
             'text-xs',
-            variant === 'error' && 'text-rose-700',
-            variant === 'success' && 'text-emerald-700',
-            variant === 'default' && 'text-navy-500'
+            variant === 'error' && 'text-rose-700 dark:text-rose-400',
+            variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
+            variant === 'default' && 'text-navy-500 dark:text-navy-400'
           )}
         >
           {helperText}

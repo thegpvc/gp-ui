@@ -31,7 +31,7 @@ const DropdownContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 min-w-[8rem] overflow-hidden rounded-md border border-gray-200 bg-white p-1 shadow-md",
+        "z-50 min-w-[8rem] overflow-hidden rounded-md border border-gray-200 dark:border-navy-700 bg-white dark:bg-navy-800 p-1 shadow-md",
         "data-[state=open]:animate-dropdown-in data-[state=closed]:animate-dropdown-out",
         className
       )}
@@ -49,7 +49,7 @@ const DropdownSubContent = React.forwardRef<
   <DropdownMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      "z-50 min-w-[8rem] overflow-hidden rounded-md border border-gray-200 bg-white p-1 shadow-md",
+      "z-50 min-w-[8rem] overflow-hidden rounded-md border border-gray-200 dark:border-navy-700 bg-white dark:bg-navy-800 p-1 shadow-md",
       "data-[state=open]:animate-dropdown-in data-[state=closed]:animate-dropdown-out",
       className
     )}
@@ -68,8 +68,8 @@ const DropdownSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none",
-      "focus:bg-gray-100 data-[state=open]:bg-gray-100",
+      "flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none text-navy-700 dark:text-navy-200",
+      "focus:bg-gray-100 dark:focus:bg-navy-700 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-navy-700",
       inset && "pl-8",
       className
     )}
@@ -93,9 +93,9 @@ const DropdownItem = React.forwardRef<
     ref={ref}
     className={cn(
       "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors",
-      "focus:bg-gray-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      variant === "danger" && "text-rose-700 focus:bg-rose-50 focus:text-rose-700",
-      variant === "default" && "text-navy-700",
+      "focus:bg-gray-100 dark:focus:bg-navy-700 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      variant === "danger" && "text-rose-700 dark:text-rose-400 focus:bg-rose-50 dark:focus:bg-rose-950/30 focus:text-rose-700 dark:focus:text-rose-400",
+      variant === "default" && "text-navy-700 dark:text-navy-200",
       inset && "pl-8",
       className
     )}
@@ -112,8 +112,8 @@ const DropdownCheckboxItem = React.forwardRef<
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-navy-700 outline-none transition-colors",
-      "focus:bg-gray-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-navy-700 dark:text-navy-200 outline-none transition-colors",
+      "focus:bg-gray-100 dark:focus:bg-navy-700 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
     checked={checked}
@@ -137,8 +137,8 @@ const DropdownRadioItem = React.forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-navy-700 outline-none transition-colors",
-      "focus:bg-gray-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-navy-700 dark:text-navy-200 outline-none transition-colors",
+      "focus:bg-gray-100 dark:focus:bg-navy-700 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
     {...props}
@@ -163,7 +163,7 @@ const DropdownLabel = React.forwardRef<
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
-      "px-2 py-1.5 text-sm font-semibold text-navy-900",
+      "px-2 py-1.5 text-sm font-semibold text-navy-900 dark:text-navy-100",
       inset && "pl-8",
       className
     )}
@@ -179,7 +179,7 @@ const DropdownSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
-    className={cn("-mx-1 my-1 h-px bg-gray-200", className)}
+    className={cn("-mx-1 my-1 h-px bg-gray-200 dark:bg-navy-700", className)}
     {...props}
   />
 ));
@@ -192,7 +192,7 @@ const DropdownShortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
-      className={cn("ml-auto text-xs tracking-widest text-gray-400", className)}
+      className={cn("ml-auto text-xs tracking-widest text-gray-400 dark:text-navy-500", className)}
       {...props}
     />
   );

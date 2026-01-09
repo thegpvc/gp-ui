@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Layout, LayoutContainer, Button, SidebarSearch, SidebarUser, type SidebarGroup } from '@gp/ui'
 import {
   Github,
+  Moon,
+  Sun,
   Palette,
   MousePointer2,
   Tag,
@@ -81,6 +83,18 @@ function SidebarFooter() {
 
 export function App() {
   const [activeSection, setActiveSection] = useState('colors')
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check for saved preference or system preference
+    const saved = localStorage.getItem('darkMode')
+    if (saved !== null) return saved === 'true'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
+
+  // Apply dark mode class to html element
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDarkMode)
+    localStorage.setItem('darkMode', String(isDarkMode))
+  }, [isDarkMode])
 
   // Reset scroll position when section changes
   useEffect(() => {
@@ -273,24 +287,35 @@ export function App() {
         footer: <SidebarFooter />,
       }}
       headerRight={
-        <Button
-          variant="ghost"
-          size="sm"
-          mode="dark"
-          icon={<Github className="w-4 h-4" />}
-          onClick={() => window.open('https://github.com/thegpvc/gp-ui', '_blank')}
-        >
-          GitHub
-        </Button>
+        <div className="flex items-center gap-1">
+          <Button
+            variant="ghost"
+            size="sm"
+            mode="dark"
+            icon={isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            onClick={() => setIsDarkMode(!isDarkMode)}
+          >
+            {isDarkMode ? 'Light' : 'Dark'}
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            mode="dark"
+            icon={<Github className="w-4 h-4" />}
+            onClick={() => window.open('https://github.com/thegpvc/gp-ui', '_blank')}
+          >
+            GitHub
+          </Button>
+        </div>
       }
     >
       <LayoutContainer>
         {/* Page header */}
         <div className="mb-8 pt-2">
-          <h1 className="text-2xl font-bold text-navy-900 mb-1">
+          <h1 className="text-2xl font-bold text-navy-900 dark:text-navy-100 mb-1">
             {activeLabel}
           </h1>
-          <p className="text-navy-500">
+          <p className="text-navy-500 dark:text-navy-400">
             {sectionDescriptions[activeSection]}
           </p>
         </div>

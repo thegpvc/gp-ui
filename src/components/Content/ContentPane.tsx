@@ -50,7 +50,7 @@ export function ContentPane({
   return (
     <div
       className={cn(
-        "flex-1 overflow-y-auto bg-gray-50",
+        "flex-1 overflow-y-auto bg-gray-50 dark:bg-navy-950",
         padding && "p-4 lg:p-6",
         className
       )}

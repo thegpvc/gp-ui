@@ -38,7 +38,7 @@ export function SidebarSearch({
       <div className={cn("p-2", className)}>
         <button
           onClick={handleCollapsedClick}
-          className="w-full h-9 flex items-center justify-center rounded-md border border-gray-200 text-navy-400 hover:text-navy-600 hover:border-gray-300 hover:bg-gray-50 transition-colors"
+          className="w-full h-9 flex items-center justify-center rounded-md border border-gray-200 dark:border-navy-700 text-navy-400 dark:text-navy-500 hover:text-navy-600 dark:hover:text-navy-300 hover:border-gray-300 dark:hover:border-navy-600 hover:bg-gray-50 dark:hover:bg-navy-800 transition-colors"
           title={placeholder}
         >
           <Search className="w-4 h-4" />
@@ -51,7 +51,7 @@ export function SidebarSearch({
   return (
     <div className={cn("p-3", className)} role="search">
       <div className="relative">
-        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400 pointer-events-none" />
+        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400 dark:text-navy-500 pointer-events-none" />
         <input
           ref={inputRef}
           type="text"
@@ -60,7 +60,7 @@ export function SidebarSearch({
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
           aria-label={placeholder}
-          className="w-full pl-8 pr-3 py-1.5 text-sm border border-gray-200 rounded-md bg-white placeholder:text-navy-400 text-navy-900 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className="w-full pl-8 pr-3 py-1.5 text-sm border border-gray-200 dark:border-navy-700 rounded-md bg-white dark:bg-navy-800 placeholder:text-navy-400 dark:placeholder:text-navy-500 text-navy-900 dark:text-navy-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
         />
       </div>
     </div>

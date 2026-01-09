@@ -95,6 +95,56 @@ Use consistent z-index values to ensure proper layering:
 | Drawer | `z-40` | Slide-out drawers, sidebars |
 | Overlay | `z-50` | Modals, tooltips, dropdowns |
 
+## Dark Mode
+
+The design system supports automatic dark mode via Tailwind's `dark:` variant.
+
+### Enabling Dark Mode (Consumer Apps)
+
+Add the `dark` class to your `<html>` or root element:
+
+```tsx
+<html className={isDarkMode ? 'dark' : ''}>
+```
+
+All @gp/ui components will automatically adapt.
+
+### Manual Override (Button Only)
+
+Button supports a `mode` prop for components on fixed-color backgrounds:
+
+```tsx
+// In dark header, force dark-optimized styling
+<Button mode="dark" variant="secondary">Settings</Button>
+
+// Default - follows page theme automatically
+<Button variant="primary">Submit</Button>
+```
+
+### Dark Mode Color Palette
+
+| Purpose | Light Mode | Dark Mode |
+|---------|-----------|-----------|
+| Page background | `bg-gray-50` | `bg-navy-950` |
+| Card/modal background | `bg-white` | `bg-navy-800` |
+| Borders | `border-gray-200` | `border-navy-700` |
+| Primary text | `text-navy-900` | `text-navy-100` |
+| Secondary text | `text-navy-500` | `text-navy-400` |
+| Input background | `bg-white` | `bg-navy-800` |
+| Input border | `border-gray-200` | `border-navy-600` |
+
+### Components with Dark Mode Support
+
+All components automatically adapt when dark mode is enabled:
+- Card, Alert, Badge, StatCard
+- Input, TextArea, InputWrapper
+- Modal, Dropdown, Tooltip
+- Sidebar (all sub-components)
+- Layout (content areas, dropdown menu)
+- Skeleton
+
+Note: The Layout header (`bg-navy-900`) is intentionally dark in both modes.
+
 ## Interactions
 
 - Minimal animations—keep fast and functional

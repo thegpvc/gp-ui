@@ -45,7 +45,7 @@ export function ContentTabs({
   return (
     <div
       className={cn(
-        "bg-orange-50 border-b border-gray-200 px-4 lg:px-6 flex items-center",
+        "bg-orange-50 dark:bg-navy-900 border-b border-gray-200 dark:border-navy-700 px-4 lg:px-6 flex items-center",
         sticky && "sticky top-0 z-10",
         className
       )}

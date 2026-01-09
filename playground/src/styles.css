@@ -4,13 +4,16 @@
 /* Tell Tailwind to scan library source for classes */
 @source "../../src";
 
+/* Enable class-based dark mode (instead of prefers-color-scheme) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Demo-specific styles */
 .demo-section {
   @apply mb-8;
 }
 
 .demo-section-title {
-  @apply text-lg font-semibold text-navy-900 mb-4 pb-2 border-b border-gray-200;
+  @apply text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4 pb-2 border-b border-gray-200 dark:border-navy-700;
 }
 
 .demo-grid {
@@ -22,7 +25,7 @@
 }
 
 .demo-label {
-  @apply text-xs text-navy-500 font-medium uppercase tracking-wide mb-2;
+  @apply text-xs text-navy-500 dark:text-navy-400 font-medium uppercase tracking-wide mb-2;
 }
 
 .code-block {

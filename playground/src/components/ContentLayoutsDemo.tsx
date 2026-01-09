@@ -43,8 +43,8 @@ function SidebarNav({
           className={cn(
             "w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-colors",
             activeId === item.id
-              ? "bg-gray-100 text-navy-900"
-              : "text-navy-600 hover:text-navy-900 hover:bg-gray-100"
+              ? "bg-gray-100 dark:bg-navy-800 text-navy-900 dark:text-navy-100"
+              : "text-navy-600 dark:text-navy-400 hover:text-navy-900 dark:hover:text-navy-100 hover:bg-gray-100 dark:hover:bg-navy-800"
           )}
         >
           {item.label}
@@ -112,7 +112,7 @@ export function ContentLayoutsDemo() {
           {demoType === "fullwidth" && "Full-Width Canvas"}
         </h2>
 
-        <div className="border border-gray-200 rounded-lg overflow-hidden h-[400px]">
+        <div className="border border-gray-200 dark:border-navy-700 rounded-lg overflow-hidden h-[400px]">
           {demoType === "tabs" && (
             <ContentArea>
               <ContentTabs
@@ -122,10 +122,10 @@ export function ContentLayoutsDemo() {
               />
               <ContentPane maxWidth="medium">
                 <Card>
-                  <h3 className="font-semibold text-navy-900 mb-2">
+                  <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-2">
                     {tabs.find((t) => t.id === activeTab)?.label}
                   </h3>
-                  <p className="text-navy-600 text-sm">
+                  <p className="text-navy-600 dark:text-navy-400 text-sm">
                     This is the {activeTab} tab content. The tabs are sticky and
                     the content is centered with a max-width constraint.
                   </p>
@@ -146,13 +146,13 @@ export function ContentLayoutsDemo() {
                 </ContentSidebar>
                 <ContentPane maxWidth="wide">
                   <Card>
-                    <h3 className="font-semibold text-navy-900 mb-2">
+                    <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-2">
                       {
                         sidebarItems.find((i) => i.id === activeSidebarItem)
                           ?.label
                       }
                     </h3>
-                    <p className="text-navy-600 text-sm">
+                    <p className="text-navy-600 dark:text-navy-400 text-sm">
                       Secondary sidebar content. On mobile, tap the menu icon in
                       the header to open the sidebar as a drawer.
                     </p>
@@ -179,14 +179,14 @@ export function ContentLayoutsDemo() {
                 </ContentSidebar>
                 <ContentPane>
                   <Card>
-                    <h3 className="font-semibold text-navy-900 mb-2">
+                    <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-2">
                       {tabs.find((t) => t.id === activeTab)?.label} /{" "}
                       {
                         sidebarItems.find((i) => i.id === activeSidebarItem)
                           ?.label
                       }
                     </h3>
-                    <p className="text-navy-600 text-sm">
+                    <p className="text-navy-600 dark:text-navy-400 text-sm">
                       Combined tabs and sidebar. The sidebar trigger appears in
                       the tab bar on mobile.
                     </p>
@@ -199,13 +199,13 @@ export function ContentLayoutsDemo() {
           {demoType === "fullwidth" && (
             <ContentArea>
               <ContentPane fullWidth padding={false}>
-                <div className="h-full bg-gray-50 p-6 flex items-center justify-center">
+                <div className="h-full bg-gray-50 dark:bg-navy-950 p-6 flex items-center justify-center">
                   <Card className="text-center p-8">
                     <BarChart3 className="w-12 h-12 text-navy-400 mx-auto mb-3" />
-                    <h3 className="font-semibold text-navy-900 mb-1">
+                    <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-1">
                       Dashboard Canvas
                     </h3>
-                    <p className="text-navy-600 text-sm">
+                    <p className="text-navy-600 dark:text-navy-400 text-sm">
                       Full-width, edge-to-edge content area
                     </p>
                   </Card>

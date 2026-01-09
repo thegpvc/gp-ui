@@ -63,8 +63,8 @@ export function TabBar({ items, activeId, onChange, className }: TabBarProps) {
           className={cn(
             'px-3 pt-4 pb-3 text-sm font-medium whitespace-nowrap border-b-2 transition-colors',
             activeId === item.id
-              ? 'border-orange-500 text-orange-600'
-              : 'border-transparent text-navy-600 hover:text-navy-900 hover:border-gray-300'
+              ? 'border-orange-500 text-orange-600 dark:text-orange-400'
+              : 'border-transparent text-navy-600 dark:text-navy-400 hover:text-navy-900 dark:hover:text-navy-100 hover:border-gray-300 dark:hover:border-navy-600'
           )}
         >
           {item.label}

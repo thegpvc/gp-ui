@@ -54,7 +54,7 @@ export function ContentSidebar({
       {/* Desktop: static sidebar */}
       <aside
         className={cn(
-          "hidden md:flex md:flex-col border-gray-200 bg-white overflow-y-auto shrink-0",
+          "hidden md:flex md:flex-col border-gray-200 dark:border-navy-700 bg-white dark:bg-navy-900 overflow-y-auto shrink-0",
           position === "left" ? "border-r" : "border-l order-last",
           SIDEBAR_WIDTH_CLASSES[width],
           className
