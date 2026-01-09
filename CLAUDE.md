@@ -19,10 +19,18 @@ npm run typecheck  # TypeScript type checking only
 
 **Library structure:**
 - `src/index.ts` - Main entry point, exports all components/icons/utilities
-- `src/components/` - React components (Button, Badge, Card, StatCard, Alert, Skeleton, Layout, Modal)
+- `src/components/` - React components (see Components section below)
 - `src/icons/` - Re-exports from lucide-react
 - `src/utils/cn.ts` - Class name merge utility (clsx + tailwind-merge)
 - `src/styles/theme.css` - Tailwind theme with custom colors and component classes
+
+**Components:**
+- **Core:** Button, Badge, Card, StatCard, StatGrid, Alert, Skeleton
+- **Form:** Input, TextArea, InputWrapper, Dropdown
+- **Overlay:** Modal, Tooltip
+- **Layout:** Layout, LayoutContainer, Sidebar (with SidebarLink, SidebarSection, SidebarSearch, SidebarUser), TabBar
+- **Content:** ContentArea, ContentBody, ContentPane, ContentTabs, ContentSidebar
+- **Utility:** ToggleDarkMode, LoginPage, GPLogo
 
 **Build output:**
 - ES module library (`dist/index.js`) — JavaScript only, no CSS bundled

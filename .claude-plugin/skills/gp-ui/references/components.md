@@ -18,6 +18,7 @@ Complete API documentation for all components.
 - [Layout](#layout)
 - [Sidebar](#sidebar)
 - [Skeleton](#skeleton)
+- [ToggleDarkMode](#toggledarkmode)
 - [LoginPage](#loginpage)
 - [GPLogo](#gplogo)
 
@@ -635,6 +636,62 @@ Loading placeholder components.
 
 // List item placeholder
 <SkeletonListItem />
+```
+
+---
+
+## ToggleDarkMode
+
+Ready-to-use dark mode toggle button.
+
+```typescript
+interface ToggleDarkModeProps {
+  mode?: 'light' | 'dark';        // Background context (for dark headers)
+  size?: 'sm' | 'md' | 'lg';      // Button size
+  variant?: 'primary' | 'secondary' | 'ghost' | 'destructive';  // Default: 'ghost'
+  showLabel?: boolean;            // Show "Light"/"Dark" text
+  lightLabel?: string;            // Custom label for light mode (default: "Light")
+  darkLabel?: string;             // Custom label for dark mode (default: "Dark")
+  storageKey?: string;            // localStorage key (default: "darkMode")
+  onChange?: (isDark: boolean) => void;  // Callback when mode changes
+  className?: string;
+}
+```
+
+### Features
+- Automatically persists preference to localStorage
+- Detects system preference on first load
+- Applies `dark` class to document element
+- Shows Sun/Moon icons based on current state
+
+### Examples
+```tsx
+// Icon only (minimal)
+<ToggleDarkMode />
+
+// With label
+<ToggleDarkMode showLabel />
+
+// In a dark header (like Layout's headerRight)
+<ToggleDarkMode mode="dark" showLabel />
+
+// With callback
+<ToggleDarkMode onChange={(isDark) => console.log('Dark mode:', isDark)} />
+
+// Custom labels
+<ToggleDarkMode showLabel lightLabel="Light Mode" darkLabel="Dark Mode" />
+```
+
+### Usage with Layout
+```tsx
+<Layout
+  title="My App"
+  headerRight={
+    <ToggleDarkMode mode="dark" showLabel />
+  }
+>
+  {children}
+</Layout>
 ```
 
 ---

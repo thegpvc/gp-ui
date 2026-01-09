@@ -6,6 +6,7 @@ Installation, integration, and migration instructions.
 
 - [Installation](#installation)
 - [Tailwind v4 Integration](#tailwind-v4-integration)
+- [Dark Mode Setup](#dark-mode-setup)
 - [Peer Dependencies](#peer-dependencies)
 - [Basic Usage](#basic-usage)
 - [Migration Guide](#migration-guide)
@@ -54,6 +55,68 @@ export default {
 - The consuming app's Tailwind processes all CSS at build time
 - This prevents duplicate base styles
 - Theme tokens (colors, fonts, animations) are injected via `@import "@gp/ui/theme"`
+
+---
+
+## Dark Mode Setup
+
+All @gp/ui components support dark mode via Tailwind's `dark:` variant.
+
+### 1. Enable Class-Based Dark Mode (Tailwind v4)
+
+Add this to your main CSS file after the Tailwind import:
+
+```css
+@import "tailwindcss";
+@import "@gp/ui/theme";
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+### 2. Add the Toggle Component
+
+**Option A: Use ToggleDarkMode component (recommended)**
+
+```tsx
+import { ToggleDarkMode } from '@gp/ui';
+
+// In your header or settings
+<ToggleDarkMode showLabel />
+
+// In a dark header (like Layout's headerRight)
+<ToggleDarkMode mode="dark" showLabel />
+```
+
+The component automatically:
+- Persists preference to localStorage
+- Detects system preference on first load
+- Applies the `dark` class to the document
+
+**Option B: Manual implementation**
+
+```tsx
+const [isDarkMode, setIsDarkMode] = useState(() => {
+  const saved = localStorage.getItem('darkMode');
+  if (saved !== null) return saved === 'true';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+});
+
+useEffect(() => {
+  document.documentElement.classList.toggle('dark', isDarkMode);
+  localStorage.setItem('darkMode', String(isDarkMode));
+}, [isDarkMode]);
+```
+
+### Dark Mode Color Palette
+
+| Purpose | Light Mode | Dark Mode |
+|---------|-----------|-----------|
+| Page background | `bg-gray-50` | `bg-navy-950` |
+| Card/modal background | `bg-white` | `bg-navy-800` |
+| Borders | `border-gray-200` | `border-navy-700` |
+| Primary text | `text-navy-900` | `text-navy-100` |
+| Secondary text | `text-navy-500` | `text-navy-400` |
 
 ---
 
