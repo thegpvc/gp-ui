@@ -276,9 +276,9 @@ export function App() {
         <Button
           variant="ghost"
           size="sm"
+          mode="dark"
           icon={<Github className="w-4 h-4" />}
           onClick={() => window.open('https://github.com/thegpvc/gp-ui', '_blank')}
-          className="text-navy-300 hover:text-white hover:bg-navy-800"
         >
           GitHub
         </Button>
