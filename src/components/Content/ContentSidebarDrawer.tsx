@@ -53,9 +53,9 @@ export function ContentSidebarDrawer({
       {/* Drawer panel */}
       <aside
         className={cn(
-          "fixed top-0 z-40 h-[100dvh] bg-white flex flex-col md:hidden",
+          "fixed top-0 z-40 h-[100dvh] bg-white dark:bg-navy-900 flex flex-col md:hidden",
           "transition-transform duration-200",
-          "border-gray-200",
+          "border-gray-200 dark:border-navy-700",
           SIDEBAR_WIDTH_CLASSES[width],
           position === "left" && "left-0 border-r",
           position === "right" && "right-0 border-l",
@@ -68,7 +68,7 @@ export function ContentSidebarDrawer({
         <button
           onClick={onClose}
           className={cn(
-            "absolute top-3 p-1 text-navy-400 hover:text-navy-600 transition-colors",
+            "absolute top-3 p-1 text-navy-400 hover:text-navy-600 dark:hover:text-navy-200 transition-colors",
             position === "left" ? "right-3" : "left-3"
           )}
           aria-label="Close sidebar"

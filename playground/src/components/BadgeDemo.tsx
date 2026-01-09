@@ -83,11 +83,11 @@ export function BadgeDemo() {
       <section className="demo-section">
         <h2 className="demo-section-title">In-Situ Examples</h2>
         <div className="space-y-4">
-          <div className="bg-white rounded-lg shadow-sm p-4 space-y-3">
+          <div className="bg-white dark:bg-navy-800 rounded-lg shadow-sm p-4 space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900">Contact Sync Service</h3>
-                <p className="text-xs text-gray-500 mt-0.5">Last synced 2 minutes ago</p>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-navy-100">Contact Sync Service</h3>
+                <p className="text-xs text-gray-500 dark:text-navy-400 mt-0.5">Last synced 2 minutes ago</p>
               </div>
               <Badge variant="success" icon={<Check className="w-3 h-3" />}>
                 Active
@@ -95,8 +95,8 @@ export function BadgeDemo() {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900">Email Campaign #23</h3>
-                <p className="text-xs text-gray-500 mt-0.5">Scheduled for tomorrow</p>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-navy-100">Email Campaign #23</h3>
+                <p className="text-xs text-gray-500 dark:text-navy-400 mt-0.5">Scheduled for tomorrow</p>
               </div>
               <Badge variant="warning" icon={<Clock className="w-3 h-3" />}>
                 Pending
@@ -104,8 +104,8 @@ export function BadgeDemo() {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900">Database Backup</h3>
-                <p className="text-xs text-gray-500 mt-0.5">Failed at 3:42 AM</p>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-navy-100">Database Backup</h3>
+                <p className="text-xs text-gray-500 dark:text-navy-400 mt-0.5">Failed at 3:42 AM</p>
               </div>
               <Badge variant="error" icon={<X className="w-3 h-3" />}>
                 Failed
@@ -113,40 +113,40 @@ export function BadgeDemo() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div className="bg-white dark:bg-navy-800 rounded-lg shadow-sm overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 dark:bg-navy-900 border-b border-gray-200 dark:border-navy-700">
                 <tr>
-                  <th className="px-4 py-2 text-left font-medium text-gray-700">Task</th>
-                  <th className="px-4 py-2 text-left font-medium text-gray-700">Assignee</th>
-                  <th className="px-4 py-2 text-left font-medium text-gray-700">Status</th>
+                  <th className="px-4 py-2 text-left font-medium text-gray-700 dark:text-navy-300">Task</th>
+                  <th className="px-4 py-2 text-left font-medium text-gray-700 dark:text-navy-300">Assignee</th>
+                  <th className="px-4 py-2 text-left font-medium text-gray-700 dark:text-navy-300">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-200 dark:divide-navy-700">
                 <tr>
-                  <td className="px-4 py-2 text-gray-900">Update documentation</td>
-                  <td className="px-4 py-2 text-gray-600">Sarah Chen</td>
+                  <td className="px-4 py-2 text-gray-900 dark:text-navy-100">Update documentation</td>
+                  <td className="px-4 py-2 text-gray-600 dark:text-navy-400">Sarah Chen</td>
                   <td className="px-4 py-2">
                     <Badge variant="success">Complete</Badge>
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 text-gray-900">Review pull request #142</td>
-                  <td className="px-4 py-2 text-gray-600">Alex Kumar</td>
+                  <td className="px-4 py-2 text-gray-900 dark:text-navy-100">Review pull request #142</td>
+                  <td className="px-4 py-2 text-gray-600 dark:text-navy-400">Alex Kumar</td>
                   <td className="px-4 py-2">
                     <Badge variant="warning">In Review</Badge>
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 text-gray-900">Fix login bug</td>
-                  <td className="px-4 py-2 text-gray-600">Jordan Lee</td>
+                  <td className="px-4 py-2 text-gray-900 dark:text-navy-100">Fix login bug</td>
+                  <td className="px-4 py-2 text-gray-600 dark:text-navy-400">Jordan Lee</td>
                   <td className="px-4 py-2">
                     <Badge variant="error">Blocked</Badge>
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-2 text-gray-900">Design new dashboard</td>
-                  <td className="px-4 py-2 text-gray-600">Morgan Taylor</td>
+                  <td className="px-4 py-2 text-gray-900 dark:text-navy-100">Design new dashboard</td>
+                  <td className="px-4 py-2 text-gray-600 dark:text-navy-400">Morgan Taylor</td>
                   <td className="px-4 py-2">
                     <Badge variant="info">Planning</Badge>
                   </td>

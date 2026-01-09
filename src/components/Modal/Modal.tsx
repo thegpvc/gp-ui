@@ -77,7 +77,7 @@ const ModalContent = React.forwardRef<
           }}
           className={cn(
             "fixed left-1/2 top-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2",
-            "bg-white rounded-lg shadow-lg overflow-hidden",
+            "bg-white dark:bg-navy-800 rounded-lg shadow-lg overflow-hidden",
             "data-[state=open]:animate-modal-content-in data-[state=closed]:animate-modal-content-out",
             size === "full" ? "p-0" : "p-6",
             sizeClasses[size],
@@ -93,7 +93,7 @@ const ModalContent = React.forwardRef<
               "disabled:pointer-events-none",
               size === "full"
                 ? "bg-white/10 backdrop-blur-sm p-1.5 text-white opacity-90 hover:bg-white/20"
-                : "opacity-70 ring-offset-white"
+                : "opacity-70 ring-offset-white dark:ring-offset-navy-800 dark:text-navy-300 dark:hover:text-navy-100"
             )}>
               <X className="h-4 w-4" aria-hidden="true" />
               <span className="sr-only">Close</span>
@@ -143,7 +143,7 @@ const ModalTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
-    className={cn("text-xl font-semibold text-navy-900", className)}
+    className={cn("text-xl font-semibold text-navy-900 dark:text-navy-100", className)}
     {...props}
   />
 ));
@@ -156,7 +156,7 @@ const ModalDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-gray-600", className)}
+    className={cn("text-sm text-gray-600 dark:text-navy-400", className)}
     {...props}
   />
 ));

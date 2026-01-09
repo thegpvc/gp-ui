@@ -21,7 +21,7 @@ export function SidebarSection({
       {label && (
         <div
           className={cn(
-            "px-3 text-xs font-semibold text-navy-400 uppercase tracking-wider whitespace-nowrap transition-[opacity,margin]",
+            "px-3 text-xs font-semibold text-navy-400 dark:text-navy-500 uppercase tracking-wider whitespace-nowrap transition-[opacity,margin]",
             COLLAPSE_DURATION,
             isCollapsed ? "opacity-0 mb-0" : "opacity-100 mb-2"
           )}

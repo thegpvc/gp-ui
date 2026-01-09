@@ -64,7 +64,7 @@ export function Card({ children, interactive = false, className = '', ...props }
 Card.Header = function CardHeader({ children, className = '', ...props }: CardSectionProps) {
   return (
     <div
-      className={cn('border-b border-gray-200 pb-3 mb-3', className)}
+      className={cn('border-b border-gray-200 dark:border-navy-700 pb-3 mb-3', className)}
       {...props}
     >
       {children}
@@ -89,7 +89,7 @@ Card.Body = function CardBody({ children, className = '', ...props }: CardSectio
 Card.Footer = function CardFooter({ children, className = '', ...props }: CardSectionProps) {
   return (
     <div
-      className={cn('border-t border-gray-200 pt-3 mt-3', className)}
+      className={cn('border-t border-gray-200 dark:border-navy-700 pt-3 mt-3', className)}
       {...props}
     >
       {children}

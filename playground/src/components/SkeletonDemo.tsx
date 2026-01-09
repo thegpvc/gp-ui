@@ -5,7 +5,7 @@ export function SkeletonDemo() {
     <div className="space-y-8">
       <section className="demo-section">
         <h2 className="demo-section-title">Base Skeleton</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           The base skeleton can be customized with width and height classes.
         </p>
         <div className="space-y-3 max-w-md">
@@ -19,7 +19,7 @@ export function SkeletonDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Skeleton Text</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           Multi-line text skeleton with automatic width variation on the last line.
         </p>
         <div className="space-y-6 max-w-md">
@@ -40,7 +40,7 @@ export function SkeletonDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Skeleton StatCard</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           Loading state for StatCard component.
         </p>
         <div className="demo-grid">
@@ -52,10 +52,10 @@ export function SkeletonDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Skeleton List Item</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           Loading state for list items.
         </p>
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden max-w-md">
+        <div className="bg-white dark:bg-navy-800 rounded-lg shadow-sm overflow-hidden max-w-md">
           <SkeletonListItem />
           <SkeletonListItem />
           <SkeletonListItem />
@@ -65,7 +65,7 @@ export function SkeletonDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Card Loading State</h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           Example of a card with skeleton content.
         </p>
         <div className="max-w-md">

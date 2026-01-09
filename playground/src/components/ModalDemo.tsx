@@ -104,7 +104,7 @@ export function ModalDemo() {
                 </Modal.Description>
               </Modal.Header>
               <Modal.Body>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-700 dark:text-navy-300">
                   This is the modal body content. You can put any content here,
                   including forms, images, or other components.
                 </p>
@@ -142,7 +142,7 @@ export function ModalDemo() {
                 </Modal.Description>
               </Modal.Header>
               <Modal.Body>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-700 dark:text-navy-300">
                   You can use the Modal.Trigger component with the asChild prop
                   to use any element as a trigger.
                 </p>
@@ -169,7 +169,7 @@ export function ModalDemo() {
                 <Modal.Title>Small Modal</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p className="text-sm text-gray-700">This is a small modal (max-w-sm).</p>
+                <p className="text-sm text-gray-700 dark:text-navy-300">This is a small modal (max-w-sm).</p>
               </Modal.Body>
             </Modal.Content>
           </Modal>
@@ -183,7 +183,7 @@ export function ModalDemo() {
                 <Modal.Title>Medium Modal</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p className="text-sm text-gray-700">This is a medium modal (max-w-md).</p>
+                <p className="text-sm text-gray-700 dark:text-navy-300">This is a medium modal (max-w-md).</p>
               </Modal.Body>
             </Modal.Content>
           </Modal>
@@ -197,7 +197,7 @@ export function ModalDemo() {
                 <Modal.Title>Large Modal</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p className="text-sm text-gray-700">This is a large modal (max-w-lg).</p>
+                <p className="text-sm text-gray-700 dark:text-navy-300">This is a large modal (max-w-lg).</p>
               </Modal.Body>
             </Modal.Content>
           </Modal>
@@ -211,7 +211,7 @@ export function ModalDemo() {
                 <Modal.Title>Extra Large Modal</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p className="text-sm text-gray-700">This is an extra large modal (max-w-xl).</p>
+                <p className="text-sm text-gray-700 dark:text-navy-300">This is an extra large modal (max-w-xl).</p>
               </Modal.Body>
             </Modal.Content>
           </Modal>
@@ -319,7 +319,7 @@ export function ModalDemo() {
             onCancel={() => setLoadingOpen(false)}
           />
           {result && (
-            <p className="text-sm text-navy-600 font-medium">{result}</p>
+            <p className="text-sm text-navy-600 dark:text-navy-400 font-medium">{result}</p>
           )}
         </div>
       </section>
@@ -338,7 +338,7 @@ export function ModalDemo() {
             </Modal.Content>
           </Modal>
         </div>
-        <p className="text-sm text-navy-500 mt-2">
+        <p className="text-sm text-navy-500 dark:text-navy-400 mt-2">
           Full-size modals take up most of the viewport, perfect for image viewers, document previews, or data visualizations.
         </p>
       </section>
@@ -358,7 +358,7 @@ export function ModalDemo() {
                 </Modal.Description>
               </Modal.Header>
               <Modal.Body>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-700 dark:text-navy-300">
                   This modal can only be closed by clicking one of the buttons below.
                 </p>
               </Modal.Body>

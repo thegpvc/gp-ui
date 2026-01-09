@@ -8,7 +8,7 @@ export function TabBarDemo() {
     <div className="space-y-8">
       <section className="demo-section">
         <h2 className="demo-section-title">Basic Usage</h2>
-        <div className="border-b border-gray-200 -mb-px">
+        <div className="border-b border-gray-200 dark:border-navy-700 -mb-px">
           <TabBar
             items={[
               { id: 'overview', label: 'Overview' },
@@ -20,15 +20,15 @@ export function TabBarDemo() {
           />
         </div>
         <Card className="rounded-t-none border-t-0 mt-0">
-          <p className="text-navy-600">
-            Active tab: <span className="font-semibold text-navy-900">{activeTab}</span>
+          <p className="text-navy-600 dark:text-navy-400">
+            Active tab: <span className="font-semibold text-navy-900 dark:text-navy-100">{activeTab}</span>
           </p>
         </Card>
       </section>
 
       <section className="demo-section">
         <h2 className="demo-section-title">Many Tabs (Scrollable)</h2>
-        <div className="border-b border-gray-200 max-w-md">
+        <div className="border-b border-gray-200 dark:border-navy-700 max-w-md">
           <TabBar
             items={[
               { id: 'tab1', label: 'Dashboard' },
@@ -42,7 +42,7 @@ export function TabBarDemo() {
             onChange={() => {}}
           />
         </div>
-        <p className="text-sm text-navy-500 mt-2">
+        <p className="text-sm text-navy-500 dark:text-navy-400 mt-2">
           Tabs scroll horizontally when they overflow the container.
         </p>
       </section>

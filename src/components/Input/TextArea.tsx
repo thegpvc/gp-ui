@@ -121,13 +121,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     }, [value, autoResize])
 
     // Base styles shared by all textareas
-    const baseClasses = 'w-full border rounded-md bg-white transition-colors resize-y focus:outline-none focus:ring-2 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 placeholder:text-navy-400 text-navy-900'
+    const baseClasses = 'w-full border rounded-md bg-white dark:bg-navy-800 transition-colors resize-y focus:outline-none focus:ring-2 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 dark:disabled:bg-navy-900 placeholder:text-navy-400 dark:placeholder:text-navy-500 text-navy-900 dark:text-navy-100'
 
     // Variant-specific border and focus styles
     const variantClasses = {
-      default: 'border-gray-200 focus:ring-orange-500',
-      error: 'border-rose-400 focus:ring-rose-700',
-      success: 'border-emerald-300 focus:ring-emerald-700',
+      default: 'border-gray-200 dark:border-navy-600 focus:ring-orange-500',
+      error: 'border-rose-400 dark:border-rose-600 focus:ring-rose-700',
+      success: 'border-emerald-300 dark:border-emerald-600 focus:ring-emerald-700',
     }
 
     // Size-specific padding, font, and min-height

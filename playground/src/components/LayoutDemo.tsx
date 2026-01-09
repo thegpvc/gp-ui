@@ -16,8 +16,8 @@ export function LayoutDemo() {
         <h2 className="demo-section-title">Features</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Card>
-            <h3 className="font-semibold text-navy-900 mb-2">Header</h3>
-            <ul className="text-sm text-navy-600 space-y-1">
+            <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-2">Header</h3>
+            <ul className="text-sm text-navy-600 dark:text-navy-400 space-y-1">
               <li>• GP logo with title</li>
               <li>• Optional back button</li>
               <li>• Custom header right content</li>
@@ -25,24 +25,24 @@ export function LayoutDemo() {
             </ul>
           </Card>
           <Card>
-            <h3 className="font-semibold text-navy-900 mb-2">Banner</h3>
-            <ul className="text-sm text-navy-600 space-y-1">
+            <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-2">Banner</h3>
+            <ul className="text-sm text-navy-600 dark:text-navy-400 space-y-1">
               <li>• Optional announcement banner</li>
               <li>• Optional link with external icon</li>
               <li>• Orange background with white text</li>
             </ul>
           </Card>
           <Card>
-            <h3 className="font-semibold text-navy-900 mb-2">Menu Items</h3>
-            <ul className="text-sm text-navy-600 space-y-1">
+            <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-2">Menu Items</h3>
+            <ul className="text-sm text-navy-600 dark:text-navy-400 space-y-1">
               <li>• Custom menu items with icons</li>
               <li>• Default and danger variants</li>
               <li>• Built-in logout option</li>
             </ul>
           </Card>
           <Card>
-            <h3 className="font-semibold text-navy-900 mb-2">Content</h3>
-            <ul className="text-sm text-navy-600 space-y-1">
+            <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-2">Content</h3>
+            <ul className="text-sm text-navy-600 dark:text-navy-400 space-y-1">
               <li>• Configurable max-width</li>
               <li>• Optional sticky search bar</li>
               <li>• LayoutContainer helper</li>
@@ -58,7 +58,7 @@ export function LayoutDemo() {
         </Button>
 
         {showPreview && (
-          <div className="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div className="mt-4 border border-gray-200 dark:border-navy-700 rounded-lg overflow-hidden">
             <div className="scale-75 origin-top-left" style={{ width: '133.33%', height: '400px' }}>
               <Layout
                 title="Preview App"
@@ -85,7 +85,7 @@ export function LayoutDemo() {
               >
                 <LayoutContainer>
                   <Card>
-                    <p className="text-navy-700">
+                    <p className="text-navy-700 dark:text-navy-300">
                       This is a preview of the Layout component with all features
                       enabled.
                     </p>
@@ -101,10 +101,10 @@ export function LayoutDemo() {
         <h2 className="demo-section-title">Max Width Options</h2>
         <div className="space-y-2">
           <div className="demo-label">LayoutContainer maxWidth</div>
-          <div className="text-sm text-navy-600 space-y-1">
-            <p><code className="bg-gray-100 px-1 rounded">narrow</code> - max-w-lg (32rem / 512px) - default</p>
-            <p><code className="bg-gray-100 px-1 rounded">medium</code> - max-w-3xl (48rem / 768px)</p>
-            <p><code className="bg-gray-100 px-1 rounded">wide</code> - max-w-5xl (64rem / 1024px)</p>
+          <div className="text-sm text-navy-600 dark:text-navy-400 space-y-1">
+            <p><code className="bg-gray-100 dark:bg-navy-800 px-1 rounded">narrow</code> - max-w-lg (32rem / 512px) - default</p>
+            <p><code className="bg-gray-100 dark:bg-navy-800 px-1 rounded">medium</code> - max-w-3xl (48rem / 768px)</p>
+            <p><code className="bg-gray-100 dark:bg-navy-800 px-1 rounded">wide</code> - max-w-5xl (64rem / 1024px)</p>
           </div>
         </div>
       </section>

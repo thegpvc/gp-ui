@@ -23,17 +23,17 @@ export function SidebarDemo() {
     <div className="space-y-8">
       {/* Standalone Sidebar Demo */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">
           Standalone Sidebar with Children
         </h2>
-        <p className="text-sm text-navy-600 mb-4">
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           The Sidebar can be used outside of Layout by wrapping it in a SidebarProvider.
           Use SidebarLink and SidebarSection as children for a composable API.
         </p>
 
-        <div className="border border-gray-200 rounded-lg overflow-hidden">
+        <div className="border border-gray-200 dark:border-navy-700 rounded-lg overflow-hidden">
           <SidebarProvider variant="inline">
-            <div className="flex h-[500px] bg-gray-50">
+            <div className="flex h-[500px] bg-gray-50 dark:bg-navy-950">
               <Sidebar
                 variant="inline"
                 header={<SidebarSearch placeholder="Search..." />}
@@ -88,13 +88,13 @@ export function SidebarDemo() {
               </Sidebar>
 
               <main className="flex-1 p-6">
-                <h3 className="text-xl font-semibold text-navy-900 mb-2">
+                <h3 className="text-xl font-semibold text-navy-900 dark:text-navy-100 mb-2">
                   {activeItem.charAt(0).toUpperCase() + activeItem.slice(1)}
                 </h3>
-                <p className="text-navy-600">
-                  Selected: <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">{activeItem}</code>
+                <p className="text-navy-600 dark:text-navy-400">
+                  Selected: <code className="bg-gray-100 dark:bg-navy-800 px-1.5 py-0.5 rounded text-sm">{activeItem}</code>
                 </p>
-                <p className="text-navy-500 text-sm mt-4">
+                <p className="text-navy-500 dark:text-navy-400 text-sm mt-4">
                   Click the collapse button at the bottom of the sidebar to toggle between expanded and collapsed states.
                 </p>
               </main>
@@ -105,9 +105,9 @@ export function SidebarDemo() {
 
       {/* Standalone Usage */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">Standalone Usage</h2>
-        <p className="text-sm text-navy-600 mb-3">
-          Wrap in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">SidebarProvider</code> and use composable children:
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">Standalone Usage</h2>
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-3">
+          Wrap in <code className="bg-gray-100 dark:bg-navy-800 px-1.5 py-0.5 rounded text-sm">SidebarProvider</code> and use composable children:
         </p>
         <pre className="bg-navy-900 text-navy-100 p-4 rounded-lg text-sm overflow-x-auto">
 {`<SidebarProvider>
@@ -129,9 +129,9 @@ export function SidebarDemo() {
 
       {/* Layout Integration */}
       <section>
-        <h2 className="text-lg font-semibold text-navy-900 mb-4">With Layout Component</h2>
-        <p className="text-sm text-navy-600 mb-3">
-          Pass a <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">sidebar</code> prop to Layout.
+        <h2 className="text-lg font-semibold text-navy-900 dark:text-navy-100 mb-4">With Layout Component</h2>
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-3">
+          Pass a <code className="bg-gray-100 dark:bg-navy-800 px-1.5 py-0.5 rounded text-sm">sidebar</code> prop to Layout.
           The provider is handled automatically:
         </p>
         <pre className="bg-navy-900 text-navy-100 p-4 rounded-lg text-sm overflow-x-auto">
@@ -149,7 +149,7 @@ export function SidebarDemo() {
   {/* page content */}
 </Layout>`}
         </pre>
-        <p className="text-sm text-navy-500 mt-3">
+        <p className="text-sm text-navy-500 dark:text-navy-400 mt-3">
           This playground app uses this pattern — see the sidebar on the left.
         </p>
       </section>

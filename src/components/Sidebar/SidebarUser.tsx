@@ -39,13 +39,13 @@ export function SidebarUser({
       className="w-full h-full rounded-full object-cover"
     />
   ) : (
-    <span className="text-navy-600 font-medium">{initials}</span>
+    <span className="text-navy-600 dark:text-navy-300 font-medium">{initials}</span>
   );
 
   // Same pattern as SidebarItemComponent - consistent padding, text fades out
   const content = (
     <div className="flex items-center gap-3 pl-2.5 pr-2 py-3">
-      <div className="w-8 h-8 rounded-full bg-navy-100 flex items-center justify-center text-sm flex-shrink-0 overflow-hidden">
+      <div className="w-8 h-8 rounded-full bg-navy-100 dark:bg-navy-700 flex items-center justify-center text-sm flex-shrink-0 overflow-hidden">
         {avatar}
       </div>
       <div
@@ -54,11 +54,11 @@ export function SidebarUser({
           isCollapsed ? "opacity-0" : "opacity-100"
         )}
       >
-        <div className="text-sm font-medium text-navy-900 truncate whitespace-nowrap">
+        <div className="text-sm font-medium text-navy-900 dark:text-navy-100 truncate whitespace-nowrap">
           {name}
         </div>
         {email && (
-          <div className="text-xs text-navy-500 truncate whitespace-nowrap">
+          <div className="text-xs text-navy-500 dark:text-navy-400 truncate whitespace-nowrap">
             {email}
           </div>
         )}
@@ -68,7 +68,7 @@ export function SidebarUser({
 
   const wrapperClasses = cn(
     "w-full transition-colors",
-    onClick && "cursor-pointer hover:bg-gray-100",
+    onClick && "cursor-pointer hover:bg-gray-100 dark:hover:bg-navy-800",
     className
   );
 
