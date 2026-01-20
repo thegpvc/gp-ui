@@ -87,6 +87,10 @@ describe('ProportionChart', () => {
     })
 
     it('calculates percentages correctly', () => {
+      const total = mockData.reduce((sum, d) => sum + d.value, 0) // 100
+      const completedValue = mockData[0].value // 60
+      const expectedPercentage = (completedValue / total) * 100 // 60%
+
       const { container } = render(
         <ProportionChart
           data={mockData}
@@ -95,7 +99,7 @@ describe('ProportionChart', () => {
         />
       )
       const completedSegment = container.querySelector('.bg-green-500')
-      expect(completedSegment).toHaveStyle({ width: '60%' }) // 60/100
+      expect(completedSegment).toHaveStyle({ width: `${expectedPercentage}%` })
     })
   })
 

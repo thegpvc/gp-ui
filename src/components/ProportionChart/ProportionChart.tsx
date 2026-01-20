@@ -142,17 +142,8 @@ export function ProportionChart({
   // Calculate total first for percentage calculations
   const total = validSegments.reduce((sum, d) => sum + d.value, 0)
 
-  // Enrich segments with color config and pre-calculate percentages (DRY)
-  const segments = validSegments.map((d) => {
-    const percentage = (d.value / total) * 100
-    return {
-      ...d,
-      ...colors[d.key],
-      percentage,
-    }
-  })
-
   // Empty state: no data or all values are zero
+  // Check this before calculating percentages to avoid division by zero
   if (total === 0) {
     return (
       <div
@@ -174,6 +165,16 @@ export function ProportionChart({
     )
   }
 
+  // Enrich segments with color config and pre-calculate percentages (DRY)
+  const segments = validSegments.map((d) => {
+    const percentage = (d.value / total) * 100
+    return {
+      ...d,
+      ...colors[d.key],
+      percentage,
+    }
+  })
+
   // Generate accessible label if not provided
   const defaultAriaLabel = `Proportion chart showing ${segments.length} categories totaling ${formatValue(total)}`
 
@@ -192,7 +193,7 @@ export function ProportionChart({
                   key={seg.key}
                   className={cn(seg.bg, 'transition-opacity hover:opacity-80')}
                   style={{ width: `${seg.percentage}%` }}
-                  aria-label={`${seg.label}: ${formatValue(seg.value)} (${seg.percentage.toFixed(0)}%)`}
+                  aria-hidden="true"
                 />
               ))}
             </div>
@@ -212,14 +213,9 @@ export function ProportionChart({
                 </Fragment>
               ))}
             </div>
-            <div
-              className="mt-1 pt-1 border-t border-gray-600 dark:border-gray-500 flex justify-between"
-              role="row"
-            >
-              <span role="cell">Total</span>
-              <span className="font-mono" role="cell">
-                {formatValue(total)}
-              </span>
+            <div className="mt-1 pt-1 border-t border-gray-600 dark:border-gray-500 flex justify-between">
+              <span>Total</span>
+              <span className="font-mono">{formatValue(total)}</span>
             </div>
           </Tooltip.Content>
         </Tooltip>
