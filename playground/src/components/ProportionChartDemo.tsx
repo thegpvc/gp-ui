@@ -12,8 +12,8 @@ export function ProportionChartDemo() {
 
   const timeColors: Record<string, ColorConfig> = {
     thinking: { bg: 'bg-purple-500', label: 'Thinking' },
-    llm: { bg: 'bg-blue-500', label: 'LLM' },
-    tool: { bg: 'bg-green-500', label: 'Tools' },
+    llm: { bg: 'bg-navy-500 dark:bg-navy-300', label: 'LLM' },
+    tool: { bg: 'bg-emerald-600 dark:bg-emerald-400', label: 'Tools' },
     idle: { bg: 'bg-gray-400 dark:bg-gray-500', label: 'Idle' },
     user: { bg: 'bg-cyan-500', label: 'User' },
   }
@@ -33,10 +33,10 @@ export function ProportionChartDemo() {
   ]
 
   const statusColors: Record<string, ColorConfig> = {
-    completed: { bg: 'bg-green-500', label: 'Completed' },
-    'in-progress': { bg: 'bg-blue-500', label: 'In Progress' },
-    pending: { bg: 'bg-yellow-500', label: 'Pending' },
-    blocked: { bg: 'bg-red-500', label: 'Blocked' },
+    completed: { bg: 'bg-emerald-600 dark:bg-emerald-400', label: 'Completed' },
+    'in-progress': { bg: 'bg-navy-500 dark:bg-navy-300', label: 'In Progress' },
+    pending: { bg: 'bg-amber-600 dark:bg-amber-400', label: 'Pending' },
+    blocked: { bg: 'bg-rose-700 dark:bg-rose-400', label: 'Blocked' },
   }
 
   const formatCount = (n: number): string => `${n} tasks`
@@ -52,8 +52,8 @@ export function ProportionChartDemo() {
   const resourceColors: Record<string, ColorConfig> = {
     cpu: { bg: 'bg-orange-500', label: 'CPU' },
     memory: { bg: 'bg-purple-500', label: 'Memory' },
-    disk: { bg: 'bg-blue-500', label: 'Disk' },
-    network: { bg: 'bg-green-500', label: 'Network' },
+    disk: { bg: 'bg-navy-500 dark:bg-navy-300', label: 'Disk' },
+    network: { bg: 'bg-emerald-600 dark:bg-emerald-400', label: 'Network' },
   }
 
   const formatPercent = (n: number): string => `${n}%`
