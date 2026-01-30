@@ -199,44 +199,46 @@ export function StatGrid({
       )}
     >
       {items.map((item, index) => {
-        const formattedValue = formatValue(item.value, item.format)
+        const { label, value, icon, status, onClick, copyable, copyValue: customCopyValue, format } = item
+        const formattedValue = formatValue(value, format)
         const isNumeric = typeof formattedValue === 'number' || (typeof formattedValue === 'string' && !isNaN(Number(formattedValue)))
-        const copyValue = item.copyValue || String(item.value)
-        const hasInteraction = item.onClick || item.copyable
+        const copyValue = customCopyValue || String(value)
+        const hasInteraction = onClick || copyable
+        const statusClass = statusClasses[status || 'default']
 
         return (
-          <Fragment key={item.label}>
+          <Fragment key={label}>
             {/* Divider row - spans both columns, extends beyond grid */}
-            {index > 0 && (
+            {index > 0 ? (
               <div className="col-span-2 border-t border-gray-200 dark:border-navy-700 -mx-2" />
-            )}
+            ) : null}
 
             {/* Label (key) - left column */}
             <div className="flex items-center py-2">
               <span className="text-xs text-navy-500 dark:text-navy-400 leading-5">
-                {item.label}
+                {label}
               </span>
             </div>
 
             {/* Value - right column */}
             <div className="flex items-center gap-1.5 min-w-0 group py-2">
-              {item.icon && (
+              {icon ? (
                 <span className="flex-shrink-0 flex items-center" aria-hidden="true">
-                  {getIconWithColor(item.icon, item.status)}
+                  {getIconWithColor(icon, status)}
                 </span>
-              )}
+              ) : null}
 
-              {item.onClick ? (
+              {onClick ? (
                 <button
                   className={cn(
                     'text-sm font-medium leading-5 text-left',
-                    statusClasses[item.status || 'default'],
+                    statusClass,
                     isNumeric && 'font-mono',
                     'cursor-pointer hover:underline',
                     hasInteraction && 'select-all',
                     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:rounded'
                   )}
-                  onClick={item.onClick}
+                  onClick={onClick}
                 >
                   {formattedValue}
                 </button>
@@ -244,7 +246,7 @@ export function StatGrid({
                 <span
                   className={cn(
                     'text-sm font-medium leading-5',
-                    statusClasses[item.status || 'default'],
+                    statusClass,
                     isNumeric && 'font-mono',
                     hasInteraction && 'select-all'
                   )}
@@ -253,7 +255,7 @@ export function StatGrid({
                 </span>
               )}
 
-              {item.copyable && <CopyButton value={copyValue} />}
+              {copyable ? <CopyButton value={copyValue} /> : null}
             </div>
           </Fragment>
         )

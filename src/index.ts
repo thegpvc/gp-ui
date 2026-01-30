@@ -7,5 +7,8 @@ export * from './components'
 // Icons (re-exported from lucide-react)
 export * from './icons'
 
+// Hooks
+export * from './hooks'
+
 // Utilities
 export { cn } from './utils'

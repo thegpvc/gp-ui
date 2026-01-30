@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useCallback } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "../../utils/cn";
+import { useEscapeKey } from "../../hooks/useEscapeKey";
 import { useSidebar } from "./SidebarContext";
 import { COLLAPSE_DURATION } from "./constants";
 import { SidebarGroupComponent } from "./SidebarGroup";
@@ -37,26 +38,19 @@ export function Sidebar({ items, children, header, footer, variant = "responsive
   };
 
   // Close mobile sidebar on Escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isMobile && isOpen) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isMobile, isOpen, setOpen]);
+  const closeSidebar = useCallback(() => setOpen(false), [setOpen]);
+  useEscapeKey(closeSidebar, isMobile && isOpen);
 
   return (
     <>
       {/* Mobile backdrop */}
-      {isMobile && isOpen && (
+      {isMobile && isOpen ? (
         <div
           className="fixed inset-0 bg-black/50 z-30 transition-opacity"
-          onClick={() => setOpen(false)}
+          onClick={closeSidebar}
           aria-hidden="true"
         />
-      )}
+      ) : null}
 
       {/* Sidebar panel */}
       <aside
@@ -76,15 +70,15 @@ export function Sidebar({ items, children, header, footer, variant = "responsive
         )}
       >
         {/* Mobile close button */}
-        {isMobile && (
+        {isMobile ? (
           <button
-            onClick={() => setOpen(false)}
+            onClick={closeSidebar}
             className="absolute top-3 right-3 p-1 text-navy-400 dark:text-navy-500 hover:text-navy-600 dark:hover:text-navy-300 transition-colors"
             aria-label="Close navigation"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
-        )}
+        ) : null}
 
         {/* Header slot */}
         {header && (

@@ -5,6 +5,7 @@ import {
   useState,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   type ReactNode,
 } from "react";
@@ -101,17 +102,20 @@ export function SidebarProvider({
     }
   }, [isMobile, isCollapsed, onCollapsedChange]);
 
+  const value = useMemo<SidebarContextValue>(
+    () => ({
+      isOpen,
+      toggle,
+      setOpen,
+      isMobile,
+      isCollapsed: !isMobile && isCollapsed,
+      toggleCollapsed,
+    }),
+    [isOpen, toggle, setOpen, isMobile, isCollapsed, toggleCollapsed]
+  );
+
   return (
-    <SidebarContext.Provider
-      value={{
-        isOpen,
-        toggle,
-        setOpen,
-        isMobile,
-        isCollapsed: !isMobile && isCollapsed,
-        toggleCollapsed,
-      }}
-    >
+    <SidebarContext.Provider value={value}>
       {children}
     </SidebarContext.Provider>
   );
