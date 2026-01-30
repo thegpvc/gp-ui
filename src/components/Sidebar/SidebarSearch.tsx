@@ -38,10 +38,11 @@ export function SidebarSearch({
       <div className={cn("p-2", className)}>
         <button
           onClick={handleCollapsedClick}
-          className="w-full h-9 flex items-center justify-center rounded-md border border-gray-200 dark:border-navy-700 text-navy-400 dark:text-navy-500 hover:text-navy-600 dark:hover:text-navy-300 hover:border-gray-300 dark:hover:border-navy-600 hover:bg-gray-50 dark:hover:bg-navy-800 transition-colors"
+          className="w-full h-9 flex items-center justify-center rounded-md border border-gray-200 dark:border-navy-700 text-navy-400 dark:text-navy-500 hover:text-navy-600 dark:hover:text-navy-300 hover:border-gray-300 dark:hover:border-navy-600 hover:bg-gray-50 dark:hover:bg-navy-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
           title={placeholder}
+          aria-label={placeholder}
         >
-          <Search className="w-4 h-4" />
+          <Search className="w-4 h-4" aria-hidden="true" />
         </button>
       </div>
     );

@@ -35,6 +35,7 @@ export function SidebarLink({
   const baseClasses = cn(
     "flex items-center gap-3 px-2 py-2 rounded-md text-sm font-medium transition-colors w-full",
     "text-navy-600 dark:text-navy-300 hover:text-navy-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-navy-700",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
     isActive && "bg-gray-100 dark:bg-navy-700 text-navy-900 dark:text-white",
     className
   );
