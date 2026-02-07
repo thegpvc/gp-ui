@@ -175,6 +175,10 @@
     @apply dark:bg-navy-800/50;
   }
 
+  .gp-proportion-chart {
+    @apply relative w-full;
+  }
+
   .gp-alert-info {
     @apply px-4 py-3 rounded-md border;
     @apply bg-navy-50 border-navy-200 text-navy-700;

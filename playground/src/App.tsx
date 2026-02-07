@@ -8,6 +8,7 @@ import {
   CreditCard,
   AlertCircle,
   BarChart3,
+  BarChart4,
   Grid3x3,
   Loader,
   PanelTop,
@@ -26,6 +27,7 @@ import { CardDemo } from './components/CardDemo'
 import { AlertDemo } from './components/AlertDemo'
 import { StatCardDemo } from './components/StatCardDemo'
 import { StatGridDemo } from './components/StatGridDemo'
+import { ProportionChartDemo } from './components/ProportionChartDemo'
 import { SkeletonDemo } from './components/SkeletonDemo'
 import { TabBarDemo } from './components/TabBarDemo'
 import { LayoutDemo } from './components/LayoutDemo'
@@ -46,6 +48,7 @@ const sectionDescriptions: Record<string, string> = {
   alert: 'Contextual feedback messages',
   statcard: 'Metric displays and statistics',
   statgrid: 'Key-value grid with formatting and copy support',
+  proportionchart: 'Segmented bar chart showing data proportions',
   skeleton: 'Loading placeholders',
   tabbar: 'Horizontal navigation tabs',
   dropdown: 'Context menus with sub-menus and selections',
@@ -139,6 +142,13 @@ export function App() {
           icon: <Grid3x3 className="w-5 h-5" />,
           onClick: () => setActiveSection('statgrid'),
           isActive: activeSection === 'statgrid',
+        },
+        {
+          id: 'proportionchart',
+          label: 'ProportionChart',
+          icon: <BarChart4 className="w-5 h-5" />,
+          onClick: () => setActiveSection('proportionchart'),
+          isActive: activeSection === 'proportionchart',
         },
         {
           id: 'skeleton',
@@ -235,6 +245,8 @@ export function App() {
         return <StatCardDemo />
       case 'statgrid':
         return <StatGridDemo />
+      case 'proportionchart':
+        return <ProportionChartDemo />
       case 'skeleton':
         return <SkeletonDemo />
       case 'tabbar':
