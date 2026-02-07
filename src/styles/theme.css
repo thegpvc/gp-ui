@@ -366,7 +366,16 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-skeleton,
   .page-enter,
-  .animate-content-in {
+  .animate-content-in,
+  .animate-arrow-in,
+  .animate-dropdown-in,
+  .animate-dropdown-out,
+  .animate-tooltip-in,
+  .animate-tooltip-out,
+  .animate-modal-overlay-in,
+  .animate-modal-overlay-out,
+  .animate-modal-content-in,
+  .animate-modal-content-out {
     animation: none;
   }
 }

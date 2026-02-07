@@ -48,7 +48,7 @@ export function Card({ children, interactive = false, className = '', ...props }
     <div
       className={cn(
         'gp-card',
-        interactive && 'cursor-pointer hover:shadow-md transition-shadow',
+        interactive && 'cursor-pointer hover:shadow-md transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500',
         className
       )}
       {...props}

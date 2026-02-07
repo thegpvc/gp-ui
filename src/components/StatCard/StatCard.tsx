@@ -119,7 +119,7 @@ export function StatCard({
         </span>
 
         {/* Value below - same size font, darker, monospace for numbers */}
-        <span className={cn('text-xs font-medium leading-tight', colorClasses[color].value, isNumeric && 'font-mono')}>
+        <span className={cn('text-xs font-medium leading-tight', colorClasses[color].value, isNumeric && 'font-mono tabular-nums')}>
           {value}
         </span>
       </div>
@@ -136,7 +136,7 @@ export function StatCard({
         </span>
 
         {/* Value below - slightly bigger, darker, monospace for numbers */}
-        <span className={cn('text-sm font-semibold leading-tight', colorClasses[color].value, isNumeric && 'font-mono')}>
+        <span className={cn('text-sm font-semibold leading-tight', colorClasses[color].value, isNumeric && 'font-mono tabular-nums')}>
           {value}
         </span>
       </div>
@@ -159,7 +159,7 @@ export function StatCard({
           </span>
         )}
 
-        <span className={cn('text-lg font-semibold leading-none', colorClasses[color].value, isNumeric && 'font-mono')}>
+        <span className={cn('text-lg font-semibold leading-none', colorClasses[color].value, isNumeric && 'font-mono tabular-nums')}>
           {value}
         </span>
 

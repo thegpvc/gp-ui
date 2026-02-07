@@ -1,6 +1,8 @@
-import { useEffect, type ReactNode } from "react";
+import { useEffect } from "react";
+import type { ReactNode } from "react";
 import { X } from "lucide-react";
 import { cn } from "../../utils/cn";
+import { useEscapeKey } from "../../hooks/useEscapeKey";
 import { type ContentSidebarWidth, SIDEBAR_WIDTH_CLASSES } from "./types";
 
 interface ContentSidebarDrawerProps {
@@ -19,15 +21,7 @@ export function ContentSidebarDrawer({
   children,
 }: ContentSidebarDrawerProps) {
   // Close on Escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && open) {
-        onClose();
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [open, onClose]);
+  useEscapeKey(onClose, open);
 
   // Lock body scroll when drawer is open
   useEffect(() => {
@@ -42,13 +36,13 @@ export function ContentSidebarDrawer({
   return (
     <>
       {/* Backdrop */}
-      {open && (
+      {open ? (
         <div
           className="fixed inset-0 bg-black/50 z-30 md:hidden"
           onClick={onClose}
           aria-hidden="true"
         />
-      )}
+      ) : null}
 
       {/* Drawer panel */}
       <aside
@@ -73,7 +67,7 @@ export function ContentSidebarDrawer({
           )}
           aria-label="Close sidebar"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5" aria-hidden="true" />
         </button>
 
         {/* Content */}
