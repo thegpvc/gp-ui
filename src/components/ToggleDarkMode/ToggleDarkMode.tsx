@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Moon, Sun } from 'lucide-react'
+import { Moon, Sun, Monitor } from 'lucide-react'
 import { Button, type ButtonProps } from '../Button'
+
+export type ThemePreference = 'light' | 'dark' | 'system'
 
 export interface ToggleDarkModeProps {
   /**
@@ -36,14 +38,19 @@ export interface ToggleDarkModeProps {
   darkLabel?: string
 
   /**
+   * Custom label for system mode
+   */
+  systemLabel?: string
+
+  /**
    * localStorage key for persisting preference
    */
   storageKey?: string
 
   /**
-   * Callback when dark mode changes
+   * Callback when theme preference changes
    */
-  onChange?: (isDark: boolean) => void
+  onChange?: (theme: ThemePreference) => void
 
   /**
    * Additional CSS classes
@@ -51,8 +58,14 @@ export interface ToggleDarkModeProps {
   className?: string
 }
 
+const CYCLE: ThemePreference[] = ['light', 'dark', 'system']
+
+function getSystemDark() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+}
+
 /**
- * Toggle button for switching between light and dark modes.
+ * Toggle button for cycling between light, dark, and system color modes.
  * Automatically persists preference to localStorage and applies
  * the 'dark' class to the document element.
  *
@@ -64,11 +77,8 @@ export interface ToggleDarkModeProps {
  * // With label
  * <ToggleDarkMode showLabel />
  *
- * // Custom labels
- * <ToggleDarkMode showLabel lightLabel="Light" darkLabel="Dark" />
- *
  * // With change callback
- * <ToggleDarkMode onChange={(isDark) => console.log('Dark mode:', isDark)} />
+ * <ToggleDarkMode onChange={(theme) => console.log('Theme:', theme)} />
  * ```
  */
 export function ToggleDarkMode({
@@ -78,45 +88,68 @@ export function ToggleDarkMode({
   showLabel = false,
   lightLabel = 'Light',
   darkLabel = 'Dark',
+  systemLabel = 'System',
   storageKey = 'darkMode',
   onChange,
   className,
 }: ToggleDarkModeProps) {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    // Check for saved preference or system preference
+  const [theme, setTheme] = useState<ThemePreference>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem(storageKey)
-      if (saved !== null) return saved === 'true'
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
+      // Migrate legacy boolean values
+      if (saved === 'true') return 'dark'
+      if (saved === 'false') return 'light'
+      if (saved === 'light' || saved === 'dark' || saved === 'system') return saved
     }
-    return false
+    return 'system'
   })
 
-  // Apply dark mode class to html element
+  // Apply dark mode class based on theme preference
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDarkMode)
-    localStorage.setItem(storageKey, String(isDarkMode))
-  }, [isDarkMode, storageKey])
+    const apply = (isDark: boolean) => {
+      document.documentElement.classList.toggle('dark', isDark)
+    }
+
+    if (theme === 'system') {
+      apply(getSystemDark())
+      const mq = window.matchMedia('(prefers-color-scheme: dark)')
+      const handler = (e: MediaQueryListEvent) => apply(e.matches)
+      mq.addEventListener('change', handler)
+      return () => mq.removeEventListener('change', handler)
+    }
+
+    apply(theme === 'dark')
+  }, [theme])
+
+  // Persist preference
+  useEffect(() => {
+    localStorage.setItem(storageKey, theme)
+  }, [theme, storageKey])
 
   const toggle = useCallback(() => {
-    setIsDarkMode((prev) => {
-      const next = !prev
+    setTheme((prev) => {
+      const next = CYCLE[(CYCLE.indexOf(prev) + 1) % CYCLE.length]
       onChange?.(next)
       return next
     })
   }, [onChange])
+
+  const icon = { light: <Sun />, dark: <Moon />, system: <Monitor /> }[theme]
+  const label = { light: lightLabel, dark: darkLabel, system: systemLabel }[theme]
+  const nextTheme = CYCLE[(CYCLE.indexOf(theme) + 1) % CYCLE.length]
+  const ariaLabel = `Switch to ${nextTheme} mode`
 
   return (
     <Button
       variant={variant}
       size={size}
       mode={mode}
-      icon={isDarkMode ? <Sun /> : <Moon />}
+      icon={icon}
       onClick={toggle}
       className={className}
-      aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={ariaLabel}
     >
-      {showLabel && (isDarkMode ? lightLabel : darkLabel)}
+      {showLabel && label}
     </Button>
   )
 }
