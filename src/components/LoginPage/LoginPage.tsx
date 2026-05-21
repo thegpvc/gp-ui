@@ -46,14 +46,14 @@ export function LoginPage({
 
   if (loading) {
     return (
-      <div className={cn('min-h-screen bg-navy-900 flex items-center justify-center', className)}>
+      <div className={cn('min-h-screen bg-navy-950 flex items-center justify-center', className)}>
         <Loader2 className="w-5 h-5 text-orange-500 animate-spin" aria-label="Loading" />
       </div>
     )
   }
 
   return (
-    <div className={cn('min-h-screen bg-navy-900 flex flex-col', className)}>
+    <div className={cn('min-h-screen bg-navy-950 flex flex-col', className)}>
       {banner && (
         <div className="bg-orange-500 text-white text-center py-1.5 text-xs font-medium flex items-center justify-center gap-2">
           <span>{banner.message}</span>
@@ -76,9 +76,9 @@ export function LoginPage({
           <div className="flex justify-center mb-4">
             <GPLogo />
           </div>
-          <h1 className="text-2xl font-bold text-white">{title}</h1>
+          <h1 className="text-2xl font-bold text-cream">{title}</h1>
           {subtitle && (
-            <p className="text-navy-400 text-sm mt-1">{subtitle}</p>
+            <p className="text-navy-300 text-sm mt-1">{subtitle}</p>
           )}
         </div>
 
@@ -92,7 +92,7 @@ export function LoginPage({
         </Button>
 
         {helperText && (
-          <p className="mt-4 text-navy-500 text-xs text-center">{helperText}</p>
+          <p className="mt-4 text-navy-300 text-xs text-center">{helperText}</p>
         )}
 
         {children}

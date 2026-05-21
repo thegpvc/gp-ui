@@ -5,6 +5,21 @@ export function StatCardDemo() {
   return (
     <div className="space-y-8">
       <section className="demo-section">
+        <h2 className="demo-section-title">Display variant</h2>
+        <p className="text-sm text-navy-600 dark:text-navy-300 mb-4">
+          Huge cream numeral above a tiny uppercase caption. No chrome. Use in Hero blocks and marketing-flavored sections.
+        </p>
+        <div className="rounded-card bg-navy-950 p-8">
+          <div className="dark grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6">
+            <StatCard variant="display" value={99} label="Founders partnered with" />
+            <StatCard variant="display" value={500} label="Key hires placed" />
+            <StatCard variant="display" value="80%" label="Founders who use our services" />
+            <StatCard variant="display" value="300,000" label="Hours our team has spent embedded" />
+          </div>
+        </div>
+      </section>
+
+      <section className="demo-section">
         <h2 className="demo-section-title">Default Variant</h2>
         <div className="demo-grid">
           <StatCard label="Total Emails" value={1234} />

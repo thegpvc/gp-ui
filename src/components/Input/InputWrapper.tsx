@@ -75,7 +75,7 @@ export function InputWrapper({
               'text-xs',
               variant === 'error' && 'text-rose-700 dark:text-rose-400',
               variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
-              variant === 'default' && 'text-navy-500 dark:text-navy-400'
+              variant === 'default' && 'text-navy-500 dark:text-navy-300'
             )}
           >
             {helperText}
@@ -103,7 +103,7 @@ export function InputWrapper({
               'text-xs',
               variant === 'error' && 'text-rose-700 dark:text-rose-400',
               variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
-              variant === 'default' && 'text-navy-500 dark:text-navy-400'
+              variant === 'default' && 'text-navy-500 dark:text-navy-300'
             )}
           >
             {helperText}
@@ -136,7 +136,7 @@ export function InputWrapper({
               'text-xs',
               variant === 'error' && 'text-rose-700 dark:text-rose-400',
               variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
-              variant === 'default' && 'text-navy-500 dark:text-navy-400'
+              variant === 'default' && 'text-navy-500 dark:text-navy-300'
             )}
           >
             {helperText}
@@ -165,7 +165,7 @@ export function InputWrapper({
             'text-xs',
             variant === 'error' && 'text-rose-700 dark:text-rose-400',
             variant === 'success' && 'text-emerald-700 dark:text-emerald-400',
-            variant === 'default' && 'text-navy-500 dark:text-navy-400'
+            variant === 'default' && 'text-navy-500 dark:text-navy-300'
           )}
         >
           {helperText}

@@ -42,8 +42,9 @@ export interface StatCardProps {
    * - compact: Smaller padding with large value
    * - inline: Label on top, value below, left-aligned (for debug user stats)
    * - centered: Label on top, value below, centered (for email history contact cards)
+   * - display: Huge cream numeral above tiny uppercase caption, no chrome (hero / marketing-style)
    */
-  variant?: 'default' | 'compact' | 'inline' | 'centered'
+  variant?: 'default' | 'compact' | 'inline' | 'centered' | 'display'
 
   /**
    * Color scheme
@@ -96,10 +97,10 @@ export function StatCard({
   // Color scheme classes
   const colorClasses = {
     default: {
-      label: 'text-navy-500 dark:text-navy-400',
+      label: 'text-navy-500 dark:text-navy-300',
       value: 'text-navy-900 dark:text-navy-100',
       bg: 'bg-gray-50 dark:bg-navy-800/50',
-      icon: 'text-navy-400 dark:text-navy-500',
+      icon: 'text-navy-400 dark:text-navy-400',
     },
     accent: {
       label: 'text-orange-600 dark:text-orange-400',
@@ -107,6 +108,41 @@ export function StatCard({
       bg: 'bg-white/80 dark:bg-navy-800/80',
       icon: 'text-orange-500 dark:text-orange-400',
     },
+  }
+
+  // Display variant: huge cream numeral above tiny uppercase caption, no chrome.
+  // Used in Hero blocks and marketing-style number callouts.
+  if (variant === 'display') {
+    const displayValueColor =
+      color === 'accent'
+        ? 'text-orange-500 dark:text-orange-400'
+        : 'text-navy-900 dark:text-cream'
+    const displayLabelColor =
+      color === 'accent'
+        ? 'text-orange-600 dark:text-orange-400'
+        : 'text-navy-500 dark:text-navy-300'
+
+    return (
+      <div className={cn('flex flex-col items-start gap-2', className)}>
+        <span
+          className={cn(
+            'text-display-lg font-extrabold leading-none',
+            displayValueColor,
+            isNumeric && 'font-mono tabular-nums',
+          )}
+        >
+          {value}
+        </span>
+        <span
+          className={cn(
+            'text-xs font-medium uppercase tracking-wider',
+            displayLabelColor,
+          )}
+        >
+          {label}
+        </span>
+      </div>
+    )
   }
 
   // Inline variant: label on top, value below, left-aligned.
@@ -178,7 +214,7 @@ export function StatCard({
             )}
             <span>{trend.value}</span>
             {trend.label && (
-              <span className="text-gray-500 dark:text-navy-400 ml-0.5">{trend.label}</span>
+              <span className="text-gray-500 dark:text-navy-300 ml-0.5">{trend.label}</span>
             )}
           </div>
         )}

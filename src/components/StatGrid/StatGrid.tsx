@@ -215,7 +215,7 @@ export function StatGrid({
 
             {/* Label (key) - left column */}
             <div className="flex items-center py-2">
-              <span className="text-xs text-navy-500 dark:text-navy-400 leading-5">
+              <span className="text-xs text-navy-500 dark:text-navy-300 leading-5">
                 {label}
               </span>
             </div>

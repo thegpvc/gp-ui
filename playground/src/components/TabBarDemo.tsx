@@ -3,6 +3,7 @@ import { TabBar, Card } from '@gp/ui'
 
 export function TabBarDemo() {
   const [activeTab, setActiveTab] = useState('overview')
+  const [activePill, setActivePill] = useState('portfolio')
 
   return (
     <div className="space-y-8">
@@ -48,6 +49,43 @@ export function TabBarDemo() {
       </section>
 
       <section className="demo-section">
+        <h2 className="demo-section-title">Pill variant</h2>
+        <TabBar
+          variant="pill"
+          items={[
+            { id: 'portfolio', label: 'Portfolio' },
+            { id: 'blog', label: 'Blog' },
+            { id: 'team', label: 'Team' },
+            { id: 'stealth', label: 'Stealth Mode' },
+          ]}
+          activeId={activePill}
+          onChange={setActivePill}
+        />
+        <p className="text-sm text-navy-500 dark:text-navy-300 mt-2">
+          Rounded-full tabs with an orange-filled active pill — for top-nav style brand chrome.
+        </p>
+      </section>
+
+      <section className="demo-section">
+        <h2 className="demo-section-title">Pill on brand surface</h2>
+        <div className="rounded-card bg-navy-950 p-6">
+          <div className="dark">
+            <TabBar
+              variant="pill"
+              items={[
+                { id: 'portfolio', label: 'Portfolio' },
+                { id: 'blog', label: 'Blog' },
+                { id: 'team', label: 'Team' },
+                { id: 'stealth', label: 'Stealth Mode' },
+              ]}
+              activeId="portfolio"
+              onChange={() => {}}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
         <pre className="code-block">{`import { TabBar } from '@gp/ui'
 
@@ -58,6 +96,18 @@ const [activeTab, setActiveTab] = useState('overview')
     { id: 'overview', label: 'Overview' },
     { id: 'details', label: 'Details' },
     { id: 'settings', label: 'Settings' },
+  ]}
+  activeId={activeTab}
+  onChange={setActiveTab}
+/>
+
+// Pill variant — brand-style top nav with orange active pill
+<TabBar
+  variant="pill"
+  items={[
+    { id: 'portfolio', label: 'Portfolio' },
+    { id: 'blog', label: 'Blog' },
+    { id: 'team', label: 'Team' },
   ]}
   activeId={activeTab}
   onChange={setActiveTab}

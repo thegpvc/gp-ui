@@ -8,8 +8,10 @@
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Off-white page background */
+  /* Off-white page background (light mode) */
   --color-cream: #fff9f2;
+  /* Warm off-white for foreground text on dark surfaces */
+  --color-cream-fg: #f4ead9;
 
   /* Orange palette anchored on rgb(255, 106, 0) */
   --color-orange-50: #fff7ed;
@@ -23,7 +25,10 @@
   --color-orange-800: #9a3412;
   --color-orange-900: #7c2d12;
 
-  /* Dark navy palette anchored on #0a1a35 */
+  /* Dark navy palette anchored on the deep brand navy #06143b.
+   * navy-900 = deep brand navy (raised surfaces on dark).
+   * navy-850 = lighter chrome (Layout header, between -800 and -900).
+   * navy-950 = default dark page background. */
   --color-navy-50: #f0f2f5;
   --color-navy-100: #d9dde5;
   --color-navy-200: #b3bac9;
@@ -33,7 +38,8 @@
   --color-navy-600: #33415e;
   --color-navy-700: #263147;
   --color-navy-800: #1a2030;
-  --color-navy-900: #0a1a35;
+  --color-navy-850: #0a1a35;
+  --color-navy-900: #06143b;
   --color-navy-950: #050d1a;
 
   /* GP Design System - Box Shadows */
@@ -45,6 +51,21 @@
   --spacing-card: var(--gp-spacing-card);
   --spacing-section: var(--gp-spacing-section);
   --spacing-list-item: var(--gp-spacing-list-item);
+
+  /* Display typography (Hero, login, empty states) */
+  --text-display-lg: clamp(2.5rem, 5vw, 3rem);      /* 40–48px */
+  --text-display-xl: clamp(3.5rem, 7vw, 4.5rem);    /* 56–72px */
+  --text-display-lg--line-height: 1.05;
+  --text-display-xl--line-height: 1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-xl--letter-spacing: -0.02em;
+
+  /* Tracking for eyebrow labels */
+  --tracking-eyebrow: 0.15em;
+
+  /* Pill / card radii */
+  --radius-card: 1rem;        /* 16px — Card default */
+  --radius-pill: 9999px;      /* used by Button shape=pill, Chip, pill TabBar */
 }
 
 :root {
@@ -69,8 +90,8 @@
 /* Component classes */
 @layer components {
   .gp-card {
-    @apply bg-white rounded-lg shadow-sm p-4;
-    @apply dark:bg-navy-800 dark:border dark:border-navy-700;
+    @apply bg-white rounded-card shadow-sm p-4;
+    @apply dark:bg-navy-900 dark:border dark:border-navy-700 dark:shadow-none;
   }
 
   /* Button variants with automatic dark mode support */
@@ -106,6 +127,16 @@
     @apply dark:bg-rose-600 dark:hover:bg-rose-700;
   }
 
+  /* Outline variant — cream-on-navy CTA used in hero blocks and on brand surfaces.
+   * Looks correct on dark by default; on light, falls back to a navy outline. */
+  .gp-button-outline {
+    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply border text-navy-900 border-navy-900/30 bg-transparent hover:bg-navy-900/5 focus:ring-navy-500/20;
+    @apply dark:text-cream dark:border-cream/30 dark:hover:bg-cream/10 dark:focus:ring-orange-500/20;
+  }
+
   /* Dark mode button variants - optimized for dark backgrounds */
   .gp-button-primary-dark {
     @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
@@ -133,6 +164,36 @@
     @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
     @apply disabled:opacity-50 disabled:cursor-not-allowed;
     @apply bg-rose-600 text-white hover:bg-rose-700 focus:ring-rose-600/20;
+  }
+
+  .gp-button-outline-dark {
+    @apply px-4 py-2 text-sm font-medium rounded-md transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-0;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply border text-cream border-cream/30 bg-transparent hover:bg-cream/10 focus:ring-orange-500/20;
+  }
+
+  /* Chip — filter / category selector. Distinct from Badge (status) and Button (action). */
+  .gp-chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full transition-colors;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/30;
+    @apply bg-white border border-gray-200 text-navy-700 hover:bg-gray-50;
+    @apply dark:bg-navy-800/50 dark:border-navy-700 dark:text-navy-200 dark:hover:bg-navy-800;
+  }
+
+  .gp-chip-active {
+    @apply bg-orange-50 border-orange-300 text-orange-700;
+    @apply dark:bg-orange-500/10 dark:border-orange-500/60 dark:text-orange-300;
+  }
+
+  /* Eyebrow label — tiny tracked uppercase section label. */
+  .gp-eyebrow {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+  }
+
+  .gp-eyebrow-dot {
+    @apply inline-block w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0;
   }
 
   .gp-badge-success {
@@ -321,9 +382,9 @@ body {
 .dark .animate-skeleton {
   background: linear-gradient(
     90deg,
-    #263147 25%,
-    #33415e 50%,
-    #263147 75%
+    var(--color-navy-800) 25%,
+    var(--color-navy-700) 50%,
+    var(--color-navy-800) 75%
   );
   background-size: 200% 100%;
 }

@@ -101,7 +101,7 @@ function Header({
   const hasMenu = user && (menuItems.length > 0 || onLogout);
 
   return (
-    <header className="bg-navy-900 h-12 flex items-center px-4 lg:px-8 shadow-md sticky top-0 z-20">
+    <header className="bg-navy-850 h-12 flex items-center px-4 lg:px-8 shadow-md sticky top-0 z-20">
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
           {hasSidebar && <SidebarMobileToggle />}
@@ -144,7 +144,7 @@ function Header({
                       <p className="text-sm font-medium text-navy-900 dark:text-navy-100 truncate">
                         {user.name}
                       </p>
-                      <p className="text-xs text-navy-500 dark:text-navy-400 truncate">
+                      <p className="text-xs text-navy-500 dark:text-navy-300 truncate">
                         {user.email}
                       </p>
                     </div>
@@ -269,7 +269,7 @@ function LayoutContent({
           <div className="flex-1 min-w-0 flex flex-col">
             {/* Search bar */}
             {searchBar && (
-              <div className="sticky top-0 z-10 bg-white dark:bg-navy-900 border-b border-gray-200 dark:border-navy-800 px-4 py-3">
+              <div className="sticky top-0 z-10 bg-white dark:bg-navy-850 border-b border-gray-200 dark:border-navy-800 px-4 py-3">
                 <div className={cn(MAX_WIDTH_CLASSES[maxWidth], "mx-auto")}>
                   {searchBar}
                 </div>
@@ -318,7 +318,7 @@ function LayoutContent({
 
       {/* Search bar */}
       {searchBar && (
-        <div className="sticky top-0 z-10 bg-white dark:bg-navy-900 border-b border-gray-200 dark:border-navy-800 px-4 py-3">
+        <div className="sticky top-0 z-10 bg-white dark:bg-navy-850 border-b border-gray-200 dark:border-navy-800 px-4 py-3">
           <div className={cn(MAX_WIDTH_CLASSES[maxWidth], "mx-auto")}>
             {searchBar}
           </div>

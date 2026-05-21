@@ -25,11 +25,12 @@ npm run typecheck  # TypeScript type checking only
 - `src/styles/theme.css` - Tailwind theme with custom colors and component classes
 
 **Components:**
-- **Core:** Button, Badge, Card, StatCard, StatGrid, Alert, Skeleton
+- **Core:** Button, Badge, Chip, Card, StatCard, StatGrid, Alert, Skeleton
 - **Form:** Input, TextArea, InputWrapper, Dropdown
 - **Overlay:** Modal, Tooltip
 - **Layout:** Layout, LayoutContainer, Sidebar (with SidebarLink, SidebarSection, SidebarSearch, SidebarUser), TabBar
 - **Content:** ContentArea, ContentBody, ContentPane, ContentTabs, ContentSidebar
+- **Brand voice:** Hero, EyebrowLabel, StatCard `variant="display"` — use for login, empty states, and hero-style app pages.
 - **Utility:** ToggleDarkMode, LoginPage, GPLogo
 
 **Build output:**
@@ -45,6 +46,8 @@ npm run typecheck  # TypeScript type checking only
 - Components use compound pattern where appropriate (e.g., Card.Header, Card.Body)
 - All components accept className prop and merge with `cn()` utility
 - CSS lives in theme.css with Tailwind v4 `@theme` directive for custom tokens
+- Dark navy is the brand-primary surface; light mode is the variant. See DESIGN_GUIDE.md for the navy/cream/orange role split.
+- Distinguish **Badge** (status: success/warning/error/info/neutral) from **Chip** (filter / category selector) from **Button** (action). Don't collapse them.
 
 ## Design System Conventions
 
@@ -61,3 +64,31 @@ Consuming apps must provide: react, react-dom, lucide-react, @radix-ui/react-dia
 - **Consistent patterns:** Follow established patterns in the codebase—use `cn()` for class merging, compound components for complex UI, and the existing prop naming conventions (e.g., `variant`, `size`).
 - **Minimal API surface:** Export only what consumers need. Keep internal helpers private. Prefer composition over configuration—fewer props with sensible defaults.
 - **Style via theme.css:** New component styles should use Tailwind classes and extend theme.css when new tokens are needed. Avoid inline styles or component-specific CSS files.
+
+## Authoring components
+
+When adding or extending a component, hold these rules:
+
+**Prop-naming contract** — each axis gets its own prop. Don't overload.
+
+| Prop      | Axis                          | Example values                                       |
+| --------- | ----------------------------- | ---------------------------------------------------- |
+| `variant` | Visual style / semantic role  | `primary`, `secondary`, `outline`, `ghost`           |
+| `shape`   | Geometry                      | `rounded`, `pill`                                    |
+| `size`    | Scale                         | `sm`, `md`, `lg`                                     |
+| `mode`    | *Forced* color context        | `light`, `dark` — only when the surface overrides theme |
+| `color`   | Tone / palette intent         | `muted`, `orange`, `cream`, `navy`                   |
+
+If a prop wants to control two axes (e.g., "size and style"), split it. Look at Button (`variant` + `shape` + `size` + `mode`) and EyebrowLabel (`color` + `dot`) as canonical references.
+
+**Token-first authoring.** If a value (color, radius, spacing, type size) will be used twice, put it in `theme.css` under `@theme`. Inline arbitrary classes like `bg-[#06143b]` are a review smell — they bypass the token system.
+
+**Light + dark in one component.** The standard pattern is `class dark:class`. Don't ship two parallel components. The `mode="dark"` escape hatch exists *only* for elements on fixed-dark surfaces inside a light app (e.g., a Button inside a navy Hero on a light page).
+
+**Three-tier dark hierarchy.** When picking `dark:bg-*`, choose by role: chrome = `navy-850`, page = `navy-950`, raised content = `navy-900`. See DESIGN_GUIDE.md.
+
+**Muted text contrast.** On dark: body = `navy-200`, secondary = `navy-300`, icons/placeholders = `navy-400`. Never use `navy-500` for readable text on dark.
+
+**Test the contract, not the rendering.** Look at `src/components/Button/Button.test.tsx` — it tests behavior (variants apply correct classes, loading disables click, icons render in correct slot), not snapshots of full className strings. Aim for that style. Components don't need exhaustive tests, but new behavior should be locked down.
+
+**Update the playground.** Every new component or variant gets a demo page (or a section added to an existing demo) in `playground/src/components/`. The playground is the visual contract.

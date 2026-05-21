@@ -20,6 +20,9 @@ import {
   MessageSquare,
   Square,
   Layers,
+  Sparkles,
+  Hash,
+  Filter,
 } from 'lucide-react'
 import { ButtonDemo } from './components/ButtonDemo'
 import { BadgeDemo } from './components/BadgeDemo'
@@ -39,6 +42,9 @@ import { InputDemo } from './components/InputDemo'
 import { TooltipDemo } from './components/TooltipDemo'
 import { ModalDemo } from './components/ModalDemo'
 import { ContentLayoutsDemo } from './components/ContentLayoutsDemo'
+import { EyebrowLabelDemo } from './components/EyebrowLabelDemo'
+import { ChipDemo } from './components/ChipDemo'
+import { HeroDemo } from './components/HeroDemo'
 
 const sectionDescriptions: Record<string, string> = {
   colors: 'Brand colors and semantic palette',
@@ -59,6 +65,9 @@ const sectionDescriptions: Record<string, string> = {
   layout: 'Page structure and navigation',
   contentlayouts: 'Content area primitives for tabs, sidebars, and canvases',
   loginpage: 'Full-page login with GP branding',
+  eyebrowlabel: 'Tiny tracked uppercase section label with optional orange dot',
+  chip: 'Filter and category pill — distinct from Badge (status) and Button (action)',
+  hero: 'Eyebrow + display headline + lede + actions, with optional stats row',
 }
 
 // Sidebar header with search - uses SidebarSearch component
@@ -114,6 +123,27 @@ export function App() {
           icon: <Tag className="w-5 h-5" />,
           onClick: () => setActiveSection('badge'),
           isActive: activeSection === 'badge',
+        },
+        {
+          id: 'chip',
+          label: 'Chip',
+          icon: <Filter className="w-5 h-5" />,
+          onClick: () => setActiveSection('chip'),
+          isActive: activeSection === 'chip',
+        },
+        {
+          id: 'eyebrowlabel',
+          label: 'EyebrowLabel',
+          icon: <Hash className="w-5 h-5" />,
+          onClick: () => setActiveSection('eyebrowlabel'),
+          isActive: activeSection === 'eyebrowlabel',
+        },
+        {
+          id: 'hero',
+          label: 'Hero',
+          icon: <Sparkles className="w-5 h-5" />,
+          onClick: () => setActiveSection('hero'),
+          isActive: activeSection === 'hero',
         },
         {
           id: 'card',
@@ -267,6 +297,12 @@ export function App() {
         return <ContentLayoutsDemo />
       case 'loginpage':
         return <LoginPageDemo />
+      case 'eyebrowlabel':
+        return <EyebrowLabelDemo />
+      case 'chip':
+        return <ChipDemo />
+      case 'hero':
+        return <HeroDemo />
     }
   }
 

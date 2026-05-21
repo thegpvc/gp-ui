@@ -11,6 +11,14 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
    * Make the card clickable/hoverable
    */
   interactive?: boolean
+
+  /**
+   * Corner radius
+   * - md: 6px — tight, inline cards
+   * - lg: 8px — small cards (previous Card default)
+   * - card: 16px — brand-tile look (new default)
+   */
+  radius?: 'md' | 'lg' | 'card'
 }
 
 export interface CardSectionProps extends HTMLAttributes<HTMLDivElement> {
@@ -43,11 +51,20 @@ export interface CardSectionProps extends HTMLAttributes<HTMLDivElement> {
  * </Card>
  * ```
  */
-export function Card({ children, interactive = false, className = '', ...props }: CardProps) {
+const radiusClasses: Record<NonNullable<CardProps['radius']>, string> = {
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  card: '', // gp-card already applies rounded-card
+}
+
+export function Card({ children, interactive = false, radius = 'card', className = '', ...props }: CardProps) {
+  // For non-default radii, override the rounded-card baked into gp-card.
+  const radiusOverride = radius === 'card' ? '' : `!${radiusClasses[radius]}`
   return (
     <div
       className={cn(
         'gp-card',
+        radiusOverride,
         interactive && 'cursor-pointer hover:shadow-md transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500',
         className
       )}

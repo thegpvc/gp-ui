@@ -137,7 +137,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {({ id }) => (
           <div className="relative">
             {prefixIcon && (
-              <div className="absolute left-2.5 top-1/2 -translate-y-1/2 text-navy-400 dark:text-navy-500 pointer-events-none">
+              <div className="absolute left-2.5 top-1/2 -translate-y-1/2 text-navy-400 dark:text-navy-400 pointer-events-none">
                 {prefixIcon}
               </div>
             )}
@@ -158,7 +158,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               {...props}
             />
             {suffixIcon && (
-              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 text-navy-400 dark:text-navy-500 flex items-center">
+              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 text-navy-400 dark:text-navy-400 flex items-center">
                 {suffixIcon}
               </div>
             )}

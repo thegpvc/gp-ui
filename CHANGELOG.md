@@ -5,6 +5,30 @@ All notable changes to @gp/ui will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-05-21
+
+### Added
+- `Hero` component — eyebrow + display headline + lede + actions + optional stats row
+- `EyebrowLabel` component — tiny tracked uppercase section label with optional orange dot
+- `Chip` component — filter/category pill with `active`, `onRemove`, and icon support. Distinct from Badge (status) and Button (action)
+- `Button` gained `variant="outline"` (cream-on-navy CTA) and `shape="pill"` (rounded-full geometry)
+- `TabBar` gained `variant="pill"` — rounded-full tabs with an orange-filled active state
+- `StatCard` gained `variant="display"` — huge cream numeral above tiny uppercase caption, no chrome
+- `Card` gained `radius="md" | "lg" | "card"` prop (default `card` = 16px)
+- Display typography tokens: `text-display-xl`, `text-display-lg`, `tracking-eyebrow`, `--radius-card`, `--radius-pill`
+- `--color-cream-fg` (#f4ead9) — warm off-white foreground token for use on dark surfaces
+- Playground previews for Hero, EyebrowLabel, Chip; extended demos for Button, TabBar, StatCard
+
+### Changed
+- Deeper brand navy: `--color-navy-900` is now `#06143b` (was `#0a1a35`). The previous value lives on as `--color-navy-850`
+- Three-tier dark surface hierarchy: page = `navy-950`, chrome (Layout header, Sidebar, search bar) = `navy-850`, raised brand content (cards, modals, hero blocks) = `navy-900`
+- Default Card radius bumped to 16px (`rounded-card`); pass `radius="lg"` to restore the prior 8px
+- Cards on dark drop their shadow in favor of a 1px border, matching the brand-tile look
+- Bumped muted text contrast on dark across components: secondary text uses `navy-300` (was `navy-400`); icons/placeholders use `navy-400` (was `navy-500`). `navy-500` is no longer used for readable text on dark
+- LoginPage shifted to `bg-navy-950` with cream heading and lifted helper-text contrast
+- DESIGN_GUIDE.md rewritten with the brand-voice section, three-tier hierarchy callout, muted-text contrast rule, Badge/Chip/Button role split, orange budget rule, and display-tier guardrails
+- CLAUDE.md gained an "Authoring components" section (prop-naming contract, token-first authoring, light+dark policy)
+
 ## [0.2.1] - 2026-01-07
 
 ### Changed

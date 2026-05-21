@@ -25,7 +25,7 @@
 }
 
 .demo-label {
-  @apply text-xs text-navy-500 dark:text-navy-400 font-medium uppercase tracking-wide mb-2;
+  @apply text-xs text-navy-500 dark:text-navy-300 font-medium uppercase tracking-wide mb-2;
 }
 
 .code-block {

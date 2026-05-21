@@ -58,7 +58,7 @@ export function SidebarUser({
           {name}
         </div>
         {email && (
-          <div className="text-xs text-navy-500 dark:text-navy-400 truncate whitespace-nowrap">
+          <div className="text-xs text-navy-500 dark:text-navy-300 truncate whitespace-nowrap">
             {email}
           </div>
         )}

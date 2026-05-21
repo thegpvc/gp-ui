@@ -7,10 +7,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Visual style variant
    * - primary: Orange background (TheGP brand) - use for primary CTAs only
    * - secondary: Navy outline - use for secondary actions
+   * - outline: Cream-on-navy outline - hero CTAs, brand surfaces
    * - ghost: Transparent with hover - use for tertiary actions
    * - destructive: Red background - use for delete/remove actions
    */
-  variant?: 'primary' | 'secondary' | 'ghost' | 'destructive'
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive'
 
   /**
    * Button size
@@ -19,6 +20,13 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * - lg: Large button for primary actions
    */
   size?: 'sm' | 'md' | 'lg'
+
+  /**
+   * Corner geometry
+   * - rounded: Standard rounded-md corners (default)
+   * - pill: Fully rounded (rounded-full) — for hero CTAs, brand chrome
+   */
+  shape?: 'rounded' | 'pill'
 
   /**
    * Color mode for background context
@@ -75,6 +83,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({
   variant = 'primary',
   size = 'md',
+  shape = 'rounded',
   mode = 'light',
   loading = false,
   icon,
@@ -99,6 +108,10 @@ export function Button({
       light: 'gp-button-secondary',
       dark: 'gp-button-secondary-dark',
     },
+    outline: {
+      light: 'gp-button-outline',
+      dark: 'gp-button-outline-dark',
+    },
     ghost: {
       light: 'gp-button-ghost',
       dark: 'gp-button-ghost-dark',
@@ -110,6 +123,8 @@ export function Button({
   }
 
   const variantClass = variantClasses[variant][mode]
+  // Pill shape overrides the rounded-md baked into each variant class.
+  const shapeClass = shape === 'pill' ? 'rounded-full' : ''
 
   const sizeClasses = {
     sm: 'px-3 py-1.5 text-xs',
@@ -146,6 +161,7 @@ export function Button({
       className={cn(
         variantClass,
         sizeClasses[size],
+        shapeClass,
         'inline-flex items-center justify-center gap-2',
         className
       )}

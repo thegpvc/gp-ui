@@ -12,9 +12,35 @@ export function ButtonDemo() {
         <div className="demo-row">
           <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
           <Button variant="ghost">Ghost</Button>
           <Button variant="destructive">Destructive</Button>
         </div>
+      </section>
+
+      <section className="demo-section">
+        <h2 className="demo-section-title">Pill shape</h2>
+        <div className="demo-row">
+          <Button variant="primary" shape="pill">The Model</Button>
+          <Button variant="outline" shape="pill">The Team</Button>
+          <Button variant="secondary" shape="pill">Cancel</Button>
+        </div>
+        <p className="text-sm text-slate-600 mt-2">
+          Use <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">shape="pill"</code> for hero CTAs and brand chrome.
+        </p>
+      </section>
+
+      <section className="demo-section">
+        <h2 className="demo-section-title">Outline on brand surface</h2>
+        <div className="rounded-card bg-navy-950 p-6 flex flex-wrap gap-3">
+          <Button variant="outline" shape="pill" mode="dark">The Model</Button>
+          <Button variant="outline" shape="pill" mode="dark">The Team</Button>
+          <Button variant="primary" shape="pill" mode="dark">View Portfolio</Button>
+        </div>
+        <p className="text-sm text-slate-600 mt-2">
+          The <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">outline</code> variant reads as cream-on-navy on dark surfaces.
+          Use <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">mode="dark"</code> when the surface is fixed-dark inside a light page.
+        </p>
       </section>
 
       <section className="demo-section">
