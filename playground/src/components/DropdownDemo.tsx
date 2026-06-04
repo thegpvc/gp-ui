@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Dropdown, Button } from '@gp/ui'
+import { Dropdown, Button } from '@thegpvc/ui'
 import {
   User,
   Settings,
@@ -197,7 +197,7 @@ export function DropdownDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Dropdown, Button } from '@gp/ui'
+        <pre className="code-block">{`import { Dropdown, Button } from '@thegpvc/ui'
 
 // Basic dropdown
 <Dropdown>

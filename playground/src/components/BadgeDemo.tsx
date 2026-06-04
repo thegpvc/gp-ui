@@ -1,4 +1,4 @@
-import { Badge } from '@gp/ui'
+import { Badge } from '@thegpvc/ui'
 import { Check, AlertTriangle, X, Info, Clock } from 'lucide-react'
 
 export function BadgeDemo() {
@@ -159,7 +159,7 @@ export function BadgeDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Badge } from '@gp/ui'
+        <pre className="code-block">{`import { Badge } from '@thegpvc/ui'
 import { Check } from 'lucide-react'
 
 // Basic usage

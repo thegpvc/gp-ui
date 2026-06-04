@@ -6,7 +6,7 @@ import {
   SidebarSection,
   SidebarSearch,
   SidebarUser,
-} from '@gp/ui'
+} from '@thegpvc/ui'
 import {
   Home,
   Users,

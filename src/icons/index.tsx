@@ -47,7 +47,7 @@ import {
 
 // ============================================
 // Design System Component Icons
-// These are used internally by @gp/ui components
+// These are used internally by @thegpvc/ui components
 // ============================================
 
 /** Spinner icon for loading states (Button, async operations) */

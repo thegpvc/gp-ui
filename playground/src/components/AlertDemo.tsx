@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Alert } from '@gp/ui'
+import { Alert } from '@thegpvc/ui'
 
 export function AlertDemo() {
   const [dismissedAlerts, setDismissedAlerts] = useState<string[]>([])
@@ -113,7 +113,7 @@ export function AlertDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Alert } from '@gp/ui'
+        <pre className="code-block">{`import { Alert } from '@thegpvc/ui'
 
 // Basic usage
 <Alert variant="info">

@@ -14,8 +14,8 @@
     "noFallthroughCasesInSwitch": true,
     "isolatedModules": true,
     "paths": {
-      "@gp/ui": ["../src/index.ts"],
-      "@gp/ui/theme": ["../src/styles/theme.css"]
+      "@thegpvc/ui": ["../src/index.ts"],
+      "@thegpvc/ui/theme": ["../src/styles/theme.css"]
     }
   },
   "include": ["src", "../src"]

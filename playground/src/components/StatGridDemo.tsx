@@ -1,4 +1,4 @@
-import { StatGrid } from '@gp/ui'
+import { StatGrid } from '@thegpvc/ui'
 import {
   Check,
   X,

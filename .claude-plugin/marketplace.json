@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "gp-ui",
-      "description": "TheGP's @gp/ui design system library for React applications",
+      "description": "TheGP's @thegpvc/ui design system library for React applications",
       "source": "./.claude-plugin",
       "skills": [
         "./skills/gp-ui"

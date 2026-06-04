@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TabBar, Card } from '@gp/ui'
+import { TabBar, Card } from '@thegpvc/ui'
 
 export function TabBarDemo() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -87,7 +87,7 @@ export function TabBarDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { TabBar } from '@gp/ui'
+        <pre className="code-block">{`import { TabBar } from '@thegpvc/ui'
 
 const [activeTab, setActiveTab] = useState('overview')
 

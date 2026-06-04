@@ -1,17 +1,17 @@
 ---
 name: gp-ui
-description: Use when building React UIs for TheGP applications, migrating existing UIs to @gp/ui components, integrating Tailwind v4 with @gp/ui theme, or answering questions about available components, design tokens, icons, or setup. Activate when user mentions @gp/ui, TheGP design system, or asks about GP-specific UI patterns and components.
+description: Use when building React UIs for TheGP applications, migrating existing UIs to @thegpvc/ui components, integrating Tailwind v4 with @thegpvc/ui theme, or answering questions about available components, design tokens, icons, or setup. Activate when user mentions @thegpvc/ui, TheGP design system, or asks about GP-specific UI patterns and components.
 ---
 
-# @gp/ui Design System
+# @thegpvc/ui Design System
 
 TheGP's shared React component library with Tailwind theme integration.
 
 ## Quick Reference
 
-**Import**: `import { Button, Card, Layout } from '@gp/ui'`
-**Theme**: `@import "@gp/ui/theme";` in CSS
-**Icons**: `import { SearchIcon, UserIcon } from '@gp/ui'`
+**Import**: `import { Button, Card, Layout } from '@thegpvc/ui'`
+**Theme**: `@import "@thegpvc/ui/theme";` in CSS
+**Icons**: `import { SearchIcon, UserIcon } from '@thegpvc/ui'`
 
 ## Available Components
 
@@ -49,7 +49,7 @@ Load these as needed:
 ### Class Merging
 Always use `cn()` for combining classes:
 ```tsx
-import { cn } from '@gp/ui'
+import { cn } from '@thegpvc/ui'
 <div className={cn('base-class', condition && 'conditional-class', className)} />
 ```
 
@@ -65,7 +65,7 @@ Card, Dropdown, Tooltip use dot notation:
 ### Semantic Icons
 Icons named by purpose, not appearance:
 ```tsx
-import { BackIcon, SpinnerIcon, DeleteIcon } from '@gp/ui'
+import { BackIcon, SpinnerIcon, DeleteIcon } from '@thegpvc/ui'
 ```
 
 ## Theme Tokens

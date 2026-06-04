@@ -248,7 +248,7 @@ Supported via Tailwind's `dark:` variant. With the new tokens, dark mode is the 
 **Recommended:**
 
 ```tsx
-import { ToggleDarkMode } from '@gp/ui'
+import { ToggleDarkMode } from '@thegpvc/ui'
 
 <ToggleDarkMode showLabel />
 <ToggleDarkMode mode="dark" showLabel />   // inside a navy header

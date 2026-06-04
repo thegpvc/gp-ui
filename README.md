@@ -1,4 +1,4 @@
-# TheGP Design System — @gp/ui
+# TheGP Design System — @thegpvc/ui
 
 Shared UI components for TheGP internal applications.
 
@@ -9,7 +9,7 @@ Shared UI components for TheGP internal applications.
 ### 1. Install the package
 
 ```bash
-npm install @gp/ui
+npm install @thegpvc/ui
 ```
 
 ### 2. Configure your CSS
@@ -19,19 +19,19 @@ Add these lines to your app's main CSS file (e.g., `src/index.css`):
 ```css
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
-@import "@gp/ui/theme";
-@source "../node_modules/@gp/ui/dist";
+@import "@thegpvc/ui/theme";
+@source "../node_modules/@thegpvc/ui/dist";
 ```
 
 **Why each line matters:**
 - `@import "tailwindcss"` — Base Tailwind utilities (your app provides this)
-- `@import "@gp/ui/theme"` — GP design tokens (colors, fonts, component classes)
+- `@import "@thegpvc/ui/theme"` — GP design tokens (colors, fonts, component classes)
 - `@source "..."` — Tells Tailwind to scan our components so utility classes aren't purged
 
 ### 3. Use components
 
 ```tsx
-import { Button, Badge, Card } from '@gp/ui'
+import { Button, Badge, Card } from '@thegpvc/ui'
 
 function App() {
   return (
@@ -77,7 +77,7 @@ export default defineConfig({
 Common icons are re-exported from lucide-react for convenience:
 
 ```tsx
-import { Search, User, Mail, Calendar, Loader2, TrendingUp } from '@gp/ui'
+import { Search, User, Mail, Calendar, Loader2, TrendingUp } from '@thegpvc/ui'
 ```
 
 **Note**: Your app must have `lucide-react` installed as a peer dependency.
@@ -89,7 +89,7 @@ import { Search, User, Mail, Calendar, Loader2, TrendingUp } from '@gp/ui'
 Merge Tailwind classes with proper precedence:
 
 ```tsx
-import { cn } from '@gp/ui'
+import { cn } from '@thegpvc/ui'
 
 <Button className={cn('extra-class', isActive && 'active-class')} />
 ```
@@ -138,13 +138,13 @@ npm link
 
 In your project directory:
 ```bash
-npm link @gp/ui
+npm link @thegpvc/ui
 ```
 
 To unlink:
 ```bash
 # In your project
-npm unlink @gp/ui
+npm unlink @thegpvc/ui
 
 # In gp-ui (optional cleanup)
 npm unlink
@@ -155,7 +155,7 @@ npm unlink
 Recommended workflow:
 
 1. **Terminal 1** (gp-ui): Run `npm run dev` to watch for changes
-2. **Terminal 2** (your project): Use `npm link @gp/ui` dependency
+2. **Terminal 2** (your project): Use `npm link @thegpvc/ui` dependency
 3. Make changes to components in gp-ui
 4. Watch mode automatically rebuilds
 5. Your project's dev server (Vite HMR) picks up the changes
@@ -182,7 +182,7 @@ See [DESIGN_GUIDE.md](./DESIGN_GUIDE.md) for:
 
 ## Claude Code Integration
 
-This library includes a [Claude Code](https://claude.ai/code) plugin that provides AI assistance when building UIs with @gp/ui components.
+This library includes a [Claude Code](https://claude.ai/code) plugin that provides AI assistance when building UIs with @thegpvc/ui components.
 
 ### Enable the Plugin
 
@@ -200,4 +200,4 @@ The plugin gives Claude knowledge of:
 - Icon exports and naming conventions
 - Setup and migration guidance
 
-When building UIs, Claude will automatically use the correct components, variants, and patterns from @gp/ui.
+When building UIs, Claude will automatically use the correct components, variants, and patterns from @thegpvc/ui.

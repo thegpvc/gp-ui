@@ -1,4 +1,4 @@
-import { Hero, Button, EyebrowLabel } from '@gp/ui'
+import { Hero, Button, EyebrowLabel } from '@thegpvc/ui'
 
 export function HeroDemo() {
   return (
@@ -76,7 +76,7 @@ export function HeroDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Hero, Button } from '@gp/ui'
+        <pre className="code-block">{`import { Hero, Button } from '@thegpvc/ui'
 
 <Hero
   eyebrow="A new model for founders"

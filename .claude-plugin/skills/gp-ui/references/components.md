@@ -1,4 +1,4 @@
-# @gp/ui Component Reference
+# @thegpvc/ui Component Reference
 
 Complete API documentation for all components.
 

@@ -1,23 +1,23 @@
 ---
-description: Build UI features and components using the @gp/ui design system
+description: Build UI features and components using the @thegpvc/ui design system
 ---
 
-You are building a new UI feature or component using TheGP's @gp/ui design system.
+You are building a new UI feature or component using TheGP's @thegpvc/ui design system.
 
 ## Your Task
 
-Build the requested feature using @gp/ui components, following TheGP's design patterns and best practices.
+Build the requested feature using @thegpvc/ui components, following TheGP's design patterns and best practices.
 
 ## Guidelines
 
 ### Component Selection
-- Use @gp/ui components exclusively - never create custom UI components
+- Use @thegpvc/ui components exclusively - never create custom UI components
 - Choose appropriate variants: `primary`, `secondary`, `ghost`, `destructive` for buttons
 - Use compound components: `Card.Header`, `Card.Body`, `Modal.Content`, `Dropdown.Item`
 - Leverage Layout, Sidebar, and LayoutContainer for page structure
 
 ### Styling & Theme
-- Use @gp/ui theme tokens: `orange-500`, `navy-900`, `cream`, etc.
+- Use @thegpvc/ui theme tokens: `orange-500`, `navy-900`, `cream`, etc.
 - Apply spacing: `gap-4`, `p-6`, `space-y-2` following 4px/8px grid
 - Use semantic icon names: `SearchIcon`, `UserIcon`, `DeleteIcon`
 - Maintain mobile-first responsive design
@@ -27,7 +27,7 @@ Build the requested feature using @gp/ui components, following TheGP's design pa
 - Pass minimal props - leverage sensible defaults
 - Use `cn()` utility for conditional className merging
 - Ensure keyboard navigation and WCAG 2.1 AA compliance
-- Follow existing patterns in the @gp/ui library
+- Follow existing patterns in the @thegpvc/ui library
 
 ### Common Patterns
 

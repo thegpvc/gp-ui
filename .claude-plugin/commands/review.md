@@ -1,8 +1,8 @@
 ---
-description: Review code for @gp/ui design system compliance and style guide alignment
+description: Review code for @thegpvc/ui design system compliance and style guide alignment
 ---
 
-You are reviewing code to ensure it follows @gp/ui design system patterns and TheGP's style guide, especially for custom code not covered by the component library.
+You are reviewing code to ensure it follows @thegpvc/ui design system patterns and TheGP's style guide, especially for custom code not covered by the component library.
 
 ## Your Task
 
@@ -11,10 +11,10 @@ Perform a comprehensive design system compliance review of the code and provide 
 ## What to Review
 
 ### 1. Component Usage
-- ✅ Are @gp/ui components used where applicable?
+- ✅ Are @thegpvc/ui components used where applicable?
 - ✅ Are component variants used correctly (primary, secondary, ghost, destructive)?
 - ✅ Are compound components used properly (Card.Header, Modal.Content, etc.)?
-- ❌ Flag any custom UI components that duplicate @gp/ui functionality
+- ❌ Flag any custom UI components that duplicate @thegpvc/ui functionality
 
 ### 2. Theme Tokens & Colors
 - ✅ Colors use theme tokens: `orange-500`, `navy-900`, `cream`, `gray-*`
@@ -36,7 +36,7 @@ Perform a comprehensive design system compliance review of the code and provide 
 - ❌ Flag hard-coded font sizes or weights
 
 ### 5. Icons
-- ✅ Icons imported from @gp/ui: `import { SearchIcon, UserIcon } from '@gp/ui'`
+- ✅ Icons imported from @thegpvc/ui: `import { SearchIcon, UserIcon } from '@thegpvc/ui'`
 - ✅ Icon sizing: `className="h-4 w-4"` or `h-5 w-5` (not arbitrary)
 - ❌ Flag direct lucide-react imports or custom icon components
 
@@ -53,19 +53,19 @@ Perform a comprehensive design system compliance review of the code and provide 
 - ✅ Keyboard navigation is supported
 - ❌ Flag missing alt text, labels, or ARIA attributes where needed
 
-### 8. Custom Components (Not in @gp/ui)
+### 8. Custom Components (Not in @thegpvc/ui)
 For app-specific components that extend beyond the library:
 - ✅ Follow established design patterns (compound components, className props)
 - ✅ Use `cn()` utility for className merging
 - ✅ Accept and forward standard HTML props
 - ✅ Use theme tokens exclusively
-- ✅ Maintain consistency with @gp/ui component APIs
+- ✅ Maintain consistency with @thegpvc/ui component APIs
 - ❌ Flag inline styles or component-scoped CSS
 
 ### 9. Anti-Patterns
 Flag these common issues:
-- ❌ Mixing @gp/ui with other UI libraries (MUI, shadcn, etc.)
-- ❌ Creating custom variants when @gp/ui variants exist
+- ❌ Mixing @thegpvc/ui with other UI libraries (MUI, shadcn, etc.)
+- ❌ Creating custom variants when @thegpvc/ui variants exist
 - ❌ Bypassing theme with arbitrary values
 - ❌ Inconsistent spacing patterns
 - ❌ Missing responsive design (not mobile-first)
@@ -108,9 +108,9 @@ For each issue:
 
 2. **Custom button component**
    - Location: components/CustomButton.tsx
-   - Issue: Duplicates @gp/ui Button functionality
+   - Issue: Duplicates @thegpvc/ui Button functionality
    - Impact: Maintenance burden, inconsistent styling
-   - Fix: Replace with `<Button variant="primary">` from @gp/ui
+   - Fix: Replace with `<Button variant="primary">` from @thegpvc/ui
 
 📋 Summary
 - Overall: Needs Work

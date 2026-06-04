@@ -1,4 +1,4 @@
-import { EyebrowLabel } from '@gp/ui'
+import { EyebrowLabel } from '@thegpvc/ui'
 
 export function EyebrowLabelDemo() {
   return (
@@ -47,7 +47,7 @@ export function EyebrowLabelDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { EyebrowLabel } from '@gp/ui'
+        <pre className="code-block">{`import { EyebrowLabel } from '@thegpvc/ui'
 
 <EyebrowLabel>A new model for founders</EyebrowLabel>
 <EyebrowLabel dot color="orange">Case studies</EyebrowLabel>

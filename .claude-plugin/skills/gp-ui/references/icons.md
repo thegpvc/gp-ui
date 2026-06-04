@@ -1,18 +1,18 @@
-# @gp/ui Icon Reference
+# @thegpvc/ui Icon Reference
 
 Semantic icon re-exports from lucide-react. Named by purpose, not appearance.
 
 ## Import
 
 ```tsx
-import { SearchIcon, UserIcon, DeleteIcon } from '@gp/ui';
+import { SearchIcon, UserIcon, DeleteIcon } from '@thegpvc/ui';
 ```
 
 ---
 
 ## Design System Icons
 
-Used internally by @gp/ui components.
+Used internally by @thegpvc/ui components.
 
 | Export | Lucide Icon | Purpose |
 |--------|-------------|---------|
@@ -90,7 +90,7 @@ Used internally by @gp/ui components.
 
 Usage:
 ```tsx
-import { GoogleIcon } from '@gp/ui';
+import { GoogleIcon } from '@thegpvc/ui';
 <Button icon={<GoogleIcon />}>Sign in with Google</Button>
 ```
 
@@ -99,7 +99,7 @@ import { GoogleIcon } from '@gp/ui';
 ## Type Export
 
 ```tsx
-import type { LucideIcon } from '@gp/ui';
+import type { LucideIcon } from '@thegpvc/ui';
 ```
 
 Use for typing icon props:
@@ -130,10 +130,10 @@ Icons auto-size based on component (Button, Badge, etc.). For standalone usage:
 
 ## Adding New Icons
 
-If you need an icon not exported by @gp/ui, import directly from lucide-react:
+If you need an icon not exported by @thegpvc/ui, import directly from lucide-react:
 
 ```tsx
 import { Zap } from 'lucide-react';
 ```
 
-Consider requesting addition to @gp/ui if the icon has broad use cases.
+Consider requesting addition to @thegpvc/ui if the icon has broad use cases.

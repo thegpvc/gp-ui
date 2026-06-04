@@ -1,4 +1,4 @@
-# @gp/ui Design Guide
+# @thegpvc/ui Design Guide
 
 Brand tone: professional, tool-like, minimal—but recognizable as TheGP.
 
@@ -18,7 +18,7 @@ Brand tone: professional, tool-like, minimal—but recognizable as TheGP.
 
 ### Custom Theme Tokens
 
-After importing `@gp/ui/theme`, these Tailwind colors are available:
+After importing `@thegpvc/ui/theme`, these Tailwind colors are available:
 
 **Orange Palette** (brand color, anchored on `#ff6a00`)
 - `orange-50` through `orange-900`
@@ -176,7 +176,7 @@ bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-ora
 
 - Lucide React, thin-line monochrome style
 - Size 16-20px typically
-- Use semantic imports from @gp/ui
+- Use semantic imports from @thegpvc/ui
 
 ---
 

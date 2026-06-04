@@ -1,4 +1,4 @@
-# @gp/ui Setup Guide
+# @thegpvc/ui Setup Guide
 
 Installation, integration, and migration instructions.
 
@@ -16,7 +16,7 @@ Installation, integration, and migration instructions.
 ## Installation
 
 ```bash
-npm install @gp/ui
+npm install @thegpvc/ui
 ```
 
 ---
@@ -30,37 +30,37 @@ In your app's main CSS file:
 ```css
 /* app/styles/global.css */
 @import "tailwindcss";
-@import "@gp/ui/theme";
+@import "@thegpvc/ui/theme";
 ```
 
-**Order matters**: Tailwind base must load before @gp/ui theme.
+**Order matters**: Tailwind base must load before @thegpvc/ui theme.
 
 ### 2. Configure Content Scanning
 
-Update your Tailwind config to scan @gp/ui's dist folder:
+Update your Tailwind config to scan @thegpvc/ui's dist folder:
 
 ```javascript
 // tailwind.config.js
 export default {
   content: [
     "./src/**/*.{ts,tsx}",
-    "./node_modules/@gp/ui/dist/**/*.js",  // Scan @gp/ui
+    "./node_modules/@thegpvc/ui/dist/**/*.js",  // Scan @thegpvc/ui
   ],
 };
 ```
 
 ### How It Works
 
-- @gp/ui ships JavaScript only (no bundled CSS)
+- @thegpvc/ui ships JavaScript only (no bundled CSS)
 - The consuming app's Tailwind processes all CSS at build time
 - This prevents duplicate base styles
-- Theme tokens (colors, fonts, animations) are injected via `@import "@gp/ui/theme"`
+- Theme tokens (colors, fonts, animations) are injected via `@import "@thegpvc/ui/theme"`
 
 ---
 
 ## Dark Mode Setup
 
-All @gp/ui components support dark mode via Tailwind's `dark:` variant.
+All @thegpvc/ui components support dark mode via Tailwind's `dark:` variant.
 
 ### 1. Enable Class-Based Dark Mode (Tailwind v4)
 
@@ -68,7 +68,7 @@ Add this to your main CSS file after the Tailwind import:
 
 ```css
 @import "tailwindcss";
-@import "@gp/ui/theme";
+@import "@thegpvc/ui/theme";
 
 /* Enable class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -79,7 +79,7 @@ Add this to your main CSS file after the Tailwind import:
 **Option A: Use ToggleDarkMode component (recommended)**
 
 ```tsx
-import { ToggleDarkMode } from '@gp/ui';
+import { ToggleDarkMode } from '@thegpvc/ui';
 
 // In your header or settings
 <ToggleDarkMode showLabel />
@@ -147,26 +147,26 @@ npm install react react-dom lucide-react @radix-ui/react-dialog @radix-ui/react-
 ### Component Imports
 
 ```tsx
-import { Button, Card, Badge, Layout, LayoutContainer } from '@gp/ui';
+import { Button, Card, Badge, Layout, LayoutContainer } from '@thegpvc/ui';
 ```
 
 ### Icon Imports
 
 ```tsx
-import { SearchIcon, UserIcon, DeleteIcon } from '@gp/ui';
+import { SearchIcon, UserIcon, DeleteIcon } from '@thegpvc/ui';
 ```
 
 ### Utility Imports
 
 ```tsx
-import { cn } from '@gp/ui';
+import { cn } from '@thegpvc/ui';
 ```
 
 ### Example App
 
 ```tsx
 // app.tsx
-import { Layout, LayoutContainer, Button, Card, Badge } from '@gp/ui';
+import { Layout, LayoutContainer, Button, Card, Badge } from '@thegpvc/ui';
 
 function App() {
   return (
@@ -198,7 +198,7 @@ function App() {
 
 ## Migration Guide
 
-### From Custom Components to @gp/ui
+### From Custom Components to @thegpvc/ui
 
 #### Buttons
 
@@ -211,7 +211,7 @@ Before:
 
 After:
 ```tsx
-import { Button } from '@gp/ui';
+import { Button } from '@thegpvc/ui';
 <Button variant="primary">Submit</Button>
 ```
 
@@ -227,7 +227,7 @@ Before:
 
 After:
 ```tsx
-import { Card } from '@gp/ui';
+import { Card } from '@thegpvc/ui';
 <Card>
   <Card.Header>Header</Card.Header>
   <Card.Body>Content</Card.Body>
@@ -247,7 +247,7 @@ Before:
 
 After:
 ```tsx
-import { Input } from '@gp/ui';
+import { Input } from '@thegpvc/ui';
 <Input label="Email" type="email" />
 ```
 
@@ -267,7 +267,7 @@ import { Input } from '@gp/ui';
 2. Add theme import after Tailwind:
 ```css
 @import "tailwindcss";
-@import "@gp/ui/theme";
+@import "@thegpvc/ui/theme";
 ```
 
 3. Update content paths in config for @source directive if using CSS-first config.
@@ -312,7 +312,7 @@ Before:
 
 After:
 ```tsx
-import { Dropdown, Button } from '@gp/ui';
+import { Dropdown, Button } from '@thegpvc/ui';
 
 <Dropdown>
   <Dropdown.Trigger asChild>
@@ -331,8 +331,8 @@ import { Dropdown, Button } from '@gp/ui';
 
 ### Styles Not Applying
 
-1. Verify theme import order (Tailwind first, then @gp/ui theme)
-2. Check content paths include @gp/ui dist folder
+1. Verify theme import order (Tailwind first, then @thegpvc/ui theme)
+2. Check content paths include @thegpvc/ui dist folder
 3. Ensure peer dependencies are installed
 
 ### TypeScript Errors

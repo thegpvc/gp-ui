@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Modal, AlertModal, ConfirmModal, Button } from '@gp/ui'
+import { Modal, AlertModal, ConfirmModal, Button } from '@thegpvc/ui'
 import { Info, Trash2, Save, AlertCircle, Maximize2 } from 'lucide-react'
 
 // Procedural art component
@@ -377,7 +377,7 @@ export function ModalDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Modal, AlertModal, ConfirmModal, Button } from '@gp/ui'
+        <pre className="code-block">{`import { Modal, AlertModal, ConfirmModal, Button } from '@thegpvc/ui'
 
 // Basic Modal with trigger
 <Modal>

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is `@gp/ui`, TheGP's shared design system library. It provides React components, Tailwind theme configuration, and utilities for internal applications.
+This is `@thegpvc/ui`, TheGP's shared design system library. It provides React components, Tailwind theme configuration, and utilities for internal applications.
 
 ## Commands
 
@@ -38,8 +38,8 @@ npm run typecheck  # TypeScript type checking only
 - TypeScript declarations (`dist/index.d.ts`)
 
 **Consumer integration (Tailwind v4):**
-- Consumers import theme: `@import "@gp/ui/theme";`
-- Consumers scan dist for classes: `@source "../node_modules/@gp/ui/dist";`
+- Consumers import theme: `@import "@thegpvc/ui/theme";`
+- Consumers scan dist for classes: `@source "../node_modules/@thegpvc/ui/dist";`
 - The app's Tailwind processes all CSS — no duplicate base styles
 
 **Key design patterns:**

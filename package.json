@@ -1,12 +1,15 @@
 {
-  "name": "@gp/ui",
+  "name": "@thegpvc/ui",
   "version": "0.3.0",
-  "private": true,
   "type": "module",
   "description": "GP Design System - Shared UI components for internal tools",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:thegpvc/gp-ui.git"
+    "url": "git+https://github.com/thegpvc/gp-ui.git"
+  },
+  "homepage": "https://github.com/thegpvc/gp-ui#readme",
+  "bugs": {
+    "url": "https://github.com/thegpvc/gp-ui/issues"
   },
   "author": "The GP",
   "license": "UNLICENSED",
@@ -22,10 +25,14 @@
   },
   "files": [
     "dist",
-    "src",
-    "tsconfig.json",
-    "vite.config.ts",
+    "src/styles/theme.css",
     "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/*.css"
   ],
   "scripts": {
     "dev": "vite build --watch --mode development",

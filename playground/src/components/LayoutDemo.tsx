@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Layout, LayoutContainer, Button, Card, Alert } from '@gp/ui'
+import { Layout, LayoutContainer, Button, Card, Alert } from '@thegpvc/ui'
 import { Settings, HelpCircle } from 'lucide-react'
 
 export function LayoutDemo() {
@@ -111,7 +111,7 @@ export function LayoutDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Layout, LayoutContainer } from '@gp/ui'
+        <pre className="code-block">{`import { Layout, LayoutContainer } from '@thegpvc/ui'
 import { Settings } from 'lucide-react'
 
 <Layout

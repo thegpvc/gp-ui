@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button } from '@gp/ui'
+import { Button } from '@thegpvc/ui'
 import { Mail, Trash2, Download, ChevronRight, RefreshCw } from 'lucide-react'
 
 export function ButtonDemo() {
@@ -133,7 +133,7 @@ export function ButtonDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Button } from '@gp/ui'
+        <pre className="code-block">{`import { Button } from '@thegpvc/ui'
 import { Mail, RefreshCw } from 'lucide-react'
 
 // Basic usage

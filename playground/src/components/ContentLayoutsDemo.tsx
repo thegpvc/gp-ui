@@ -9,7 +9,7 @@ import {
   Button,
   Alert,
   cn,
-} from "@gp/ui";
+} from "@thegpvc/ui";
 import { BarChart3 } from "lucide-react";
 
 const tabs = [

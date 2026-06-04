@@ -1,4 +1,4 @@
-import { Tooltip, Button, Badge } from '@gp/ui'
+import { Tooltip, Button, Badge } from '@thegpvc/ui'
 import {
   Info,
   HelpCircle,
@@ -220,7 +220,7 @@ export function TooltipDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Tooltip, Button } from '@gp/ui'
+        <pre className="code-block">{`import { Tooltip, Button } from '@thegpvc/ui'
 
 // Basic tooltip (shows instantly with arrow by default)
 <Tooltip.Provider>

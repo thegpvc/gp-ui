@@ -1,4 +1,4 @@
-import { Skeleton, SkeletonText, SkeletonStatCard, SkeletonListItem, Card } from '@gp/ui'
+import { Skeleton, SkeletonText, SkeletonStatCard, SkeletonListItem, Card } from '@thegpvc/ui'
 
 export function SkeletonDemo() {
   return (
@@ -100,7 +100,7 @@ export function SkeletonDemo() {
   SkeletonText,
   SkeletonStatCard,
   SkeletonListItem
-} from '@gp/ui'
+} from '@thegpvc/ui'
 
 // Base skeleton with custom dimensions
 <Skeleton className="h-4 w-full" />

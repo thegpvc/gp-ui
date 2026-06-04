@@ -1,4 +1,4 @@
-import { StatCard } from '@gp/ui'
+import { StatCard } from '@thegpvc/ui'
 import { Mail, Users, Clock, TrendingUp } from 'lucide-react'
 
 export function StatCardDemo() {
@@ -130,7 +130,7 @@ export function StatCardDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { StatCard } from '@gp/ui'
+        <pre className="code-block">{`import { StatCard } from '@thegpvc/ui'
 import { Mail } from 'lucide-react'
 
 // Basic usage

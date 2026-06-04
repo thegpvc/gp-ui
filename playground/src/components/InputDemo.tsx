@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Input, TextArea, Button } from '@gp/ui'
+import { Input, TextArea, Button } from '@thegpvc/ui'
 import {
   Search,
   Eye,
@@ -353,7 +353,7 @@ export function InputDemo() {
       {/* Section 12: Usage Examples */}
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Input, TextArea } from '@gp/ui'
+        <pre className="code-block">{`import { Input, TextArea } from '@thegpvc/ui'
 import { Search, Mail } from 'lucide-react'
 
 // Basic text input

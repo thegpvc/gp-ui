@@ -1,4 +1,4 @@
-import { LoginPage } from '@gp/ui'
+import { LoginPage } from '@thegpvc/ui'
 
 export function LoginPageDemo() {
   return (

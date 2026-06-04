@@ -1,6 +1,6 @@
 /* GP Design System Theme - NO Tailwind base utilities
  * This file should be imported by consuming apps that process Tailwind themselves
- * Apps should: @import "tailwindcss"; then @import "@gp/ui/theme";
+ * Apps should: @import "tailwindcss"; then @import "@thegpvc/ui/theme";
  */
 
 @theme {

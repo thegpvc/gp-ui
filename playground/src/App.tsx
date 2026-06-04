@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Layout, LayoutContainer, Button, ToggleDarkMode, SidebarSearch, SidebarUser, type SidebarGroup } from '@gp/ui'
+import { Layout, LayoutContainer, Button, ToggleDarkMode, SidebarSearch, SidebarUser, type SidebarGroup } from '@thegpvc/ui'
 import {
   Github,
   Palette,

@@ -10,7 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // Use the library source directly for hot-reload during development
-      '@gp/ui': resolve(__dirname, '../src/index.ts'),
+      '@thegpvc/ui': resolve(__dirname, '../src/index.ts'),
     },
   },
   build: {

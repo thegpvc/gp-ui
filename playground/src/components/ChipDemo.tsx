@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Chip, EyebrowLabel } from '@gp/ui'
+import { Chip, EyebrowLabel } from '@thegpvc/ui'
 import { Code, Coins, Users, Layers } from 'lucide-react'
 
 const FILTERS = [
@@ -99,7 +99,7 @@ export function ChipDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Chip } from '@gp/ui'
+        <pre className="code-block">{`import { Chip } from '@thegpvc/ui'
 
 <Chip>Engineering</Chip>
 <Chip active>ETH</Chip>

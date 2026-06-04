@@ -1,4 +1,4 @@
-import { ProportionChart, type ColorConfig } from '@gp/ui'
+import { ProportionChart, type ColorConfig } from '@thegpvc/ui'
 
 export function ProportionChartDemo() {
   // Example 1: Time breakdown (like the original RibbonGraph use case)
@@ -236,7 +236,7 @@ export function ProportionChartDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { ProportionChart, type ColorConfig } from '@gp/ui'
+        <pre className="code-block">{`import { ProportionChart, type ColorConfig } from '@thegpvc/ui'
 
 // Define your data
 const data = [

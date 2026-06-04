@@ -1,4 +1,4 @@
-import { Card, Button, Badge } from '@gp/ui'
+import { Card, Button, Badge } from '@thegpvc/ui'
 
 export function CardDemo() {
   return (
@@ -103,7 +103,7 @@ export function CardDemo() {
 
       <section className="demo-section">
         <h2 className="demo-section-title">Usage</h2>
-        <pre className="code-block">{`import { Card, Button } from '@gp/ui'
+        <pre className="code-block">{`import { Card, Button } from '@thegpvc/ui'
 
 // Simple card
 <Card>
