@@ -25,6 +25,19 @@ export interface BadgeProps {
   icon?: ReactNode
 
   /**
+   * Optional monospace count rendered inside the badge (e.g. a session or
+   * item total). Tabular figures keep it aligned across rows.
+   */
+  count?: number | string
+
+  /**
+   * Which edge the count sits on.
+   * - leading: before the label (default) — reads as "10 flagged"
+   * - trailing: after the label — reads as "other 525"
+   */
+  countPosition?: 'leading' | 'trailing'
+
+  /**
    * Badge content
    */
   children: ReactNode
@@ -50,6 +63,8 @@ export function Badge({
   variant = 'neutral',
   size = 'sm',
   icon,
+  count,
+  countPosition = 'leading',
   children,
   className = '',
 }: BadgeProps) {
@@ -61,9 +76,12 @@ export function Badge({
     neutral: 'gp-badge-neutral',
   }
 
+  // Geometry only — color and weight come from the gp-badge-* variant classes.
+  const baseClasses = 'inline-flex items-center rounded-full'
+
   const sizeClasses = {
-    sm: 'px-1.5 py-0.5 text-xs',
-    md: 'px-2 py-1 text-sm',
+    sm: 'gap-1.5 px-3 py-[5px] text-xs',
+    md: 'gap-2 px-3.5 py-1.5 text-sm',
   }
 
   const iconSizeClasses = {
@@ -71,9 +89,17 @@ export function Badge({
     md: 'w-3.5 h-3.5',
   }
 
+  const countEl =
+    count != null ? (
+      <span className="font-mono text-[11px] tabular-nums opacity-80">
+        {count}
+      </span>
+    ) : null
+
   return (
     <span
       className={cn(
+        baseClasses,
         variantClasses[variant],
         sizeClasses[size],
         className
@@ -84,7 +110,9 @@ export function Badge({
           {icon}
         </span>
       )}
+      {countPosition === 'leading' && countEl}
       {children}
+      {countPosition === 'trailing' && countEl}
     </span>
   )
 }

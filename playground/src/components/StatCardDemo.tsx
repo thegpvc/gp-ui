@@ -117,6 +117,38 @@ export function StatCardDemo() {
       </section>
 
       <section className="demo-section">
+        <h2 className="demo-section-title">Surface: muted vs plain</h2>
+        <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
+          Default tiles are <code>surface="muted"</code> (filled) — the right look on a
+          page background. Inside a Card/SectionCard the fill goes muddy grey-on-white,
+          so pass <code>surface="plain"</code> to make the tile transparent and inherit
+          the card behind it.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <div className="demo-label">muted (default) inside a card — muddy</div>
+            <div className="bg-white dark:bg-navy-800 rounded-lg p-4 shadow-sm">
+              <div className="grid grid-cols-3 gap-3">
+                <StatCard label="Sent" value={142} variant="centered" />
+                <StatCard label="Received" value={98} variant="centered" />
+                <StatCard label="Threads" value={45} variant="centered" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="demo-label">plain inside a card — clean</div>
+            <div className="bg-white dark:bg-navy-800 rounded-lg p-4 shadow-sm">
+              <div className="grid grid-cols-3 gap-3">
+                <StatCard label="Sent" value={142} variant="centered" surface="plain" />
+                <StatCard label="Received" value={98} variant="centered" surface="plain" />
+                <StatCard label="Threads" value={45} variant="centered" surface="plain" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="demo-section">
         <h2 className="demo-section-title">Real-world Example</h2>
         <div className="bg-white dark:bg-navy-800 rounded-lg p-4 shadow-sm max-w-md">
           <h3 className="font-semibold text-navy-900 dark:text-navy-100 mb-3">Contact Summary</h3>
@@ -161,7 +193,10 @@ import { Mail } from 'lucide-react'
   value="150"
   variant="inline"
   color="accent"
-/>`}</pre>
+/>
+
+// Plain surface — transparent tile for nesting inside a Card
+<StatCard label="Sent" value={142} variant="centered" surface="plain" />`}</pre>
       </section>
     </div>
   )

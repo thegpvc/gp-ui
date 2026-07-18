@@ -24,6 +24,33 @@ export function BadgeDemo() {
       </section>
 
       <section className="demo-section">
+        <h2 className="demo-section-title">With Count</h2>
+        <p className="demo-label">
+          A monospace count sits on the leading edge for flags, or the trailing
+          edge for category tags.
+        </p>
+        <div className="demo-row">
+          <Badge variant="warning" count={10}>
+            sessions flagged as anomalous
+          </Badge>
+          <Badge variant="error" count={16}>
+            stalled sessions
+          </Badge>
+        </div>
+        <div className="demo-row">
+          <Badge variant="neutral" count={525} countPosition="trailing">
+            other
+          </Badge>
+          <Badge variant="neutral" count={186} countPosition="trailing">
+            outcome
+          </Badge>
+          <Badge variant="info" count={42} countPosition="trailing">
+            planning
+          </Badge>
+        </div>
+      </section>
+
+      <section className="demo-section">
         <h2 className="demo-section-title">With Icons</h2>
         <div className="demo-row">
           <Badge variant="success" icon={<Check className="w-3 h-3" />}>
@@ -167,6 +194,10 @@ import { Check } from 'lucide-react'
 
 // With icon
 <Badge variant="success" icon={<Check />}>Synced</Badge>
+
+// With a count (leading for flags, trailing for tags)
+<Badge variant="warning" count={10}>flagged sessions</Badge>
+<Badge variant="neutral" count={525} countPosition="trailing">other</Badge>
 
 // Different sizes
 <Badge size="sm">Small</Badge>

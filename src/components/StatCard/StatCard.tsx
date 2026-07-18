@@ -54,6 +54,16 @@ export interface StatCardProps {
   color?: 'default' | 'accent'
 
   /**
+   * Tile surface treatment.
+   * - muted: filled tile (default) — the standalone look, reads on a page background
+   * - plain: transparent, inherits the parent surface — use when nesting inside a
+   *   Card / SectionCard so the tile doesn't go muddy grey-on-white
+   *
+   * Ignored by `variant="display"`, which is always chrome-less.
+   */
+  surface?: 'muted' | 'plain'
+
+  /**
    * Additional CSS classes
    */
   className?: string
@@ -90,6 +100,7 @@ export function StatCard({
   trend,
   variant = 'default',
   color = 'default',
+  surface = 'muted',
   className = '',
 }: StatCardProps) {
   const isNumeric = typeof value === 'number' || !isNaN(Number(value))
@@ -99,16 +110,28 @@ export function StatCard({
     default: {
       label: 'text-navy-500 dark:text-navy-300',
       value: 'text-navy-900 dark:text-navy-100',
-      bg: 'bg-gray-50 dark:bg-navy-800/50',
       icon: 'text-navy-400 dark:text-navy-400',
     },
     accent: {
       label: 'text-orange-600 dark:text-orange-400',
       value: 'text-orange-800 dark:text-orange-200',
-      bg: 'bg-white/80 dark:bg-navy-800/80',
       icon: 'text-orange-500 dark:text-orange-400',
     },
   }
+
+  // Surface fill by color × surface. `plain` is transparent so a nested tile
+  // inherits the card behind it instead of stacking grey-on-white.
+  const surfaceClasses = {
+    default: {
+      muted: 'bg-gray-50 dark:bg-navy-800/50',
+      plain: 'bg-transparent',
+    },
+    accent: {
+      muted: 'bg-white/80 dark:bg-navy-800/80',
+      plain: 'bg-transparent',
+    },
+  }
+  const surfaceBg = surfaceClasses[color][surface]
 
   // Display variant: huge cream numeral above tiny uppercase caption, no chrome.
   // Used in Hero blocks and marketing-style number callouts.
@@ -148,7 +171,7 @@ export function StatCard({
   // Inline variant: label on top, value below, left-aligned.
   if (variant === 'inline') {
     return (
-      <div className={cn('gp-stat-card flex flex-col items-start gap-0.5', colorClasses[color].bg, className)}>
+      <div className={cn('gp-stat-card flex flex-col items-start gap-0.5', surfaceBg, className)}>
         {/* Label on top */}
         <span className={cn('text-xs leading-tight', colorClasses[color].label)}>
           {label}
@@ -165,7 +188,7 @@ export function StatCard({
   // Centered variant: label on top, value below, centered.
   if (variant === 'centered') {
     return (
-      <div className={cn('gp-stat-card flex flex-col items-center text-center gap-1', colorClasses[color].bg, className)}>
+      <div className={cn('gp-stat-card flex flex-col items-center text-center gap-1', surfaceBg, className)}>
         {/* Label on top */}
         <span className={cn('text-xs leading-tight', colorClasses[color].label)}>
           {label}
@@ -186,7 +209,7 @@ export function StatCard({
   }
 
   return (
-    <div className={cn('gp-stat-card flex flex-col items-start', colorClasses[color].bg, variantClasses[variant], className)}>
+    <div className={cn('gp-stat-card flex flex-col items-start', surfaceBg, variantClasses[variant], className)}>
       {/* Value and icon row */}
       <div className="flex items-center gap-2 min-w-0">
         {icon && (
