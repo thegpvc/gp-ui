@@ -227,7 +227,7 @@ function LayoutContent({
 
   if (hasSidebar) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-navy-950 flex flex-col">
+      <div className="min-h-screen bg-cream dark:bg-navy-950 flex flex-col">
         {/* Banner */}
         {banner && (
           <div className="bg-orange-500 text-white text-center py-1.5 text-xs font-medium flex items-center justify-center gap-2">
@@ -285,7 +285,7 @@ function LayoutContent({
 
   // Original layout without sidebar
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-navy-950">
+    <div className="min-h-screen bg-cream dark:bg-navy-950">
       {/* Banner */}
       {banner && (
         <div className="bg-orange-500 text-white text-center py-1.5 text-xs font-medium flex items-center justify-center gap-2">
