@@ -5,6 +5,15 @@ All notable changes to @thegpvc/ui will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-07-18
+
+### Added
+- `Badge` gained a `count` prop (with `countPosition`) to render a monospace, tabular count on the leading or trailing edge
+- `StatCard` gained a `surface` prop: `muted` (default, filled tile) or `plain` (transparent, for tiles nested inside a Card/SectionCard)
+
+### Changed
+- `Badge` light-mode variants moved from white-fill + colored glow to a soft tint + solid hairline border for a roomier, less noisy look; `neutral` is now navy-tinted
+
 ## [0.4.0] - 2026-07-18
 
 ### Changed
