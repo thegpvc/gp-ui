@@ -58,7 +58,7 @@ export function TabBar({ items, activeId, onChange, variant = 'underline', class
     return (
       <div
         role="tablist"
-        className={cn('inline-flex items-center gap-1 p-1 rounded-full bg-navy-900/5 dark:bg-navy-800/60', className)}
+        className={cn('inline-flex items-center gap-1 p-1 rounded-full border border-gray-200 bg-navy-900/5 dark:border-navy-700 dark:bg-navy-800/60', className)}
       >
         {items.map((item) => {
           const isActive = activeId === item.id
@@ -70,8 +70,7 @@ export function TabBar({ items, activeId, onChange, variant = 'underline', class
               aria-selected={isActive}
               onClick={() => onChange(item.id)}
               className={cn(
-                'px-3 py-1 text-xs font-semibold uppercase whitespace-nowrap rounded-full transition-colors',
-                'tracking-wider',
+                'px-5 py-1.5 text-sm font-semibold whitespace-nowrap rounded-full transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500',
                 isActive
                   ? 'bg-orange-500 text-white shadow-sm'

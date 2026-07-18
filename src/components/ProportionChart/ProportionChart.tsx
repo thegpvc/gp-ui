@@ -70,6 +70,15 @@ export interface ProportionChartProps extends HTMLAttributes<HTMLDivElement> {
   showLegend?: boolean
 
   /**
+   * Number of columns for the optional legend. Legend items lay out in a
+   * single row of this many columns and never wrap, so a trailing item can't
+   * become a lone "widow" on a second row. Set this to the maximum number of
+   * segments you expect for a stable layout across renders.
+   * @default the number of visible (non-zero) segments
+   */
+  legendColumns?: number
+
+  /**
    * Accessible label for screen readers
    */
   ariaLabel?: string
@@ -114,6 +123,7 @@ export function ProportionChart({
   formatValue,
   height = 'h-2',
   showLegend = false,
+  legendColumns,
   ariaLabel,
   className,
   ...props
@@ -221,19 +231,23 @@ export function ProportionChart({
         </Tooltip>
       </Tooltip.Provider>
 
-      {/* Legend (optional) */}
+      {/* Legend (optional) — single non-wrapping row so a trailing item never
+          becomes a lone "widow". Columns default to the visible segment count. */}
       {showLegend && (
         <div
-          className="mt-3 grid grid-cols-2 sm:grid-cols-5 gap-3"
+          className="mt-3 grid gap-3"
+          style={{
+            gridTemplateColumns: `repeat(${legendColumns ?? segments.length}, minmax(0, 1fr))`,
+          }}
           role="list"
           aria-label="Chart legend"
         >
           {segments.map((seg) => (
-            <div key={seg.key} className="flex items-center gap-2" role="listitem">
-              <span className={cn('w-3 h-3 rounded', seg.bg)} aria-hidden="true" />
-              <div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{seg.label}</div>
-                <div className="text-sm font-medium text-gray-900 dark:text-white">
+            <div key={seg.key} className="flex items-center gap-2 min-w-0" role="listitem">
+              <span className={cn('w-3 h-3 rounded flex-shrink-0', seg.bg)} aria-hidden="true" />
+              <div className="min-w-0">
+                <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{seg.label}</div>
+                <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
                   {formatValue(seg.value)}
                 </div>
               </div>

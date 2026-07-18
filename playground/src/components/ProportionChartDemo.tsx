@@ -177,6 +177,25 @@ export function ProportionChartDemo() {
               height="h-3"
             />
           </div>
+
+          <div>
+            <h3 className="text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
+              Fixed legend columns (no widow)
+            </h3>
+            <ProportionChart
+              data={statusData}
+              colors={statusColors}
+              formatValue={formatCount}
+              showLegend={true}
+              legendColumns={5}
+              height="h-3"
+            />
+            <p className="text-sm text-navy-500 dark:text-navy-400 mt-2">
+              <code className="text-xs bg-gray-100 dark:bg-navy-800 px-1 py-0.5 rounded">legendColumns</code> pins
+              the legend to a single row of N columns so a trailing item never wraps to a lonely second row.
+              Defaults to the number of visible segments.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -266,6 +285,7 @@ const colors: Record<string, ColorConfig> = {
   formatValue={(n) => \`\${n} tasks\`}
   height="h-4"
   showLegend={true}
+  legendColumns={5} // pin to one row of 5 — no widow, never wraps
   ariaLabel="Task distribution by status"
 />
 

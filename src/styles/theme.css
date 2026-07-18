@@ -90,7 +90,7 @@
 /* Component classes */
 @layer components {
   .gp-card {
-    @apply bg-white rounded-card shadow-sm p-4;
+    @apply bg-white rounded-card border border-gray-200 shadow-sm p-4;
     @apply dark:bg-navy-900 dark:border dark:border-navy-700 dark:shadow-none;
   }
 

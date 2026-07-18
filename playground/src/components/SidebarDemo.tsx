@@ -29,6 +29,7 @@ export function SidebarDemo() {
         <p className="text-sm text-navy-600 dark:text-navy-400 mb-4">
           The Sidebar can be used outside of Layout by wrapping it in a SidebarProvider.
           Use SidebarLink and SidebarSection as children for a composable API.
+          The sidebar is chrome, so it renders navy in both light and dark mode; the active row carries the orange brand accent.
         </p>
 
         <div className="border border-gray-200 dark:border-navy-700 rounded-lg overflow-hidden">

@@ -55,7 +55,7 @@ export function Sidebar({ items, children, header, footer, variant = "responsive
       {/* Sidebar panel */}
       <aside
         className={cn(
-          "flex flex-col bg-white dark:bg-navy-850 border-r border-gray-200 dark:border-navy-800 overflow-hidden",
+          "flex flex-col bg-navy-850 border-r border-navy-800 overflow-hidden",
           // Inline variant - uses container height, always visible
           variant === "inline" && "h-full",
           // Responsive variant - desktop sticky with viewport height
@@ -73,7 +73,7 @@ export function Sidebar({ items, children, header, footer, variant = "responsive
         {isMobile ? (
           <button
             onClick={closeSidebar}
-            className="absolute top-3 right-3 p-1 text-navy-400 dark:text-navy-400 hover:text-navy-600 dark:hover:text-navy-200 transition-colors"
+            className="absolute top-3 right-3 p-1 text-navy-400 hover:text-navy-200 transition-colors"
             aria-label="Close navigation"
           >
             <X className="w-5 h-5" aria-hidden="true" />
@@ -82,7 +82,7 @@ export function Sidebar({ items, children, header, footer, variant = "responsive
 
         {/* Header slot */}
         {header && (
-          <div className="border-b border-gray-200 dark:border-navy-800">
+          <div className="border-b border-navy-800">
             {header}
           </div>
         )}
@@ -107,7 +107,7 @@ export function Sidebar({ items, children, header, footer, variant = "responsive
 
         {/* Footer slot */}
         {footer && (
-          <div className="border-t border-gray-200 dark:border-navy-800">
+          <div className="border-t border-navy-800">
             {footer}
           </div>
         )}
@@ -116,7 +116,7 @@ export function Sidebar({ items, children, header, footer, variant = "responsive
         {!isMobile && (
           <button
             onClick={toggle}
-            className="flex items-center justify-center h-10 border-t border-gray-200 dark:border-navy-800 text-navy-400 dark:text-navy-400 hover:text-navy-600 dark:hover:text-navy-200 hover:bg-gray-50 dark:hover:bg-navy-800 transition-colors"
+            className="flex items-center justify-center h-10 border-t border-navy-800 text-navy-400 hover:text-navy-200 hover:bg-navy-800 transition-colors"
             aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             {isCollapsed ? (
