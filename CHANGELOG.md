@@ -5,6 +5,15 @@ All notable changes to @thegpvc/ui will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-07-18
+
+### Changed
+- `Card` gains a hairline border in light mode for extra definition (dark mode unchanged)
+- Pill-style `TabBar` now reads as a segmented control: dropped the uppercase/tracked label style, sized up, and added a container border
+- Sidebar chrome is now always navy in both light and dark mode; active nav rows carry the orange brand accent and softer rounded corners
+- `Layout` and `ContentPane` fall back to a cream page background in light mode (was gray)
+- `ProportionChart` gained a `legendColumns` prop; the legend now lays out in a single non-wrapping row so a trailing item can't become a lone widow, with truncating labels/values
+
 ## [0.3.0] - 2026-05-21
 
 ### Added
